@@ -1,28 +1,46 @@
 # Quality Gates
 
-## Active Documentation-Phase Gates
+## Gates ativos na fase documental
 
-| Gate | Required evidence |
+| Gate | Evidência obrigatória |
 |---|---|
-| Documentation | Requested artifacts exist, are readable, and have valid navigation. |
-| Scope Compliance | Changes remain documentation/governance only and do not start later phases. |
-| Knowledge Compliance | Facts, directions, assumptions, research needs, and decisions are distinguished. |
-| Security Check | Changed content contains no secrets or unsafe credential guidance. |
-| GitFlow | Work occurs on the task feature branch and follows the approved PR flow. |
-| Prompt Traceability | The authorizing prompt is archived in the same task commit. |
-| Code Review | The full task diff is reviewed by severity before merge. |
-| Secret Scan | Staged content is scanned for likely credentials, tokens, keys, and passwords. |
+| Documentation | Os artefatos solicitados existem, são legíveis, usam `pt-BR` quando destinados a pessoas e possuem navegação válida. |
+| Scope Compliance | As alterações permanecem no escopo documental e de governança, sem iniciar fases posteriores. |
+| Knowledge Compliance | Fatos, direções, hipóteses, necessidades de pesquisa e decisões estão diferenciados. |
+| Security Check | O conteúdo alterado não contém secrets nem orientação insegura sobre credenciais. |
+| GitFlow | O trabalho ocorre na feature da Task e segue o fluxo de PR aprovado. |
+| Prompt Traceability | O prompt autorizador é arquivado no mesmo commit da Task. |
+| Code Review | O diff completo da Task é revisado por severidade antes do merge. |
+| Secret Scan | O conteúdo staged é verificado contra credenciais, tokens, chaves e passwords prováveis. |
 
-Any critical finding, unresolved high finding, secret, conflict, out-of-scope change, failed required validation, incomplete push, or local/remote mismatch blocks merge.
+Finding Critical, finding High não resolvido, secret, conflito, alteração fora do escopo, validação obrigatória reprovada, push incompleto ou divergência local/remota bloqueiam o merge.
 
-## Future Implementation Gates
+## Gates por estágio de entrega
 
-The following gates are **NOT APPLICABLE UNTIL IMPLEMENTATION** and cannot be reported as passing before their deterministic commands and artifacts exist:
+### DEVELOPMENT GATE
+
+Aplica-se a `feature/task-* -> develop`. Exige validação da Task, Code Review, correções obrigatórias, Prompt Traceability, Secret Check, commit, push e PR válidos.
+
+### HML GATE
+
+Aplica-se a `develop -> hml` quando um conjunto coerente de alterações estiver pronto para homologação. Exige revisão do escopo agregado, Quality Gates aplicáveis, PR e autorização de promoção.
+
+### RELEASE GATE
+
+Aplica-se à criação e estabilização de `release/1.0.0XXXX` a partir de `hml` aprovado. Permite somente ajustes finais, correções de release, documentação, versionamento, metadados e correções bloqueadoras aprovadas.
+
+### PRODUCTION GATE
+
+Aplica-se a `release/1.0.0XXXX -> main`. Exige Final Quality Gate, PR aprovado, confirmação de versão estável e autorização de produção. Tag e GitHub Release ocorrem somente após o merge de uma release real aprovada.
+
+## Gates futuros de implementação
+
+Os itens abaixo permanecem **NOT APPLICABLE UNTIL IMPLEMENTATION**. Eles não podem ser marcados como PASSED antes de existirem comandos determinísticos e artefatos correspondentes:
 
 - Build
 - Unit Tests
 - Integration Tests
 - Architecture Validation
-- Installer Validation
-- OBS Compatibility
+- Installer Tests
+- OBS Compatibility Tests
 - Regression Tests

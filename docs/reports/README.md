@@ -1,5 +1,5 @@
 # Reports
 
-Reports record factual project state and completed validation evidence. They do not approve future phases or replace canonical Requirements and ADRs.
+Reports registram o estado factual do projeto e evidências de validações concluídas. Eles não aprovam fases futuras nem substituem Requirements e ADRs canônicos.
 
-- [Bootstrap Report](BOOTSTRAP_REPORT.md)
+- [Relatório de bootstrap](BOOTSTRAP_REPORT.md)

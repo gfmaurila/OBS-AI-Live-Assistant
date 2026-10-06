@@ -1,7 +1,7 @@
-# Testing Documentation
+# Documentação de Testing
 
-Product testing is **NOT STARTED** because no product source, solution, native project, database, or installer exists.
+Os testes do produto estão **NOT STARTED** porque não existem código-fonte, solution, projeto nativo, banco de dados ou instalador.
 
-Deterministic restore, build, unit-test, integration-test, format, static-analysis, native-build, installer, and OBS compatibility commands remain undefined until the relevant tooling and architecture decisions are approved.
+Comandos determinísticos de restore, build, Unit Tests, Integration Tests, formatação, análise estática, build nativo, Installer Tests e OBS Compatibility Tests permanecem indefinidos até a aprovação das decisões correspondentes de tooling e Architecture.
 
-Future validation categories are expected to cover unit, integration, contract, database, security, OBS integration, installer, compatibility, regression, and failure-degradation behavior. Their exact scope is subject to Requirements and Architecture.
+As categorias futuras deverão considerar testes unitários, integração, contratos, banco de dados, Security, integração com OBS, instalador, compatibilidade, regressão e degradação em falhas. O escopo exato depende de Requirements e Architecture.

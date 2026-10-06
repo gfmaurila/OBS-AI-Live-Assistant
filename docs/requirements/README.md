@@ -1,5 +1,5 @@
 # Requirements
 
-Requirements are **NOT STARTED**. This directory is reserved for canonical, testable requirements produced and approved through the mandated Requirements and Security Requirements processes.
+Requirements estão **NOT STARTED**. Este diretório está reservado para requisitos canônicos, verificáveis e aprovados por meio dos processos obrigatórios de Requirements e Security Requirements.
 
-Current directions, prompt history, research backlog items, and reference-project content are not automatically requirements. Do not add product requirements here before the Knowledge Quality Gate passes and the client authorizes the phase.
+Direções atuais, histórico de prompts, itens do backlog de Research e conteúdo de projetos de referência não são Requirements automaticamente. Não adicione requisitos de produto antes de o Knowledge Quality Gate ser aprovado e a fase ser autorizada pelo cliente.

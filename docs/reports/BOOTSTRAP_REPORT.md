@@ -1,29 +1,32 @@
-# Bootstrap Report
+# Relatório de bootstrap
 
-## Repository
+## Repositório
 
-- Product: OBS-AI-Live-Assistant
-- Kit IA Dev base: **INSTALLED**
+- Produto: OBS-AI-Live-Assistant
+- Base do Kit IA Dev: **INSTALLED**
 - `AGENTS.md`: **INSTALLED**
 - `CLAUDE.md`: **INSTALLED**
-- Project agents: **INSTALLED**
-- Base Skills: **10 installed for Claude and 10 installed for Codex**
-- Advanced Skills: **BLOCKED** — official package unavailable
-- Governance baseline: **INSTALLED**
-- Git setup: **COMPLETED**
-- Permanent branches: `main`, `develop`, and `hml` created
-- Prompt traceability: **ENABLED**
+- Agentes do projeto: **INSTALLED**
+- Skills básicas: **10 instaladas para Claude e 10 instaladas para Codex**
+- Advanced Skills: **BLOCKED** — pacote oficial indisponível
+- Baseline de Governance: **INSTALLED**
+- Configuração do Git: **COMPLETED**
+- Branches permanentes: `main`, `develop` e `hml` criadas
+- Prompt Traceability: **ENABLED**
 - PR #1: **COMPLETED**
-- Project documentation baseline: **CREATED**
+- PR #2: **COMPLETED** — baseline documental do projeto
+- Baseline documental do projeto: **CREATED**
+- Idioma da documentação humana: **pt-BR**
+- Fluxo de release: **DOCUMENTED** como `hml -> release/1.0.0XXXX -> main`
 
-## Phase Status
+## Estado das fases
 
-- Knowledge Quality Gate: **NOT PASSED**
+- Knowledge Quality Gate: **NOT PASSED / NOT EXECUTED IN THIS TASK**
 - Requirements: **NOT STARTED**
 - Research: **NOT STARTED**
 - Architecture: **NOT STARTED**
-- Product source code: **NOT CREATED**
-- Implementation: **NOT STARTED**
-- OBS environment: **NOT MODIFIED**
+- Código-fonte do produto: **NOT CREATED**
+- Implementação: **NOT STARTED**
+- Ambiente OBS: **NOT MODIFIED**
 
-The documentation baseline uses the CMS/Azure repository only as an organizational reference. No CMS, Azure, multi-tenant, React, cloud, messaging, RAG, worker, or CMS API architecture was adopted.
+A baseline documental utiliza o repositório CMS/Azure apenas como referência de organização. Nenhuma Architecture de CMS, Azure, multi-tenant, React, cloud, mensageria, RAG, workers ou APIs de CMS foi adotada.

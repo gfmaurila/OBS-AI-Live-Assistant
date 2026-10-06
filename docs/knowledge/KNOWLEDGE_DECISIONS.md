@@ -1,16 +1,16 @@
-# Knowledge Decisions
+# Decisões sobre o conhecimento
 
-No architectural decision is approved by this baseline. This register records only how current sources will be treated.
+Nenhuma decisão arquitetural é aprovada por esta baseline. Este registro documenta somente como as fontes atuais serão tratadas.
 
-| Source or topic | Classification | Rationale |
+| Fonte ou tópico | Classificação | Justificativa |
 |---|---|---|
-| Client-provided current product context | ADOPT / ADAPT | Use as bounded planning input and preserve explicit approval markers. |
-| `AGENTS.md` and `agent_docs/` | ADOPT | Current repository constraints and workflow rules. |
-| Kit IA Dev base | ADAPT | Base agents and Skills are installed; relevant knowledge still requires validation. |
-| CMS/Azure reference repository | REFERENCE | Reuse documentation organization and traceability patterns only. |
-| Advanced Skills | BLOCKED | Official package is unavailable; no substitute may be invented. |
-| OBS integration allocation | REQUIRES_RESEARCH / REQUIRES_ADR | Native plugin, WebSocket, IPC, Dock, and audio responsibilities remain unresolved. |
-| Windows secret storage | REQUIRES_RESEARCH / REQUIRES_ADR | Credential Manager and DPAPI are candidates, not decisions. |
-| Twitch and additional chat providers | FUTURE | Not part of V1 unless separately approved. |
+| Contexto atual fornecido pelo cliente | ADOPT / ADAPT | Usar como insumo delimitado de planejamento e preservar marcadores explícitos de aprovação. |
+| `AGENTS.md` e `agent_docs/` | ADOPT | Restrições e regras de fluxo vigentes no repositório. |
+| Base do Kit IA Dev | ADAPT | Agentes e Skills básicas estão instalados; o conhecimento relevante ainda requer validação. |
+| Repositório de referência CMS/Azure | REFERENCE | Reutilizar somente padrões de organização documental e rastreabilidade. |
+| Advanced Skills | BLOCKED | O pacote oficial não está disponível; nenhum substituto pode ser inventado. |
+| Distribuição da integração com OBS | REQUIRES_RESEARCH / REQUIRES_ADR | Responsabilidades de plugin nativo, WebSocket, IPC, Dock e áudio permanecem abertas. |
+| Armazenamento de secrets no Windows | REQUIRES_RESEARCH / REQUIRES_ADR | Credential Manager e DPAPI são candidatos, não decisões. |
+| Twitch e providers adicionais de chat | FUTURE | Não fazem parte da V1 sem aprovação específica. |
 
-Approved Requirements and ADRs will be added only during their authorized processes.
+Requirements e ADRs aprovados serão adicionados somente durante seus processos autorizados.

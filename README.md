@@ -1,31 +1,31 @@
 # OBS-AI-Live-Assistant
 
-OBS-AI-Live-Assistant is a planned, independent Windows application for AI-assisted interaction during OBS Studio live streams. It is intended to accept viewer or streamer requests and produce configurable text and voice responses while keeping OBS stability independent from chat, AI, TTS, storage, and network failures.
+OBS-AI-Live-Assistant é uma aplicação Windows independente e planejada para oferecer interação assistida por IA durante transmissões ao vivo no OBS Studio. A aplicação deverá receber solicitações de espectadores ou do streamer e produzir respostas configuráveis em texto e voz, mantendo a estabilidade do OBS independente de falhas de chat, IA, TTS, persistência ou rede.
 
-## Current Status
+## Estado atual
 
-- Documentation baseline: established.
-- Kit IA Dev base: installed.
-- Advanced Skills: **BLOCKED** because the official package is unavailable.
+- Baseline documental: estabelecida.
+- Base do Kit IA Dev: instalada.
+- Advanced Skills: **BLOCKED**, pois o pacote oficial não está disponível.
 - Knowledge Quality Gate: **NOT PASSED**.
-- Requirements, research, and architecture approval: **NOT STARTED**.
-- Product source code and implementation: **NOT CREATED / NOT STARTED**.
+- Requirements, Research e aprovação de Architecture: **NOT STARTED**.
+- Código-fonte do produto e implementação: **NOT CREATED / NOT STARTED**.
 
-## Stack Direction
+## Direção tecnológica
 
-The current direction is C# / .NET 10 on Windows 10/11 x64, with C/C++ only when a validated OBS-native capability requires it. OBS Studio 32.x, SQLite for local V1 persistence, a modular monolith, Ports and Adapters, provider boundaries, BYOK AI, multi-provider TTS, and YouTube Live Chat priority are planning inputs—not a substitute for Requirements, research, or ADR approval.
+A direção atual utiliza C# / .NET 10 em Windows 10/11 x64, com C/C++ somente quando uma capacidade nativa validada do OBS exigir. OBS Studio 32.x, SQLite para persistência local V1, Modular Monolith, Ports and Adapters, limites de providers, IA com BYOK, TTS multi-provider e prioridade para YouTube Live Chat são insumos de planejamento — não substituem Requirements, Research ou aprovação por ADR.
 
-## Documentation
+## Documentação
 
-Start at the [project documentation index](docs/README.md). It separates current context, governance, knowledge, research backlog, security, testing, reports, prompt history, and planned architecture artifacts.
+Comece pelo [índice da documentação do projeto](docs/README.md). Ele separa contexto atual, governança, conhecimento, backlog de pesquisa, segurança, testes, relatórios, histórico de prompts e artefatos planejados de arquitetura.
 
 ## GitFlow
 
-Work starts from `develop` on `feature/task-*` branches. A successful task is reviewed, validated, pushed, submitted by pull request, and merged into `develop` when all gates pass. Promotion to `hml` or `main` is not automatic. See [GitFlow](docs/governance/GITFLOW.md).
+O trabalho parte de `develop` em branches `feature/task-*`. Uma Task concluída com sucesso passa por validação, Code Review, push, pull request e merge em `develop` quando todos os gates estiverem aprovados. Promoções para `hml`, `release/1.0.0XXXX` e `main` possuem gates próprios e não são automáticas por Task. Consulte o [GitFlow](docs/governance/GITFLOW.md).
 
-## Current Blockers
+## Bloqueios atuais
 
-- The official Advanced Skills package has not been located.
-- The Knowledge Quality Gate cannot pass until its prerequisites are validated.
+- O pacote oficial das Advanced Skills não foi localizado.
+- O Knowledge Quality Gate não pode ser aprovado até que seus pré-requisitos sejam validados.
 
-No product files or OBS runtime data are created by this documentation baseline.
+Esta baseline documental não cria arquivos de produto nem dados de runtime do OBS.

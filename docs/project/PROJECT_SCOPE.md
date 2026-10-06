@@ -1,31 +1,31 @@
-# Project Scope
+# Escopo do projeto
 
-This baseline classifies known context without creating new requirements.
+Esta baseline classifica o contexto conhecido sem criar novos requisitos.
 
 ## V1 Current Direction
 
-- An independent local Windows application supporting OBS Studio 32.x x64.
-- Viewer interaction prioritized through YouTube Live Chat and manual streamer interaction.
-- Configurable AI text responses and TTS voice responses.
-- BYOK and provider boundaries for AI and TTS.
-- Local relational persistence with SQLite as the current direction.
-- Strong secret handling and process isolation from OBS.
-- A modular monolith with Ports and Adapters as the current Assistant Core direction.
+- Aplicação Windows local e independente, compatível com OBS Studio 32.x x64.
+- Interação de espectadores priorizada por YouTube Live Chat e interação manual do streamer.
+- Respostas configuráveis de IA em texto e de TTS em voz.
+- BYOK e limites de providers para IA e TTS.
+- Persistência relacional local com SQLite como direção atual.
+- Proteção forte de secrets e isolamento de processo em relação ao OBS.
+- Modular Monolith com Ports and Adapters como direção atual do Assistant Core.
 
-Each item remains subject to the applicable Requirements, research, security, ADR, and client approval gates.
+Cada item permanece sujeito aos gates aplicáveis de Requirements, Research, Security, ADR e aprovação do cliente.
 
 ## Future
 
-- Twitch and other chat providers.
-- Additional AI and TTS providers validated against approved provider contracts.
-- Local AI provider support if technical research establishes viability.
+- Twitch e outros providers de chat.
+- Providers adicionais de IA e TTS validados contra contratos aprovados.
+- Suporte a IA local caso a pesquisa técnica comprove sua viabilidade.
 
-Future items are not V1 commitments.
+Itens futuros não são compromissos da V1.
 
 ## Out of Scope V1
 
-- Microservices and distributed messaging infrastructure.
-- Kafka, RabbitMQ, Redis, Kubernetes, and cloud platform infrastructure.
-- RAG and a multi-agent product runtime.
-- Twitch, Kick, automatic narration, and advanced analytics unless separately approved.
-- Functionality from the CMS/Azure reference project, including CMS, multi-tenancy, React applications, and cloud-specific services.
+- Microservices e infraestrutura de mensageria distribuída.
+- Kafka, RabbitMQ, Redis, Kubernetes e infraestrutura de cloud.
+- RAG e runtime multi-agent no produto.
+- Twitch, Kick, narração automática e analytics avançados, salvo aprovação específica.
+- Funcionalidades do projeto de referência CMS/Azure, incluindo CMS, multi-tenancy, aplicações React e serviços específicos de cloud.

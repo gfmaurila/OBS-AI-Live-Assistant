@@ -1,20 +1,20 @@
-# Project Knowledge Map
+# Mapa de conhecimento do projeto
 
-This initial map identifies knowledge areas and their treatment. It does not convert them into approved requirements or architecture.
+Este mapa inicial identifica áreas de conhecimento e seu tratamento. Ele não converte conteúdo em Requirements ou Architecture aprovados.
 
-| Knowledge area | Current source | Classification | Next validation |
+| Área de conhecimento | Fonte atual | Classificação | Próxima validação |
 |---|---|---|---|
-| Kit IA Dev | Installed repository bootstrap artifacts | ADAPT | Validate relevant dictionary entries at the Knowledge Quality Gate. |
-| Current product concept | Client context and `agent_docs/business-rules.md` | ADOPT | Formalize through Requirements. |
-| OBS integration | `agent_docs/architecture.md` | REQUIRES_RESEARCH / REQUIRES_ADR | Evaluate native plugin, WebSocket, Dock, audio, and IPC boundaries. |
-| BYOK | Client context and security constraints | ADAPT | Define provider and credential requirements; approve secret-storage ADR. |
-| TTS | Product context | REQUIRES_RESEARCH | Define provider, routing, moderation, and failure behavior. |
-| YouTube Live Chat | Product context | REQUIRES_RESEARCH | Validate official API, OAuth, quotas, and lifecycle. |
-| SQLite | Architecture direction | REQUIRES_ADR | Validate library, migrations, concurrency, recovery, retention, and file security. |
-| Windows | Target direction | ADOPT | Validate compatibility and security mechanisms. |
-| Installer | Product context | REQUIRES_RESEARCH / REQUIRES_ADR | Select technology and lifecycle only after research. |
-| Security | `agent_docs/security.md` | ADOPT | Produce Security Requirements and validate threat boundaries. |
-| Prompt history | `docs/prompts/` | ADOPT | Continue same-commit traceability. |
-| GitFlow | Governance documents | ADOPT | Enforce task gates and protected promotions. |
-| Advanced Skills | Official package not found | BLOCKED | Install only from the validated official package. |
-| Twitch and other chat providers | Product context | FUTURE | Exclude from V1 unless approved. |
+| Kit IA Dev | Artefatos instalados no bootstrap do repositório | ADAPT | Validar entradas relevantes do dicionário no Knowledge Quality Gate. |
+| Conceito atual do produto | Contexto do cliente e `agent_docs/business-rules.md` | ADOPT | Formalizar por meio de Requirements. |
+| Integração com OBS | `agent_docs/architecture.md` | REQUIRES_RESEARCH / REQUIRES_ADR | Avaliar limites de plugin nativo, WebSocket, Dock, áudio e IPC. |
+| BYOK | Contexto do cliente e restrições de segurança | ADAPT | Definir requisitos de providers e credenciais; aprovar ADR de armazenamento de secrets. |
+| TTS | Contexto do produto | REQUIRES_RESEARCH | Definir provider, roteamento, moderação e comportamento de falha. |
+| YouTube Live Chat | Contexto do produto | REQUIRES_RESEARCH | Validar API oficial, OAuth, quotas e ciclo de vida. |
+| SQLite | Direção de Architecture | REQUIRES_ADR | Validar biblioteca, migrations, concorrência, recuperação, retenção e segurança do arquivo. |
+| Windows | Direção de plataforma | ADOPT | Validar compatibilidade e mecanismos de segurança. |
+| Installer | Contexto do produto | REQUIRES_RESEARCH / REQUIRES_ADR | Selecionar tecnologia e ciclo de vida somente após Research. |
+| Security | `agent_docs/security.md` | ADOPT | Produzir Security Requirements e validar limites de ameaça. |
+| Histórico de prompts | `docs/prompts/` | ADOPT | Manter rastreabilidade no mesmo commit da Task. |
+| GitFlow | Documentos de Governance | ADOPT | Aplicar gates da Task e promoções protegidas. |
+| Advanced Skills | Pacote oficial não localizado | BLOCKED | Instalar somente a partir do pacote oficial validado. |
+| Twitch e outros providers de chat | Contexto do produto | FUTURE | Excluir da V1 salvo aprovação. |

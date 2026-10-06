@@ -1,8 +1,8 @@
-# Dependency Graph
+# Grafo de dependências
 
-The functional backlog and implementation dependency graph are **NOT CREATED**. This file establishes task navigation only.
+O backlog funcional e o grafo de dependências de implementação estão **NOT CREATED**. Este arquivo estabelece somente a navegação dos estados de Tasks.
 
-Task lifecycle directories:
+Diretórios do ciclo de vida:
 
 - `backlog/`
 - `ready/`
@@ -11,4 +11,6 @@ Task lifecycle directories:
 - `blocked/`
 - `done/`
 
-Dependencies, backlog items, and implementation tasks must be produced only after the Knowledge Quality Gate, Requirements, research, architecture, ADR, and planning stages required by project governance.
+Toda Task deve manter seu identificador técnico e apresentar título, descrição e critérios de aceite em português do Brasil (`pt-BR`).
+
+Dependências, itens de backlog e Tasks de implementação devem ser produzidos somente após as fases exigidas pela governança: Knowledge Quality Gate, Requirements, Research, Architecture, ADR e planejamento.
