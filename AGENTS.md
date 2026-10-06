@@ -1,0 +1,116 @@
+# OBS-AI-Live-Assistant Engineering Contract
+
+## Project Context
+
+OBS-AI-Live-Assistant is a new, independent Windows application that enables viewers to interact with an AI assistant during OBS Studio live streams. The product will receive chat or manual requests and return configurable text and voice responses without making OBS stability depend on AI, chat, TTS, database, or network availability.
+
+This repository must never modify or absorb files from the separate OBS Truck Live Optimizer project under `%APPDATA%\obs-studio`. Existing OBS documents may be read only as architectural references.
+
+## Approved Direction
+
+- Primary runtime and language: C# / .NET 10.
+- Native integration: C/C++ only when a validated OBS capability requires it.
+- Data: relational SQL with SQLite as the V1 direction.
+- Architecture direction: modular monolith with Ports and Adapters and provider boundaries.
+- Target: OBS Studio 32.x x64 on Windows 10 and Windows 11 x64.
+- AI and TTS: multi-provider, BYOK, with no mandatory vendor coupling.
+- Chat V1: YouTube Live Chat.
+- Future chat providers: Twitch and other providers; not part of V1 unless approved.
+
+These are constraints and directions, not permission to resolve open ADRs or begin implementation.
+
+## Mandatory Workflow
+
+Follow this sequence and stop at every client approval gate:
+
+```text
+Bootstrap
+-> Project Discovery
+-> Knowledge Discovery
+-> Knowledge Quality Gate
+-> Requirements
+-> Security Requirements
+-> Architecture
+-> Database Design
+-> Integration Designs
+-> Installation Design
+-> Execution Plan
+-> Dependency Graph
+-> Backlog
+-> Tasks
+-> Client Approval Gate
+-> Implementation
+```
+
+Do not create product source code before the explicit implementation approval gate.
+
+## Commands
+
+No product solution or deterministic validation commands exist yet.
+
+```text
+Restore: PENDING_SOLUTION_BOOTSTRAP
+Build: PENDING_SOLUTION_BOOTSTRAP
+Test: PENDING_SOLUTION_BOOTSTRAP
+Lint / format validation: PENDING_TOOLING_DECISION
+Native build: PENDING_OBS_ARCHITECTURE_AND_TOOLCHAIN_DESIGN
+```
+
+Do not invent commands. Update this section when the corresponding project files and tools are approved.
+
+## Repository Structure
+
+```text
+.ai/                 AI roles, knowledge pointers, and governance
+.claude/             Claude Code rules, hooks documentation, and project skills
+.codex/              Codex project skills
+.github/             GitHub Copilot bridge and future CI configuration
+agent_docs/          Detailed project rules loaded when relevant
+AGENTS.md             Multi-tool source of truth
+CLAUDE.md             Thin Claude Code wrapper
+PROJECT_SKILLS.md     Installed skill registry
+```
+
+Product source, tests, packaging, and installer directories are intentionally absent until planning and approval are complete.
+
+## Workflow Rules
+
+- Speak with the client in Brazilian Portuguese; use English for engineering artifacts, source code, technical identifiers, and structural comments.
+- Read relevant requirements, architecture decisions, tasks, and agent documentation before changing files.
+- Use the smallest sufficient design; do not introduce microservices, distributed messaging, cloud infrastructure, RAG, or multi-agent runtime without approved requirements and ADRs.
+- Treat chat input, provider output, files, and external API responses as untrusted.
+- Never place secrets in source control, SQLite, configuration files, prompts, documentation, or logs.
+- Never let chat messages directly execute sensitive OBS actions; an explicit authorization policy is required.
+- Keep native OBS responsibilities narrow and keep business logic in the external Assistant Core.
+- Preserve process isolation so Assistant Core failures cannot crash OBS whenever technically possible.
+- Use deterministic quality gates in addition to AI review.
+- Never claim a command, test, integration, or deployment succeeded without evidence.
+- Do not commit, push, open a PR, modify OBS, or perform external writes unless the current approved phase authorizes it.
+
+## Git Status
+
+`GIT_SETUP: BLOCKED`
+
+Git is not currently available. Do not simulate branches or repository history. When Git becomes available, the intended flow is `feature/task-* -> develop -> hml -> release/* -> main` with protected quality gates.
+
+## Skills and Agents
+
+- Project agents: `.ai/agents/`.
+- Skill registry: `PROJECT_SKILLS.md`.
+- Claude project skills: `.claude/skills/`.
+- Codex project skills: `.codex/skills/`.
+- Load only roles and skills relevant to the current task.
+
+## Deeper Context
+
+- Business rules: `agent_docs/business-rules.md`
+- Security constraints: `agent_docs/security.md`
+- Engineering standards: `agent_docs/engineering-standards.md`
+- Architecture direction and unresolved decisions: `agent_docs/architecture.md`
+- Productivity and tool status: `agent_docs/productivity.md`
+- Governance: `.ai/governance/README.md`
+- Knowledge sources: `.ai/knowledge/README.md`
+
+## Keeping This Contract Current
+
+Update the relevant specialized document when a requirement, architectural decision, security constraint, command, or recurring lesson becomes authoritative. Keep `AGENTS.md` concise and avoid duplicating detailed rules already maintained in `agent_docs/`.
