@@ -6,9 +6,9 @@ OBS-AI-Live-Assistant é uma aplicação Windows independente e planejada para o
 
 - Baseline documental: estabelecida.
 - Base do Kit IA Dev: instalada.
-- Advanced Skills: **BLOCKED**, pois o pacote oficial não está disponível.
-- Knowledge Quality Gate: **NOT PASSED**.
-- Requirements, Research e aprovação de Architecture: **NOT STARTED**.
+- Advanced Skills: **BLOCKED / NON-BLOCKING FOR REQUIREMENTS**, pois o pacote oficial não está disponível.
+- Knowledge Quality Gate: **PASSED**.
+- Requirements: **NOT STARTED / READY**; Research e aprovação de Architecture: **NOT STARTED**.
 - Código-fonte do produto e implementação: **NOT CREATED / NOT STARTED**.
 
 ## Direção tecnológica
@@ -23,9 +23,9 @@ Comece pelo [índice da documentação do projeto](docs/README.md). Ele separa c
 
 O trabalho parte de `develop` em branches `feature/task-*`. Uma Task concluída com sucesso passa por validação, Code Review, push, pull request e merge em `develop` quando todos os gates estiverem aprovados. Promoções para `hml`, `release/1.0.0XXXX` e `main` possuem gates próprios e não são automáticas por Task. Consulte o [GitFlow](docs/governance/GITFLOW.md).
 
-## Bloqueios atuais
+## Pendências controladas
 
-- O pacote oficial das Advanced Skills não foi localizado.
-- O Knowledge Quality Gate não pode ser aprovado até que seus pré-requisitos sejam validados.
+- O pacote oficial das Advanced Skills não foi localizado; essa ausência não bloqueia Requirements.
+- Integração OBS, áudio, IPC, SQLite, secrets, providers e instalação possuem Research, ADRs ou Client Decisions pendentes, sem impedir a elaboração de Requirements.
 
 Esta baseline documental não cria arquivos de produto nem dados de runtime do OBS.
