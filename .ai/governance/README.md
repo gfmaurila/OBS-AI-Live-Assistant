@@ -63,3 +63,78 @@ Roles are responsibility boundaries. They do not imply autonomous execution, exp
 - Do not copy or alter OBS Truck Live Optimizer artifacts.
 - Do not store or log secrets.
 - Do not simulate Git, tests, builds, integrations, or approvals.
+
+## Prompt Traceability Rule
+
+Every task that produces a repository change must follow this sequence:
+
+```text
+Prompt
+-> Execution
+-> Validation
+-> Archive Prompt
+-> Secret Check
+-> git add
+-> Commit
+-> Push
+```
+
+Archive the operational prompt under `docs/prompts/history/` before the task
+commit. Use the next available sequential `prompt<number>.md` filename, never
+overwrite an existing historical prompt, and include the archived prompt in
+the same commit and push as the changes it authorized.
+
+Do not archive a secret value. If a prompt contains a credential, password,
+token, private key, connection string with a secret, or API key, stop and
+arrange safe handling before placing the prompt in Git.
+
+Historical prompts provide traceability; they are not automatically approved
+requirements or architectural decisions. Canonical requirements,
+Architecture documentation, and ADRs take precedence.
+
+## Task Commit and Push Rule
+
+Every authorized repository change must be committed and pushed on the branch
+for its own task. Do not finish a modifying task with intentional changes left
+uncommitted or without a push.
+
+A task may finish with a blocked push only when authentication failure, remote
+unavailability, a conflict, or another technical error prevents it. Report the
+commit status, blocked push, and exact reason. Never push to a different branch
+to bypass the failure.
+
+## Feature Completion Rule
+
+Every successfully completed `feature/task-*` branch follows this workflow:
+
+```text
+Implementation / Documentation
+-> Validation
+-> Code Review
+-> Required Fixes
+-> Prompt Archive
+-> Security Check
+-> Commit
+-> Push
+-> Pull Request
+-> PR Validation
+-> Merge to develop
+-> Post-Merge Validation
+-> Feature Cleanup
+```
+
+When every required quality gate passes, no additional client authorization is
+required between task completion, review, pull request creation, and merge into
+`develop`. A merge is blocked by any unresolved critical or high-severity
+finding, required validation failure, detected secret, Git conflict, invalid
+pull request, out-of-scope change, incomplete push, or unexpected local/remote
+difference.
+
+After a successful merge, validate that local and remote `develop` contain the
+merge and that the working tree is clean. Delete the local and remote feature
+branch only after confirming the pull request was merged and cleanup is safe.
+
+This rule authorizes only `feature/task-*` merges into `develop`. It does not
+authorize promotion from `develop` to `hml`, from `hml` to `main`, or from a
+`release/*` branch to `main`; those promotions remain subject to their own
+project gates.
