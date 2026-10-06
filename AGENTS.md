@@ -66,6 +66,8 @@ Do not invent commands. Update this section when the corresponding project files
 .codex/              Codex project skills
 .github/             GitHub Copilot bridge and future CI configuration
 agent_docs/          Detailed project rules loaded when relevant
+docs/                Canonical project documentation and prompt history
+tasks/               Task lifecycle directories and dependency graph
 AGENTS.md             Multi-tool source of truth
 CLAUDE.md             Thin Claude Code wrapper
 PROJECT_SKILLS.md     Installed skill registry
@@ -89,9 +91,9 @@ Product source, tests, packaging, and installer directories are intentionally ab
 
 ## Git Status
 
-`GIT_SETUP: BLOCKED`
+`GIT_SETUP: COMPLETED`
 
-Git is not currently available. Do not simulate branches or repository history. When Git becomes available, the intended flow is `feature/task-* -> develop -> hml -> release/* -> main` with protected quality gates.
+Git and the permanent `main`, `develop`, and `hml` branches are operational. Task work uses `feature/task-*` branches created from synchronized `develop`, with the governed flow `feature/task-* -> develop -> hml -> release/* -> main`. Only a successful task PR may merge automatically into `develop`; later promotions require their own gates.
 
 ## Skills and Agents
 

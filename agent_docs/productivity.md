@@ -6,12 +6,12 @@
 - Visual Studio Community 2026, MSVC, CMake, and Windows SDKs are available.
 - OBS Studio 32.1.2 x64 is installed for development validation.
 - `rtk` must prefix shell commands in this environment.
-- Git is unavailable: `GIT_SETUP: BLOCKED`.
+- Git is available and configured: `GIT_SETUP: COMPLETED`.
 
 ## Pending Tooling
 
 - Product restore, build, test, formatting, static analysis, and native build commands remain undefined until the solution and toolchain tasks are approved.
-- GitFlow branches, commits, pushes, and pull requests must not be simulated while Git is unavailable.
+- GitFlow uses the operational `main`, `develop`, and `hml` branches. Task changes run on `feature/task-*` and follow validation, review, prompt archival, security checks, commit, push, pull request, merge-to-`develop`, and cleanup gates.
 - The Claude pre-commit hook remains disabled until real deterministic commands exist.
 
 ## Working Practices
