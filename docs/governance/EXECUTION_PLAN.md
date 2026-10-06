@@ -1,11 +1,11 @@
-# Execution Plan
+# Plano de execução
 
-## Project Stage Order
+## Ordem das fases do projeto
 
 ```text
 KIT IA DEV
 -> DOCUMENTATION BASELINE
--> ADVANCED SKILLS (when the official package is available)
+-> ADVANCED SKILLS (quando o pacote oficial estiver disponível)
 -> KNOWLEDGE QUALITY GATE
 -> REQUIREMENTS
 -> RESEARCH
@@ -16,26 +16,45 @@ KIT IA DEV
 -> IMPLEMENTATION
 ```
 
-The more detailed mandatory stage sequence in `AGENTS.md` remains authoritative. This view highlights the immediate project progression. The current stop condition is the unavailable Advanced Skills package and the not-yet-passed Knowledge Quality Gate.
+A sequência obrigatória mais detalhada em `AGENTS.md` permanece autoritativa. Esta visão destaca a progressão imediata do projeto. O bloqueio atual é a indisponibilidade do pacote de Advanced Skills e o Knowledge Quality Gate ainda não aprovado.
 
-## Task Completion Flow
+## Fluxo de Task
 
 ```text
-TASK READY
--> feature/task-*
--> execution
--> validation
--> code review
--> required fixes
--> archive prompt
--> security check
+develop sincronizada
+-> feature/task-<descricao>
+-> execução
+-> validação
+-> Code Review
+-> correções obrigatórias
+-> arquivamento do prompt
+-> verificação de secrets
 -> commit
 -> push
 -> pull request
--> PR validation
--> merge to develop
--> post-merge validation
--> feature cleanup
+-> validação do PR
+-> merge para develop
+-> validação pós-merge
+-> limpeza da feature
 ```
 
-Automatic completion ends at `develop` and applies only when every required gate passes. It never authorizes promotion to `hml` or `main`.
+O merge automático termina em `develop` e se aplica somente quando todos os gates obrigatórios estiverem aprovados.
+
+## Fluxo de entrega
+
+```text
+develop
+-> Quality Gate de homologação
+-> pull request
+-> hml
+-> aprovação da versão homologada
+-> release/1.0.0XXXX
+-> Final Quality Gate
+-> pull request
+-> main
+-> tag
+-> GitHub Release
+-> sincronização pós-release
+```
+
+O fluxo de Task e o fluxo de entrega são níveis diferentes. Uma Task individual não promove automaticamente `develop` para `hml`, não cria uma branch de release e não altera `main`. Tags e GitHub Releases só são criadas para releases reais explicitamente aprovadas.

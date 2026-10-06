@@ -18,6 +18,7 @@ Keep engineering artifacts accurate, non-duplicative, traceable, and aligned wit
 
 - Do not document planned behavior as implemented.
 - Do not copy the Knowledge Dictionary or documentation from other projects indiscriminately.
+- Write human-facing project documentation and pull request descriptions in Brazilian Portuguese (`pt-BR`), preserving technical identifiers, commands, official names, established technical terms, and tool-required structures when translation would reduce clarity or break tooling.
 
 ## Quality Gates
 

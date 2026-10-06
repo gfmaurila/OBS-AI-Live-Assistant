@@ -1,27 +1,27 @@
-# Project Documentation
+# Documentação do projeto
 
-This directory is the central entry point for OBS-AI-Live-Assistant documentation. Documents distinguish current direction from approved requirements and architectural decisions.
+Este diretório é o ponto de entrada central da documentação do OBS-AI-Live-Assistant. Os documentos distinguem direção atual, hipóteses, requisitos aprovados e decisões arquiteturais.
 
-## Documentation Areas
+## Áreas da documentação
 
-- [Architecture](architecture/README.md) — planned structure, future ADRs, and diagrams.
-- Project — [overview](project/PROJECT_OVERVIEW.md), [scope](project/PROJECT_SCOPE.md), and [Skills registry navigation](project/PROJECT_SKILLS.md).
-- [Governance](governance/README.md) — execution order, GitFlow, and quality gates.
-- Knowledge — [map](knowledge/PROJECT_KNOWLEDGE_MAP.md), [source-treatment decisions](knowledge/KNOWLEDGE_DECISIONS.md), and [conflicts](knowledge/KNOWLEDGE_CONFLICTS.md).
-- [Research](research/README.md) — research policy and backlog; no research results exist yet.
-- [Requirements](requirements/README.md) — placeholder for the authorized Requirements process.
-- [Security](security/README.md) — current security constraints and future security work.
-- [Testing](testing/README.md) — testing status and future validation categories.
-- [Reports](reports/README.md) — factual project-state reports.
-- [Prompt History](prompts/README.md) — chronological operational prompt archive.
-- [Tasks](../tasks/DEPENDENCY_GRAPH.md) — task-state directories and the currently empty dependency graph.
+- [Arquitetura](architecture/README.md) — estrutura planejada, futuros ADRs e diagramas.
+- Projeto — [visão geral](project/PROJECT_OVERVIEW.md), [escopo](project/PROJECT_SCOPE.md) e [navegação do registro de Skills](project/PROJECT_SKILLS.md).
+- [Governança](governance/README.md) — ordem de execução, idioma oficial, GitFlow e Quality Gates.
+- Conhecimento — [mapa](knowledge/PROJECT_KNOWLEDGE_MAP.md), [decisões de tratamento das fontes](knowledge/KNOWLEDGE_DECISIONS.md) e [conflitos](knowledge/KNOWLEDGE_CONFLICTS.md).
+- [Pesquisa](research/README.md) — política e backlog de Research; ainda não existem resultados de pesquisa.
+- [Requirements](requirements/README.md) — espaço reservado para o processo autorizado de Requirements.
+- [Security](security/README.md) — restrições atuais e trabalho futuro de segurança.
+- [Testing](testing/README.md) — estado dos testes e categorias futuras de validação.
+- [Reports](reports/README.md) — relatórios factuais sobre o estado do projeto.
+- [Histórico de prompts](prompts/README.md) — arquivo cronológico de prompts operacionais.
+- [Tasks](../tasks/DEPENDENCY_GRAPH.md) — diretórios de estado e grafo de dependências ainda não preenchido.
 
-## Canonical Source Rules
+## Regras das fontes canônicas
 
-- `AGENTS.md` is the concise multi-tool engineering contract.
-- `agent_docs/` contains specialized current constraints.
-- `.ai/governance/README.md` contains the enforceable agent workflow baseline.
-- `docs/governance/` contains the detailed human-readable governance process.
-- Approved Requirements, ADRs, and newer canonical documents override historical prompts and planning assumptions.
+- `AGENTS.md` é o contrato conciso para as ferramentas de IA.
+- `agent_docs/` contém restrições especializadas vigentes.
+- `.ai/governance/README.md` contém o baseline operacional obrigatório para os agentes.
+- `docs/governance/` contém o processo detalhado e legível por pessoas.
+- Requirements aprovados, ADRs e documentação canônica mais recente prevalecem sobre prompts históricos e hipóteses de planejamento.
 
-Historical prompts and reference projects are evidence and context; they do not independently approve requirements or architecture.
+Prompts históricos e projetos de referência são evidências e contexto; eles não aprovam Requirements ou Architecture por conta própria.

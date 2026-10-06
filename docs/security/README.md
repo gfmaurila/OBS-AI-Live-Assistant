@@ -1,7 +1,7 @@
-# Security Documentation
+# Documentação de Security
 
-The current security baseline is maintained in [`agent_docs/security.md`](../../agent_docs/security.md). This page provides navigation without duplicating that source.
+O baseline atual de segurança permanece em [`agent_docs/security.md`](../../agent_docs/security.md). Esta página fornece navegação sem duplicar aquela fonte.
 
-Current non-negotiable constraints include treating chat and provider data as untrusted, preventing chat from directly authorizing sensitive OBS actions, applying least privilege, bounding work, and never storing secrets in source control, prompts, documentation, logs, plaintext configuration, or SQLite.
+As restrições atuais incluem tratar dados de chat e providers como não confiáveis, impedir que o chat autorize diretamente ações sensíveis do OBS, aplicar least privilege, limitar trabalho e nunca armazenar secrets no controle de versão, prompts, documentação, logs, configuração em texto puro ou SQLite.
 
-Security Requirements and threat-model artifacts are **NOT STARTED**. Windows credential protection, YouTube OAuth, IPC authentication, local endpoints, installer security, and data lifecycle require authorized research and security decisions.
+Security Requirements e artefatos de threat modeling estão **NOT STARTED**. Proteção de credenciais no Windows, OAuth do YouTube, autenticação de IPC, endpoints locais, segurança do instalador e ciclo de vida dos dados exigem Research e decisões de segurança autorizadas.

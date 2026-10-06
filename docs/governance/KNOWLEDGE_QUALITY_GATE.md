@@ -1,8 +1,8 @@
 # Knowledge Quality Gate
 
-## Current Status
+## Estado atual
 
-| Prerequisite | Status |
+| Pré-requisito | Estado |
 |---|---|
 | Kit IA Dev | PARTIAL / BASE INSTALLED |
 | Advanced Skills | BLOCKED |
@@ -13,8 +13,8 @@
 | Research | NOT STARTED |
 | Gate | **NOT PASSED** |
 
-This baseline does not evaluate the Knowledge Dictionary, resolve conflicts, approve Requirements, perform research, or approve architecture.
+Esta baseline não avalia o Knowledge Dictionary, não resolve conflitos, não aprova Requirements, não executa Research e não aprova Architecture.
 
-## Stop Rule
+## Regra de parada
 
-If the Knowledge Quality Gate fails or remains incomplete, **STOP before Requirements, Architecture, or implementation**. A later authorized gate task must provide evidence, resolve blocking conflicts, and update this status.
+Se o Knowledge Quality Gate falhar ou permanecer incompleto, deve-se **PARAR antes de Requirements, Architecture ou implementação**. Uma Task futura e autorizada deverá fornecer evidências, resolver conflitos bloqueadores e atualizar este estado.

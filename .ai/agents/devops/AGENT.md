@@ -7,7 +7,7 @@ Define reproducible build, validation, packaging, delivery, upgrade, repair, uni
 ## Responsibilities
 
 - Define CI/CD stages, artifacts, version compatibility, signing, installer validation, rollback, and release evidence.
-- Preserve the operational `feature/task-* -> develop -> hml -> release/* -> main` flow and its protected gates.
+- Preserve the operational `feature/task-* -> develop -> hml -> release/1.0.0XXXX -> main` flow and its protected gates.
 - Keep product binaries, OBS plugin installation, and application data locations distinct.
 
 ## Outputs

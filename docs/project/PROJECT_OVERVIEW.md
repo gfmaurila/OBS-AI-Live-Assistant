@@ -1,33 +1,33 @@
-# Project Overview
+# Visão geral do projeto
 
-## Product
+## Produto
 
-**Name:** OBS-AI-Live-Assistant
+**Nome:** OBS-AI-Live-Assistant
 
-**Purpose — CURRENT DIRECTION:** provide an independent assistant for OBS Studio live streams that can receive viewer or streamer requests and return configurable text and voice responses.
+**Propósito — CURRENT DIRECTION:** oferecer um assistente independente para transmissões ao vivo no OBS Studio, capaz de receber solicitações de espectadores ou do streamer e retornar respostas configuráveis em texto e voz.
 
-**Problem — CURRENT DIRECTION:** live-stream interaction requires coordination among chat, AI, TTS, local state, and OBS without allowing failures in those dependencies to terminate or compromise the broadcast.
+**Problema — CURRENT DIRECTION:** a interação durante a transmissão exige coordenação entre chat, IA, TTS, estado local e OBS sem permitir que falhas nessas dependências encerrem ou comprometam a transmissão.
 
-## Current Direction
+## Direção atual
 
-| Area | Current understanding | State |
+| Área | Entendimento atual | Estado |
 |---|---|---|
-| Host environment | Windows 10/11 x64 with OBS Studio 32.x x64 | CURRENT DIRECTION |
-| Primary runtime | C# / .NET 10 | CURRENT DIRECTION |
-| Native code | C/C++ only for validated OBS-native capabilities | CURRENT DIRECTION / REQUIRES_RESEARCH |
-| Product shape | Independent local application with isolated Assistant Core responsibilities | CURRENT DIRECTION / REQUIRES_ADR |
-| Chat | YouTube Live Chat priority for V1 | CURRENT DIRECTION |
-| AI | Multiple providers using user-owned credentials | CURRENT DIRECTION |
-| TTS | Multiple providers with configurable voice responses | CURRENT DIRECTION |
-| Persistence | Local relational data using SQLite for V1 | CURRENT DIRECTION / REQUIRES_ADR |
-| Runtime data | `%APPDATA%\obs-studio\obs-ai-live-assistant` | ASSUMPTION / REQUIRES_RESEARCH |
+| Ambiente alvo | Windows 10/11 x64 com OBS Studio 32.x x64 | CURRENT DIRECTION |
+| Runtime principal | C# / .NET 10 | CURRENT DIRECTION |
+| Código nativo | C/C++ somente para capacidades nativas validadas do OBS | CURRENT DIRECTION / REQUIRES_RESEARCH |
+| Forma do produto | Aplicação local independente, com responsabilidades isoladas no Assistant Core | CURRENT DIRECTION / REQUIRES_ADR |
+| Chat | Prioridade para YouTube Live Chat na V1 | CURRENT DIRECTION |
+| IA | Múltiplos providers com credenciais pertencentes ao usuário | CURRENT DIRECTION |
+| TTS | Múltiplos providers com respostas de voz configuráveis | CURRENT DIRECTION |
+| Persistência | Dados relacionais locais com SQLite na V1 | CURRENT DIRECTION / REQUIRES_ADR |
+| Dados de runtime | `%APPDATA%\obs-studio\obs-ai-live-assistant` | ASSUMPTION / REQUIRES_RESEARCH |
 
-BYOK means credentials belong to the user. It does not approve a provider list or a storage mechanism. Secrets must never be placed in source control, prompts, logs, plaintext configuration, or SQLite.
+BYOK significa que as credenciais pertencem ao usuário. Isso não aprova uma lista de providers nem um mecanismo de armazenamento. Secrets nunca devem ser colocados no controle de versão, prompts, logs, configuração em texto puro ou SQLite.
 
-## OBS Integration
+## Integração com OBS
 
-The product is expected to integrate with OBS, but the allocation of responsibilities among a native plugin, OBS WebSocket, and IPC is `REQUIRES_RESEARCH`, `REQUIRES_ADR`, and potentially `REQUIRES_CLIENT_DECISION`. No integration mechanism is approved merely by appearing in this overview.
+O produto deverá integrar-se ao OBS, mas a distribuição de responsabilidades entre plugin nativo, OBS WebSocket e IPC está marcada como `REQUIRES_RESEARCH`, `REQUIRES_ADR` e, potencialmente, `REQUIRES_CLIENT_DECISION`. Nenhum mecanismo é aprovado apenas por aparecer nesta visão geral.
 
-## Reliability Intent
+## Intenção de confiabilidade
 
-The current direction is that AI, TTS, chat, storage, and network failures must not become OBS failures whenever technically possible. Exact process, recovery, and degradation behavior remains subject to Requirements and architecture validation.
+A direção atual estabelece que falhas de IA, TTS, chat, persistência e rede não devem se tornar falhas do OBS sempre que isso for tecnicamente possível. O comportamento exato de processos, recuperação e degradação depende de Requirements e validação de Architecture.

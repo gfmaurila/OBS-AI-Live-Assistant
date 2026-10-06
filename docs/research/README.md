@@ -1,7 +1,7 @@
 # Research
 
-Research has **NOT STARTED**. This directory records topics that require evidence from current authoritative sources during a separately authorized research phase.
+Research está **NOT STARTED**. Este diretório registra tópicos que exigem evidências de fontes autoritativas atuais durante uma fase de pesquisa separadamente autorizada.
 
-- [Research Backlog](RESEARCH_BACKLOG.md)
+- [Backlog de Research](RESEARCH_BACKLOG.md)
 
-Backlog entries are questions, not decisions. Research results must identify sources, dates, compatibility assumptions, risks, and any ADR or client decision they require.
+Itens do backlog são perguntas, não decisões. Resultados futuros devem identificar fontes, datas, hipóteses de compatibilidade, riscos e qualquer ADR ou decisão do cliente necessária.
