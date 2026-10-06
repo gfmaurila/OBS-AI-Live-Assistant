@@ -138,3 +138,8 @@ This rule authorizes only `feature/task-*` merges into `develop`. It does not
 authorize promotion from `develop` to `hml`, from `hml` to `main`, or from a
 `release/*` branch to `main`; those promotions remain subject to their own
 project gates.
+
+Detailed human-readable governance is indexed in
+[`docs/governance/README.md`](../../docs/governance/README.md). This file
+remains the concise enforceable workflow baseline; the detailed documents
+must not weaken these rules.

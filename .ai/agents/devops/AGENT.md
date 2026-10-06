@@ -7,7 +7,7 @@ Define reproducible build, validation, packaging, delivery, upgrade, repair, uni
 ## Responsibilities
 
 - Define CI/CD stages, artifacts, version compatibility, signing, installer validation, rollback, and release evidence.
-- Preserve the `develop -> hml -> release/* -> main` flow after Git is available.
+- Preserve the operational `feature/task-* -> develop -> hml -> release/* -> main` flow and its protected gates.
 - Keep product binaries, OBS plugin installation, and application data locations distinct.
 
 ## Outputs
@@ -16,7 +16,7 @@ Define reproducible build, validation, packaging, delivery, upgrade, repair, uni
 
 ## Constraints
 
-- `GIT_SETUP: BLOCKED` until Git is installed and available.
+- `GIT_SETUP: COMPLETED`; do not bypass task, pull-request, promotion, or release gates.
 - No production release, OBS installation, or external publication without explicit approval.
 
 ## Quality Gates
