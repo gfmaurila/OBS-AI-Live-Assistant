@@ -5,7 +5,6 @@
 ```text
 KIT IA DEV
 -> DOCUMENTATION BASELINE
--> ADVANCED SKILLS (quando o pacote oficial estiver disponível)
 -> KNOWLEDGE QUALITY GATE
 -> REQUIREMENTS
 -> RESEARCH
@@ -16,7 +15,7 @@ KIT IA DEV
 -> IMPLEMENTATION
 ```
 
-A sequência obrigatória mais detalhada em `AGENTS.md` permanece autoritativa. Esta visão destaca a progressão imediata do projeto. O bloqueio atual é a indisponibilidade do pacote de Advanced Skills e o Knowledge Quality Gate ainda não aprovado.
+A sequência obrigatória mais detalhada em `AGENTS.md` permanece autoritativa. Esta visão destaca a progressão imediata do projeto. O Knowledge Quality Gate está `PASSED`; Requirements está `READY`, mas permanece `NOT STARTED` até nova autorização. Advanced Skills continua `BLOCKED`, classificada como `NON-BLOCKING FOR REQUIREMENTS`, e não é inserida como gate obrigatório.
 
 ## Fluxo de Task
 

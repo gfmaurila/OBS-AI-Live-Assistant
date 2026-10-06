@@ -5,7 +5,7 @@ O registro canônico das Skills instaladas permanece no arquivo [PROJECT_SKILLS.
 Estado atual:
 
 - 10 Skills básicas: **INSTALLED** para Claude e Codex.
-- Advanced Skills: **BLOCKED**, aguardando o pacote oficial.
+- Advanced Skills: **BLOCKED**, aguardando o pacote oficial; **NON-BLOCKING FOR REQUIREMENTS** conforme o Knowledge Quality Gate.
 - Nenhuma Skill do projeto de referência CMS/Azure foi copiada.
 
 Este documento de navegação evita duplicar o registro.
