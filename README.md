@@ -11,6 +11,7 @@ OBS-AI-Live-Assistant é uma aplicação Windows independente e planejada para o
 - Requirements, Security Requirements, Technical Research, Architecture e Backlog: **CONCLUÍDOS / QUALITY GATES PASSED**; Implementation Readiness: **READY**.
 - **TASK-001 — Fundação da solution e do tooling: CONCLUÍDA** (solution, `global.json`, convenções comuns e diretórios `src/` e `tests/`).
 - **TASK-002 — Materializar projetos e regras de dependência: CONCLUÍDA** (projetos `ObsAi.Domain`, `ObsAi.Application`, `ObsAi.Infrastructure`, `ObsAi.Providers`, `ObsAi.ObsIntegration`, `ObsAi.Host` + testes determinísticos de arquitetura em `tests/Architecture/`). Scaffold de produto sem funcionalidades: **CREATED**; funcionalidades de produto: **NOT STARTED**.
+- **TASK-003 — Validar a estratégia de compatibilidade: CONCLUÍDA** (matriz de compatibilidade em `docs/architecture/compatibility/`, protótipo de evidência `prototypes/compat-sniff` e ADR-010 **ACCEPTED**).
 
 ## Direção tecnológica
 
@@ -27,6 +28,6 @@ O trabalho parte de `develop` em branches `feature/task-*`. Uma Task concluída 
 ## Pendências controladas
 
 - O pacote oficial das Advanced Skills não foi localizado; essa ausência não bloqueou Requirements nem Security Requirements.
-- Integração OBS, IPC, SQLite, secrets e provider boundaries possuem ADRs aceitos; áudio, installer e compatibilidade possuem direções propostas com validações explícitas; decisões de cliente não bloqueiam o Backlog.
+- Integração OBS, IPC, SQLite, secrets, provider boundaries e compatibilidade (ADR-010) possuem ADRs aceitos; áudio e installer possuem direções propostas com validações explícitas; decisões de cliente não bloqueiam o Backlog.
 
 Esta baseline documental não cria arquivos de produto nem dados de runtime do OBS.

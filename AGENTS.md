@@ -46,13 +46,14 @@ Do not create product source code before the explicit implementation approval ga
 
 ## Commands
 
-Commands executados com sucesso na solução `OBS-AI-Live-Assistant.slnx` (.NET 10, SDK fixado em `global.json`). A solução contém os projetos `ObsAi.Domain`, `ObsAi.Application`, `ObsAi.Infrastructure`, `ObsAi.Providers`, `ObsAi.ObsIntegration`, `ObsAi.Host` (criados em `TASK-002`) e o projeto de testes `ObsAi.Architecture.Tests`. `dotnet test --no-build` executa os testes determinísticos de arquitetura e de convenções auxiliares (15 testes no momento).
+Commands executados com sucesso na solução `OBS-AI-Live-Assistant.slnx` (.NET 10, SDK fixado em `global.json`). A solução contém os projetos `ObsAi.Domain`, `ObsAi.Application`, `ObsAi.Infrastructure`, `ObsAi.Providers`, `ObsAi.ObsIntegration`, `ObsAi.Host` (criados em `TASK-002`) e o projeto de testes `ObsAi.Architecture.Tests`. `dotnet test --no-build` executa os testes determinísticos de arquitetura, de convenções auxiliares e de invariantes da matriz de compatibilidade (24 testes no momento).
 
 ```text
 Restore: dotnet restore
 Build: dotnet build --no-restore
 Test: dotnet test --no-build
 Lint / format validation: dotnet format --verify-no-changes --no-restore
+Prototype (evidência, fora da solution): dotnet run --project prototypes\compat-sniff\CompatibilityProbe.csproj
 Native build: PENDING_OBS_ARCHITECTURE_AND_TOOLCHAIN_DESIGN
 ```
 
@@ -70,6 +71,7 @@ docs/                Canonical project documentation and prompt history
 tasks/               Task lifecycle directories and dependency graph
 src/                 ObsAi.* projects (Domain, Application, Infrastructure, Providers, ObsIntegration, Host)
 tests/               Test projects (ObsAi.Architecture.Tests; rest em TASK-004)
+prototypes/          Evidence prototypes outside the solution (compat-sniff desde TASK-003)
 AGENTS.md             Multi-tool source of truth
 CLAUDE.md             Thin Claude Code wrapper
 PROJECT_SKILLS.md     Installed skill registry

@@ -1,6 +1,6 @@
 # Estrutura física planejada
 
-Status: **PROJECTS CREATED / INTERNAL DIRECTORIES PARTIAL**. A `TASK-001` criou a solution, as convenções comuns (`global.json`, `Directory.Build.props`, `Directory.Packages.props`, `.editorconfig`) e os diretórios raiz `src/` e `tests/`. A `TASK-002` criou os seis projetos `ObsAi.*` em `src/`, as referências mínimas e o projeto determinístico `ObsAi.Architecture.Tests` em `tests/Architecture/`. Os demais agrupamentos de teste (`Unit`, `Integration`, `Contracts`, `Security`, `FailureIsolation`, `ObsCompatibility`, `Installer`) permanecem `PLANNED / NOT CREATED` até a `TASK-004`, e o plugin nativo (`native/ObsAi.ObsPlugin`) até a `TASK-024`. Esta estrutura orienta backlog e Tasks; não autoriza ampliar escopo sem nova Task.
+Status: **PROJECTS CREATED / INTERNAL DIRECTORIES PARTIAL**. A `TASK-001` criou a solution, as convenções comuns (`global.json`, `Directory.Build.props`, `Directory.Packages.props`, `.editorconfig`) e os diretórios raiz `src/` e `tests/`. A `TASK-002` criou os seis projetos `ObsAi.*` em `src/`, as referências mínimas e o projeto determinístico `ObsAi.Architecture.Tests` em `tests/Architecture/`. A `TASK-003` criou `prototypes/compat-sniff` (sonda de evidência de compatibilidade, fora da solution) e `docs/architecture/compatibility/` (matriz). Os demais agrupamentos de teste (`Unit`, `Integration`, `Contracts`, `Security`, `FailureIsolation`, `ObsCompatibility`, `Installer`) permanecem `PLANNED / NOT CREATED` até a `TASK-004`, e o plugin nativo (`native/ObsAi.ObsPlugin`) até a `TASK-024`. Esta estrutura orienta backlog e Tasks; não autoriza ampliar escopo sem nova Task.
 
 ```text
 OBS-AI-Live-Assistant/
@@ -25,6 +25,8 @@ OBS-AI-Live-Assistant/
 │   └── Installer/                     # PLANNED / NOT CREATED (TASK-004)
 ├── installer/                         # PLANNED / NOT CREATED
 ├── tooling/                           # PLANNED / NOT CREATED
+├── prototypes/
+│   └── compat-sniff/                  # CREATED (TASK-003) — evidência de compatibilidade, fora da solution
 ├── docs/                              # documentação canônica existente
 ├── tasks/                             # lifecycle e futuro dependency graph
 ├── .ai/ .claude/ .codex/ .github/    # governança e tooling existente
@@ -67,4 +69,4 @@ ObsAi.ObsPlugin <-> contrato IPC versionado <-> ObsAi.ObsIntegration
 
 ## Regras de criação
 
-Os nomes podem ser refinados na Execution Plan se o refinamento preservar boundaries e ADRs. A `TASK-001` criou a solution `OBS-AI-Live-Assistant.slnx`, as convenções comuns e as raízes `src/` e `tests/`. A `TASK-002` criou os seis projetos `ObsAi.*`, as referências mínimas do grafo acima, o projeto `ObsAi.Architecture.Tests` e centralizou os packages de teste em `Directory.Packages.props`. Referências adicionadas (ou removidas) como `ProjectReference` entre projetos de `src/` fazem o gate de arquitetura falhar até serem refletidas na tabela `AllowedProjectReferences` do projeto de testes. Nenhum banco, migration, installer ou teste executável de integração foi criado.
+Os nomes podem ser refinados na Execution Plan se o refinamento preservar boundaries e ADRs. A `TASK-001` criou a solution `OBS-AI-Live-Assistant.slnx`, as convenções comuns e as raízes `src/` e `tests/`. A `TASK-002` criou os seis projetos `ObsAi.*`, as referências mínimas do grafo acima, o projeto `ObsAi.Architecture.Tests` e centralizou os packages de teste em `Directory.Packages.props`. A `TASK-003` criou `prototypes/compat-sniff` como ferramenta de evidência **fora da solution** (não participa do grafo de dependências nem dos gates da solução; possui build e formatação próprios documentados). Referências adicionadas (ou removidas) como `ProjectReference` entre projetos de `src/` fazem o gate de arquitetura falhar até serem refletidas na tabela `AllowedProjectReferences` do projeto de testes. Nenhum banco, migration, installer ou teste executável de integração foi criado.

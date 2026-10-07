@@ -57,11 +57,11 @@
 | RES-019 | RF-033; SEC-029 | ADR-007 | RESOLVED | Update assinado, atômico, compatível e recuperável; baseline installer-based. | HIGH | SRC-047/050 | Fora da execução OBS. |
 | RES-020 | RF-034 | ADR-007 | RESOLVED | Repair repõe artefatos sem resetar dados/secrets. | MEDIUM | SRC-044..049 | Manifesto de componentes. |
 | RES-021 | RF-035; SEC-030 | ADR-005/007 | CLIENT_DECISION | Remover binários/plugin; dados e secrets requerem opção/política explícita. | HIGH | Requirements | Uninstall configurável. |
-| RES-022 | RNF-019/024 | ADR-010 | CLIENT_DECISION | Testar mínimo e versões selecionadas; detectar incompatibilidade, sem prometer ABI ampla. | HIGH | SRC-001/007 | Release gate. |
+| RES-022 | RNF-019/024 | ADR-010 | CLIENT_DECISION | Testar mínimo e versões selecionadas; detectar incompatibilidade, sem prometer ABI ampla. Matriz implementada na TASK-003 (`docs/architecture/compatibility/`); faixa comercial a fechar antes do release. | HIGH | SRC-001/007 | Release gate. |
 | RES-023 | RF-029/030; SEC-025..027 | ADR-009 | CLIENT_DECISION | Memória persistente exige finalidade, retenção, consentimento e exclusão. | HIGH | Requirements/Security | Baseline temporária. |
 | RES-024 | SEC-025..027 | ADR-004/009 | PARTIALLY_RESOLVED | Revisar termos na seleção e periodicamente; YouTube impõe retenção/controle. | MEDIUM | SRC-029/030 | Policy gate. |
 | RES-025 | RNF-013/014; SEC-020..023 | ADR-008 | RESOLVED | Logs estruturados, rotação, correlação e redaction central; sem payload/secrets por padrão. | HIGH | SRC-051/052 | Observability port. |
 | RES-026 | RNF-020/021; SEC-031..034 | ADR-007 | RESOLVED | Dependências fixadas/auditadas e artefatos verificados/assinados. | HIGH | SRC-047/053/054 | Release gate/SBOM. |
-| RES-027 | RNF-019/020; CON-001/002 | ADR-007/010 | CLIENT_DECISION | .NET 10 é LTS até novembro de 2028; no Windows 10, suporte oficial atual limita-se a LTSC/Enterprise. | HIGH | SRC-055/056 | Declarar edições suportadas ou revisar target antes do release. |
+| RES-027 | RNF-019/020; CON-001/002 | ADR-007/010 | CLIENT_DECISION | .NET 10 é LTS até novembro de 2028; no Windows 10, suporte oficial atual limita-se a LTSC/Enterprise. Evidência e política registradas na TASK-003; declarar edições suportadas ou revisar target antes do release. | HIGH | SRC-055/056 | Declarar edições suportadas ou revisar target antes do release. |
 
 Os `SRC-*` estão em [RESEARCH_SOURCES.md](RESEARCH_SOURCES.md). Os critérios de aceite permanecem nos RF/RNF/SEC vinculados.

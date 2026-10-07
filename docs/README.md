@@ -4,7 +4,7 @@ Este diretório é o ponto de entrada central da documentação do OBS-AI-Live-A
 
 ## Áreas da documentação
 
-- [Arquitetura](architecture/README.md) — baseline concluída, ADRs, diagramas, dependency rules e rastreabilidade.
+- [Arquitetura](architecture/README.md) — baseline concluída, ADRs, diagramas, dependency rules, [compatibilidade](architecture/compatibility/README.md) e rastreabilidade.
 - Projeto — [visão geral](project/PROJECT_OVERVIEW.md), [escopo](project/PROJECT_SCOPE.md) e [navegação do registro de Skills](project/PROJECT_SKILLS.md).
 - [Governança](governance/README.md) — ordem de execução, idioma oficial, GitFlow e Quality Gates.
 - Conhecimento — [mapa](knowledge/PROJECT_KNOWLEDGE_MAP.md), [decisões de tratamento das fontes](knowledge/KNOWLEDGE_DECISIONS.md) e [conflitos](knowledge/KNOWLEDGE_CONFLICTS.md).

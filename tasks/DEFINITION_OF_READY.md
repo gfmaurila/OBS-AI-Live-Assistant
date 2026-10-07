@@ -17,4 +17,4 @@ Uma Task somente pode mudar de `BACKLOG` para `READY` quando todos os itens abai
 
 ## Aplicação atual
 
-`TASK-001` e `TASK-002` passaram para `DONE`. `TASK-003` e `TASK-004` satisfazem os critérios (dependências concluídas, critérios/ADRs conhecidos, branch determinável) e estão em `ready/`. As demais Tasks dependem direta ou transitivamente de trabalho ainda não concluído e permanecem em `backlog/`. `READY` não autoriza execução por si só; a implementação ainda exige autorização do cliente.
+`TASK-001`, `TASK-002` e `TASK-003` passaram para `DONE`. `TASK-004` satisfaz os critérios (dependências concluídas, critérios/ADRs conhecidos, branch determinável) e está em `ready/`. As demais Tasks dependem direta ou transitivamente de trabalho ainda não concluído e permanecem em `backlog/` — inclusive as bloqueadas por `TASK-003` (`TASK-024`, `TASK-033`, `TASK-036`, `TASK-045`, `TASK-046`, `TASK-051`), que também dependem de outras Tasks. `READY` não autoriza execução por si só; a implementação ainda exige autorização do cliente.

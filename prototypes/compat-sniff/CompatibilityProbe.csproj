@@ -1,0 +1,10 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>CompatibilityProbe</RootNamespace>
+    <AssemblyName>CompatibilityProbe</AssemblyName>
+    <Description>Protótipo read-only de sonda de compatibilidade (evidência TASK-003).</Description>
+  </PropertyGroup>
+
+</Project>
