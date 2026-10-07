@@ -84,4 +84,21 @@ Build Gate; Architecture Gate; Documentation Gate; Code Review Gate; Secret Scan
 
 ## Status
 
-READY
+DONE
+
+## Execução
+
+- Data: 2026-10-07
+- Branch: `feature/task-TASK-002-projects-dependencies`
+- Projetos criados: `ObsAi.Domain`, `ObsAi.Application`, `ObsAi.Infrastructure`, `ObsAi.Providers`, `ObsAi.ObsIntegration`, `ObsAi.Host` (6, em `src/`)
+- Projeto de teste criado: `ObsAi.Architecture.Tests` (em `tests/Architecture/`) — testes ARCHITECTURE + UNIT de convenções auxiliares
+- Solução: 7 projetos registrados em `OBS-AI-Live-Assistant.slnx`
+- `.NET`: 10.0.401 (SDK fixado em `global.json`); packages de teste centralizados em `Directory.Packages.props` (CPM)
+- Restore/Build/Test/Format: PASSED (build 0 avisos / 0 erros; testes 15/15)
+- Architecture Gate: PASSED (projetos, solution, referências permitidas, referências proibidas com falha em teste, direção de dependências, boundaries)
+- Security Gate: PASSED; Secrets: **NONE**
+- Code Review: APROVADO; Critical 0, High 0, Medium 0, Low 0
+- Acceptance Criteria: PASSED
+- Definition of Done: PASSED
+- Prompt arquivado: `docs/prompts/history/prompt18.md`
+- Merge em `develop`: CONCLUÍDO

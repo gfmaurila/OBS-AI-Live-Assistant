@@ -1,2 +1,14 @@
 <Solution>
+  <Folder Name="/src/">
+    <Project Path="src/ObsAi.Application/ObsAi.Application.csproj" />
+    <Project Path="src/ObsAi.Domain/ObsAi.Domain.csproj" />
+    <Project Path="src/ObsAi.Host/ObsAi.Host.csproj" />
+    <Project Path="src/ObsAi.Infrastructure/ObsAi.Infrastructure.csproj" />
+    <Project Path="src/ObsAi.ObsIntegration/ObsAi.ObsIntegration.csproj" />
+    <Project Path="src/ObsAi.Providers/ObsAi.Providers.csproj" />
+  </Folder>
+  <Folder Name="/tests/" />
+  <Folder Name="/tests/Architecture/">
+    <Project Path="tests/Architecture/ObsAi.Architecture.Tests/ObsAi.Architecture.Tests.csproj" />
+  </Folder>
 </Solution>

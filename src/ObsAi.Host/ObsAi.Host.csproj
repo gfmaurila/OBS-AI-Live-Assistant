@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>ObsAi.Host</RootNamespace>
+    <AssemblyName>ObsAi.Host</AssemblyName>
+    <Description>Processo Assistant Core: composition root, startup/shutdown, health e configuração runtime.</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ObsAi.Application\ObsAi.Application.csproj" />
+    <ProjectReference Include="..\ObsAi.Infrastructure\ObsAi.Infrastructure.csproj" />
+    <ProjectReference Include="..\ObsAi.Providers\ObsAi.Providers.csproj" />
+    <ProjectReference Include="..\ObsAi.ObsIntegration\ObsAi.ObsIntegration.csproj" />
+  </ItemGroup>
+
+</Project>

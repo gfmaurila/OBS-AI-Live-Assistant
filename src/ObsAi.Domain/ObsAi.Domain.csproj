@@ -1,0 +1,9 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <RootNamespace>ObsAi.Domain</RootNamespace>
+    <AssemblyName>ObsAi.Domain</AssemblyName>
+    <Description>Políticas, estados e valores normalizados do domínio (sessão, LiveContext, perfil e contextos) sem dependências externas.</Description>
+  </PropertyGroup>
+
+</Project>

@@ -84,4 +84,4 @@ Build Gate; OBS Compatibility Gate; Security Gate; Acceptance Gate; Documentatio
 
 ## Status
 
-BACKLOG
+READY

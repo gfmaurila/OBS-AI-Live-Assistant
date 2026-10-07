@@ -46,7 +46,7 @@ Do not create product source code before the explicit implementation approval ga
 
 ## Commands
 
-Commands executados com sucesso na solução `OBS-AI-Live-Assistant.slnx` (.NET 10, SDK fixado em `global.json`). A solução ainda está vazia: projetos, testes e referências entram nas Tasks subsequentes (`TASK-002`, `TASK-004`). Nenhuma versão de compilação, unit test ou validação de teste executável existe antes dessas Tasks.
+Commands executados com sucesso na solução `OBS-AI-Live-Assistant.slnx` (.NET 10, SDK fixado em `global.json`). A solução contém os projetos `ObsAi.Domain`, `ObsAi.Application`, `ObsAi.Infrastructure`, `ObsAi.Providers`, `ObsAi.ObsIntegration`, `ObsAi.Host` (criados em `TASK-002`) e o projeto de testes `ObsAi.Architecture.Tests`. `dotnet test --no-build` executa os testes determinísticos de arquitetura e de convenções auxiliares (15 testes no momento).
 
 ```text
 Restore: dotnet restore
@@ -68,14 +68,14 @@ Do not invent commands. Update this section when the corresponding project files
 agent_docs/          Detailed project rules loaded when relevant
 docs/                Canonical project documentation and prompt history
 tasks/               Task lifecycle directories and dependency graph
-src/                 Source projects placeholders (projects in TASK-002)
-tests/               Test projects placeholders (projects in TASK-004)
+src/                 ObsAi.* projects (Domain, Application, Infrastructure, Providers, ObsIntegration, Host)
+tests/               Test projects (ObsAi.Architecture.Tests; rest em TASK-004)
 AGENTS.md             Multi-tool source of truth
 CLAUDE.md             Thin Claude Code wrapper
 PROJECT_SKILLS.md     Installed skill registry
 ```
 
-Solution and build configuration files (`OBS-AI-Live-Assistant.slnx`, `global.json`, `Directory.Build.props`, `Directory.Packages.props`, `.editorconfig`) exist as the foundation. Product code, functional tests, packaging, and installer directories remain intentionally absent until their approved tasks complete.
+Solution and build configuration files (`OBS-AI-Live-Assistant.slnx`, `global.json`, `Directory.Build.props`, `Directory.Packages.props`, `.editorconfig`) exist as the foundation. Product source code is scaffolded (empty `ObsAi.*` projects with minimal references) and the deterministic architecture/unit test project exists; functional product code, integration tests, packaging, and installer directories remain intentionally absent until their approved tasks complete.
 
 ## Workflow Rules
 
