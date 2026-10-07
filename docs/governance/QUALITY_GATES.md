@@ -37,11 +37,16 @@ Aplica-se a `release/1.0.0XXXX -> main`. Exige Final Quality Gate, PR aprovado, 
 
 A partir de `TASK-001` (fundação da solution), os gates abaixo possuem comandos determinísticos e são aplicáveis à solução: **Build**, **Format validation** (`dotnet restore`, `dotnet build --no-restore`, `dotnet format --verify-no-changes --no-restore` — registrados em `AGENTS.md`).
 
-A partir de `TASK-002`, os gates **Architecture Validation** e **Unit Tests** (convenções auxiliares) são aplicáveis via `dotnet test --no-build` no projeto `tests/Architecture/ObsAi.Architecture.Tests` (15 testes determinísticos: 9 de arquitetura + 6 de convenções). Qualquer `ProjectReference` ou `PackageReference` fora das regras autorizadas pelo grafo falha nesses testes e bloqueia o merge.
+A partir de `TASK-002`, os gates **Architecture Validation** e **Unit Tests** (convenções auxiliares) são aplicáveis via `dotnet test --no-build` no projeto `tests/Architecture/ObsAi.Architecture.Tests`. Qualquer `ProjectReference` ou `PackageReference` fora das regras autorizadas pelo grafo falha nesses testes e bloqueia o merge.
 
-Nenhuma categoria de teste executável (Integration, Installer, OBS Compatibility, Regression) existe antes das Tasks correspondentes (`TASK-004` e posteriores); esses gates permanecem **NOT APPLICABLE UNTIL IMPLEMENTATION** e não podem ser marcados como PASSED sem comandos e artefatos reais:
+A `TASK-004` estabeleceu a **Arquitetura de Testes e Quality Gates** (`docs/testing/TEST_ARCHITECTURE.md`), os scaffolds das categorias `Unit`, `Integration`, `Contracts`, `Security`, `FailureIsolation` e `Installer` sob `tests/`, o runner determinístico `tooling/quality-gates.ps1` e os **TestingFoundationTests** (que validam a arquitetura de testes no mesmo `ObsAi.Architecture.Tests`).
 
-- Integration Tests
-- Installer Tests
-- OBS Compatibility Tests
-- Regression Tests
+Categorias sem suite executável permanecem **NOT APPLICABLE UNTIL IMPLEMENTATION** e não podem ser marcadas como PASSED sem comandos e artefatos reais:
+
+- **Unit Tests** — âncora do scaffold `EXECUTED`; comportamento de produto `NOT EXECUTED` (aplicável TASK-005+)
+- **Integration Tests** — âncora do scaffold `EXECUTED`; comportamento de produto `NOT EXECUTED` (aplicável TASK-007+)
+- **Installer Tests** — âncora do scaffold `EXECUTED`; comportamento de produto `NOT EXECUTED` (aplicável TASK-046+)
+- **OBS Compatibility Tests** — `PARTIAL` (smoke TASK-003); formal `NOT CREATED` (TASK-051)
+- **Regression Tests** — `NOT CREATED` (TASK-049/TASK-050)
+
+Contagem de testes determinísticos no `ObsAi.Architecture.Tests`: TASK-002 (9 de arquitetura + 6 de convenções), TASK-003 (+9 de compatibilidade), TASK-004 (+13 de fundação de testes + 6 âncoras dos scaffolds). Valores exatos são registrados no relatório da Task.
