@@ -1,27 +1,27 @@
 # Estrutura física planejada
 
-Status: **APPROVED FOR PLANNING / NOT CREATED**. Esta estrutura orienta backlog e Tasks; não autoriza criar diretórios de produto antes do Client Approval Gate.
+Status: **FOUNDATION CREATED / INTERNAL DIRECTORIES PENDING**. A `TASK-001` criou a solution, as convenções comuns (`global.json`, `Directory.Build.props`, `Directory.Packages.props`, `.editorconfig`) e os diretórios raiz `src/` e `tests/`. Os diretórios internos abaixo permanecem `PLANNED / NOT CREATED` até as Tasks correspondentes (`TASK-002` para projetos, `TASK-004` para a arquitetura de testes). Esta estrutura orienta backlog e Tasks; não autoriza criar diretórios de produto antes do Client Approval Gate.
 
 ```text
 OBS-AI-Live-Assistant/
-├── src/                               # PLANNED / NOT CREATED
-│   ├── ObsAi.Domain/                  # políticas e modelos sem dependências externas
-│   ├── ObsAi.Application/             # casos de uso, ports e pipeline
-│   ├── ObsAi.Infrastructure/          # SQLite, secret store, logging e OS adapters
-│   ├── ObsAi.Providers/               # adapters Chat, AI e TTS
-│   ├── ObsAi.ObsIntegration/          # obs-websocket adapter e boundary do bridge
-│   ├── ObsAi.Host/                    # processo Assistant Core e composition root
+├── src/                               # CREATED (raiz); subprojetos PLANNED / NOT CREATED
+│   ├── ObsAi.Domain/                  # PLANNED / NOT CREATED (TASK-002)
+│   ├── ObsAi.Application/             # PLANNED / NOT CREATED (TASK-002)
+│   ├── ObsAi.Infrastructure/          # PLANNED / NOT CREATED (TASK-002)
+│   ├── ObsAi.Providers/               # PLANNED / NOT CREATED (TASK-002)
+│   ├── ObsAi.ObsIntegration/          # PLANNED / NOT CREATED (TASK-002)
+│   ├── ObsAi.Host/                    # PLANNED / NOT CREATED (TASK-002)
 │   └── native/
-│       └── ObsAi.ObsPlugin/           # C++ mínimo: Dock, lifecycle, IPC e áudio validado
-├── tests/                             # PLANNED / NOT CREATED
-│   ├── Unit/
-│   ├── Integration/
-│   ├── Architecture/
-│   ├── Contracts/
-│   ├── Security/
-│   ├── FailureIsolation/
-│   ├── ObsCompatibility/
-│   └── Installer/
+│       └── ObsAi.ObsPlugin/           # PLANNED / NOT CREATED (TASK-024)
+├── tests/                             # CREATED (raiz); subprojetos PLANNED / NOT CREATED
+│   ├── Unit/                          # PLANNED / NOT CREATED (TASK-004)
+│   ├── Integration/                   # PLANNED / NOT CREATED (TASK-004)
+│   ├── Architecture/                  # PLANNED / NOT CREATED (TASK-004)
+│   ├── Contracts/                     # PLANNED / NOT CREATED (TASK-004)
+│   ├── Security/                      # PLANNED / NOT CREATED (TASK-004)
+│   ├── FailureIsolation/              # PLANNED / NOT CREATED (TASK-004)
+│   ├── ObsCompatibility/              # PLANNED / NOT CREATED (TASK-004)
+│   └── Installer/                     # PLANNED / NOT CREATED (TASK-004)
 ├── installer/                         # PLANNED / NOT CREATED
 ├── tooling/                           # PLANNED / NOT CREATED
 ├── docs/                              # documentação canônica existente
@@ -66,4 +66,4 @@ ObsAi.ObsPlugin <-> contrato IPC versionado <-> ObsAi.ObsIntegration
 
 ## Regras de criação
 
-Os nomes podem ser refinados na Execution Plan se o refinamento preservar boundaries e ADRs. Nenhuma pasta acima, solution, projeto C#/C++, banco, migration, installer ou teste executável foi criada nesta Task.
+Os nomes podem ser refinados na Execution Plan se o refinamento preservar boundaries e ADRs. Nesta Task foram criados apenas a solution `OBS-AI-Live-Assistant.slnx`, as convenções comuns e as raízes `src/` e `tests/`; nenhum projeto C#/C++, banco, migration, installer ou teste executável foi criado.

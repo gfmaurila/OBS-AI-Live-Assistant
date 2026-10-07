@@ -208,4 +208,4 @@ flowchart LR
 | TASK-051 | TASK-003, TASK-044, TASK-050 | TASK-052 |
 | TASK-052 | TASK-048, TASK-050, TASK-051 | Nenhuma |
 
-Somente TASK-001 não possui dependências e satisfaz a Definition of Ready nesta baseline.
+Nesta baseline, `TASK-001` possui zero dependências e está `DONE`; `TASK-002` é a única nova Task que passou a satisfazer a Definition of Ready.

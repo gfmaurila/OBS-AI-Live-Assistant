@@ -46,13 +46,13 @@ Do not create product source code before the explicit implementation approval ga
 
 ## Commands
 
-No product solution or deterministic validation commands exist yet.
+Commands executados com sucesso na solução `OBS-AI-Live-Assistant.slnx` (.NET 10, SDK fixado em `global.json`). A solução ainda está vazia: projetos, testes e referências entram nas Tasks subsequentes (`TASK-002`, `TASK-004`). Nenhuma versão de compilação, unit test ou validação de teste executável existe antes dessas Tasks.
 
 ```text
-Restore: PENDING_SOLUTION_BOOTSTRAP
-Build: PENDING_SOLUTION_BOOTSTRAP
-Test: PENDING_SOLUTION_BOOTSTRAP
-Lint / format validation: PENDING_TOOLING_DECISION
+Restore: dotnet restore
+Build: dotnet build --no-restore
+Test: dotnet test --no-build
+Lint / format validation: dotnet format --verify-no-changes --no-restore
 Native build: PENDING_OBS_ARCHITECTURE_AND_TOOLCHAIN_DESIGN
 ```
 
@@ -68,12 +68,14 @@ Do not invent commands. Update this section when the corresponding project files
 agent_docs/          Detailed project rules loaded when relevant
 docs/                Canonical project documentation and prompt history
 tasks/               Task lifecycle directories and dependency graph
+src/                 Source projects placeholders (projects in TASK-002)
+tests/               Test projects placeholders (projects in TASK-004)
 AGENTS.md             Multi-tool source of truth
 CLAUDE.md             Thin Claude Code wrapper
 PROJECT_SKILLS.md     Installed skill registry
 ```
 
-Product source, tests, packaging, and installer directories are intentionally absent until planning and approval are complete.
+Solution and build configuration files (`OBS-AI-Live-Assistant.slnx`, `global.json`, `Directory.Build.props`, `Directory.Packages.props`, `.editorconfig`) exist as the foundation. Product code, functional tests, packaging, and installer directories remain intentionally absent until their approved tasks complete.
 
 ## Workflow Rules
 

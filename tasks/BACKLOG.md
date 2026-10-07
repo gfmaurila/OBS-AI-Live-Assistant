@@ -4,8 +4,8 @@ Status: **BACKLOG QUALITY GATE PASSED**. Implementation Readiness: **READY**.
 
 | ID | Epic | Título | Prioridade | Complexidade | Risco | Dependências | Status | Wave | Paralelismo |
 |---|---|---|---|---|---|---|---|---:|---|
-| TASK-001 | EPIC-01 | Criar a fundação da solution e do tooling | P0 | M | MEDIUM | — | READY | 1 | SEQUENTIAL |
-| TASK-002 | EPIC-01 | Materializar projetos e regras de dependência | P0 | M | MEDIUM | TASK-001 | BACKLOG | 1 | SEQUENTIAL |
+| TASK-001 | EPIC-01 | Criar a fundação da solution e do tooling | P0 | M | MEDIUM | — | DONE | 1 | SEQUENTIAL |
+| TASK-002 | EPIC-01 | Materializar projetos e regras de dependência | P0 | M | MEDIUM | TASK-001 | READY | 1 | SEQUENTIAL |
 | TASK-003 | EPIC-12 | Validar a estratégia de compatibilidade | P0 | L | HIGH | TASK-001, TASK-002 | BACKLOG | 1 | PARALLEL SAFE após TASK-002 |
 | TASK-004 | EPIC-13 | Estabelecer a arquitetura de testes e os quality gates | P0 | M | MEDIUM | TASK-001, TASK-002 | BACKLOG | 1 | PARALLEL SAFE após TASK-002 |
 | TASK-005 | EPIC-02 | Definir contracts e ports da aplicação | P0 | L | HIGH | TASK-002, TASK-004 | BACKLOG | 2 | SEQUENTIAL |
