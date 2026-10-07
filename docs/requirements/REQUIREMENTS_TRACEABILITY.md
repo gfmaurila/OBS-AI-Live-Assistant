@@ -35,3 +35,5 @@ As fontes canônicas sustentam os requisitos; o [histórico de prompts](../promp
 - Prompt-base da fase: [`prompt3.md`](../prompts/history/prompt3.md), usado somente como rastreabilidade histórica.
 
 Resultado da rastreabilidade: **PASSED**.
+
+Os requisitos de segurança derivados estão mapeados em [`docs/security/SECURITY_TRACEABILITY.md`](../security/SECURITY_TRACEABILITY.md). Essa extensão preserva os RF/RNF e não altera o resultado deste gate.

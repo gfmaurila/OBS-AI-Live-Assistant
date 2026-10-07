@@ -10,7 +10,7 @@ Este diretório é o ponto de entrada central da documentação do OBS-AI-Live-A
 - Conhecimento — [mapa](knowledge/PROJECT_KNOWLEDGE_MAP.md), [decisões de tratamento das fontes](knowledge/KNOWLEDGE_DECISIONS.md) e [conflitos](knowledge/KNOWLEDGE_CONFLICTS.md).
 - [Pesquisa](research/README.md) — política e backlog de Research; ainda não existem resultados de pesquisa.
 - [Requirements](requirements/README.md) — requisitos V1 concluídos, rastreados e aprovados pelo Requirements Quality Gate.
-- [Security](security/README.md) — restrições atuais e trabalho futuro de segurança.
+- [Security](security/README.md) — requisitos, Threat Model, Trust Boundaries, riscos e gate de segurança concluídos.
 - [Testing](testing/README.md) — estado dos testes e categorias futuras de validação.
 - [Reports](reports/README.md) — relatórios factuais sobre o estado do projeto.
 - [Histórico de prompts](prompts/README.md) — arquivo cronológico de prompts operacionais.

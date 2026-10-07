@@ -62,7 +62,7 @@ As necessidades e critérios observáveis foram mantidos em Requirements. Plugin
 | Critérios de aceite e prioridades | PASSED |
 | WHAT × HOW | PASSED |
 | UTF-8 e caracteres corrompidos | PASSED |
-| Prompt Traceability (`prompt3.md`) | PASSED |
+| Prompt Traceability (`prompt3.md`) | FINDING — referência histórica válida, mas não arquivada no mesmo commit da Task Requirements |
 | Code Review — CRITICAL abertos | 0 |
 | Code Review — HIGH abertos | 0 |
 | Code Review — MEDIUM abertos | 0 |
