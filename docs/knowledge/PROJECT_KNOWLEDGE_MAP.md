@@ -74,3 +74,7 @@ Este mapa relaciona as fontes disponíveis aos conceitos relevantes para o OBS-A
 ## Regra de uso
 
 Somente itens `ADOPT` e `ADAPT` podem alimentar diretamente a elaboração inicial de Requirements, sempre respeitando escopo e linguagem normativa. Itens `REQUIRES_RESEARCH`, `REQUIRES_ADR` e `REQUIRES_CLIENT_DECISION` podem aparecer como dependências, restrições ou perguntas em aberto, mas não como decisões resolvidas. Itens `FUTURE` e `OUT_OF_SCOPE` ficam fora da V1.
+
+## Atualização de Research — 2026-10-06
+
+A evidência técnica externa foi consolidada em [`docs/research/RESEARCH_MATRIX.md`](../research/RESEARCH_MATRIX.md). Classificações `REQUIRES_RESEARCH` acima passam a ter evidência para Architecture, mas permanecem `REQUIRES_ADR` ou `REQUIRES_CLIENT_DECISION` quando a escolha final ainda não foi autorizada.

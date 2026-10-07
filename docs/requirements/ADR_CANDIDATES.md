@@ -16,3 +16,20 @@ Este registro identifica decisões futuras sem escolher alternativa. Cada candid
 | ADR-010 | Estratégia de compatibilidade OBS | Qual versão/faixa 32.x é suportada e como detectar, testar e evoluir compatibilidade? | RF-032; RNF-019, RNF-024 | RES-001, RES-002, RES-022 | REQUIRES_RESEARCH / REQUIRES_CLIENT_DECISION |
 
 Nenhum candidato acima constitui ADR final, escolha tecnológica ou aprovação de implementação.
+
+## Inputs produzidos pela pesquisa técnica
+
+| ADR | Evidência | Opções | Recomendação para decisão futura | Trade-offs / impacto de segurança | Confidence |
+|---|---|---|---|---|---|
+| ADR-001 | RES-001/004/007/008 | Native, WebSocket, Hybrid | Hybrid com plugin mínimo e Core externo | Mais componentes; reduz crash surface e autoridade in-process | HIGH |
+| ADR-002 | RES-009/010 | Named Pipes, gRPC, sockets, shared memory, COM | Named Pipes com DACL e protocolo versionado | Protocolo próprio; forte suporte Windows C++/.NET | HIGH |
+| ADR-003 | RES-008/010 | Same process, separate process | Core separado; lifecycle supervisionado | IPC adicional em troca de contenção de falha | HIGH |
+| ADR-004 | RES-011/014/015/017/024 | Ports específicos ou abstração extensível | Ports normalizados com capabilities opcionais | Evita vendor lock-in; exige normalização cuidadosa | MEDIUM |
+| ADR-005 | RES-012/013/021 | Credential Manager, DPAPI, combinação | Credential Manager para secrets discretos; DPAPI user-scope para blobs | Backup/uninstall precisam política; sem plaintext | HIGH |
+| ADR-006 | RES-005/006/017 | Source nativa, captura de app, virtual device | Prototipar captura de app e source nativa; evitar driver default | UX versus superfície in-process | MEDIUM |
+| ADR-007 | RES-002/003/018..022/026 | WiX/Burn, Inno, MSIX/híbrido | Installer tradicional assinado e version-aware; tecnologia após spike | Elevação, rollback e signing são release gates | MEDIUM |
+| ADR-008 | RES-004/025 | Dock fino + UI/Core | Dock apenas de apresentação/controle; diagnóstico redacted | Preserva responsividade e minimiza dados no OBS | HIGH |
+| ADR-009 | RES-011/023/024 | Sessão, histórico e memória persistente | Baseline temporária; persistência só após client decision | Minimização reduz privacidade/corrupção | HIGH |
+| ADR-010 | RES-001..003/022 | Versão exata ou faixa testada | Versão mínima + matriz explícita e detecção fail-safe | Mais testes; evita promessa ABI inválida | HIGH |
+
+As recomendações são **Research Evidence**, não decisões. Status dos candidatos permanece pendente até Architecture/ADR autorizada.

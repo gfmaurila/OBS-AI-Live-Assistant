@@ -1,34 +1,43 @@
-# Backlog de Research
+# Backlog consolidado de Research
 
-Este backlog identifica pesquisas necessárias; nenhuma delas foi executada nesta Task. A prioridade e o momento de execução devem ser definidos após Requirements, de acordo com os riscos e decisões que realmente permanecerem relevantes.
+Inventário único derivado de `RESEARCH_DEPENDENCIES.md`, `SECURITY_RESEARCH_DEPENDENCIES.md`, Open Questions e candidatos a ADR. Duplicações conceituais foram consolidadas sem perder os IDs de origem.
 
-| ID | Tema | Pergunta de pesquisa | Evidência esperada | Alimenta |
-|---|---|---|---|---|
-| RES-001 | OBS Studio 32.x Plugin SDK | Quais APIs, ABI, headers, bibliotecas e toolchain são oficialmente suportados para plugins x64? | Fontes oficiais, versões, restrições de build e protótipo controlado quando autorizado. | ADR de integração nativa; compatibilidade |
-| RES-002 | Headers, libs e build nativo | Como obter, versionar e compilar dependências do OBS sem acoplar o produto ao source tree do OBS? | Procedimento reproduzível e matriz de versões. | Architecture; build; installer |
-| RES-003 | Caminhos oficiais de instalação de plugins | Quais diretórios e regras oficiais se aplicam a binários, data files e dados do usuário? | Caminhos suportados, permissões e comportamento por instalação. | Installer; upgrade; uninstall |
-| RES-004 | OBS Dock | Quais opções oficiais existem para Dock, UI embutida e ciclo de vida? | Capacidades, limitações, thread model e compatibilidade. | Requirements; ADR de UI/integração |
-| RES-005 | Native audio | Quais APIs permitem produzir, monitorar ou encaminhar áudio TTS no OBS com segurança? | Opções oficiais, formatos, latência, threading e failure modes. | ADR de áudio |
-| RES-006 | OBS Source e dispositivo virtual | Quando usar source do OBS, monitoramento ou virtual audio device para TTS? | Comparação de UX, configuração, portabilidade e riscos. | Requirements; ADR de áudio |
-| RES-007 | OBS WebSocket | Quais comandos, eventos, autenticação e garantias existem no OBS 32.x? | Matriz de capacidades e limites. | Divisão de responsabilidades; ADR |
-| RES-008 | Divisão de responsabilidades | O que precisa residir em plugin nativo, Assistant Core e UI/Dock? | Opções comparadas por estabilidade, segurança e manutenção. | Architecture; ADR |
-| RES-009 | C++ ↔ .NET IPC | Qual transporte e protocolo atendem autenticação local, versionamento, timeout, cancellation e reconexão? | Comparação com threat model e failure tests propostos. | ADR de IPC |
-| RES-010 | Process isolation | Como conter crashes, hangs e backpressure sem bloquear threads do OBS? | Modelo de processos, watchdog/restart e degradação segura. | Requirements não funcionais; Architecture |
-| RES-011 | SQLite lifecycle | Qual biblioteca e estratégia cobrem schema, migrations, concorrência, backup, integridade e recuperação? | Comparação técnica e plano de ciclo de vida. | ADR de persistência |
-| RES-012 | Windows Credential Manager | Quais limites, APIs, escopo de usuário e comportamento de instalação/upgrade oferece? | Evidência oficial e threat model. | ADR de secrets |
-| RES-013 | DPAPI | Quando DPAPI deve ser usada diretamente, combinada a outro store ou evitada? | Escopos, portabilidade, recuperação e riscos. | ADR de secrets |
-| RES-014 | YouTube Live Chat API | Quais APIs, OAuth scopes, quotas, polling/stream, revogação e políticas se aplicam? | Fluxos oficiais, limites e failure modes. | Requirements de chat; ADR do adapter |
-| RES-015 | AI provider abstraction | Quais capacidades mínimas comuns suportam streaming, modelos, token usage, erros, BYOK e cancellation? | Matriz de providers baseada em requisitos. | Contrato de port; ADR |
-| RES-016 | Local AI viability | IA local atende hardware alvo, qualidade, latência, distribuição, licenças e suporte? | Benchmark e matriz de hardware futuros. | Client Decision; ADR de provider |
-| RES-017 | TTS abstraction | Quais capacidades mínimas comuns cobrem vozes, streaming, formatos, cancelamento e erros? | Matriz de Windows TTS, Azure Speech, ElevenLabs e opções aprovadas. | Requirements; ADR do adapter |
-| RES-018 | Installer | Qual tecnologia Windows instala aplicativo e integração OBS com permissões, assinatura e rollback adequados? | Comparação de tecnologias e protótipo futuro. | ADR de instalação |
-| RES-019 | Upgrade | Como atualizar app, plugin, schema e configuração de forma compatível e recuperável? | Política de versionamento, rollback e migrations. | Requirements; ADR de instalação/dados |
-| RES-020 | Repair | Como reparar binários e configuração sem apagar dados ou credenciais válidas? | Matriz de componentes reparáveis e testes propostos. | Requirements de lifecycle |
-| RES-021 | Uninstall | O que deve ser removido ou preservado, inclusive plugin, logs, dados e secrets? | Política explícita e opções ao usuário. | Requirements de lifecycle |
-| RES-022 | OBS compatibility strategy | O suporte será por versão exata ou faixa 32.x, e como a compatibilidade será detectada e testada? | Matriz de versões, política de suporte e regressão. | Client Decision; Testing; release gate |
-| RES-023 | Persistent memory e retenção | Se aprovada, como memória persistente atenderá finalidade, consentimento, exportação e exclusão? | Opções de produto e segurança após decisão do cliente. | Requirements; Security; ADR de dados |
-| RES-024 | Provider privacy and terms | Quais políticas de retenção, treinamento, região e uso se aplicam aos providers escolhidos? | Comparação vigente no momento da seleção. | Security Requirements; seleção de provider |
+| ID | Título | Pergunta | Origem e rastreabilidade | Prioridade | Blocking? | Fontes necessárias | Status |
+|---|---|---|---|---|---|---|---|
+| RES-001 | SDK de plugin OBS 32.x | Quais APIs, ABI e toolchain suportam plugin x64? | RDEP-001; ADR-001/010; RF-001/032 | MUST | Sim | OBS oficial | RESOLVED |
+| RES-002 | Build nativo | Como obter e compilar dependências sem acoplar ao source tree? | RDEP-002; ADR-007/010 | MUST | Sim | OBS template/repo | RESOLVED |
+| RES-003 | Instalação de plugin | Quais layouts e permissões são suportados? | RDEP-003; ADR-007 | MUST | Sim | OBS KB | RESOLVED |
+| RES-004 | OBS Dock | Qual API e lifecycle de UI embutida são suportados? | RDEP-004; OQ-002; ADR-001/008 | MUST | Sim | OBS Frontend API | RESOLVED |
+| RES-005 | Áudio nativo | Como entregar áudio TTS com controle do OBS? | RDEP-005; OQ-003; ADR-006 | MUST | Sim | libobs/OBS KB | PARTIALLY_RESOLVED |
+| RES-006 | Source versus captura/dispositivo | Qual alternativa oferece melhor UX e isolamento? | RDEP-006; ADR-006 | MUST | Sim | OBS KB; protótipo futuro | PARTIALLY_RESOLVED |
+| RES-007 | OBS WebSocket | Quais requests, events, autenticação e limites existem? | RDEP-007; OQ-001; ADR-001 | MUST | Sim | protocolo oficial | RESOLVED |
+| RES-008 | Divisão de responsabilidades | O que deve ficar dentro e fora do OBS? | RDEP-008; ADR-001/003 | MUST | Sim | síntese RES-001/004/007 | RESOLVED |
+| RES-009 | IPC C++ ↔ .NET | Qual transporte atende segurança, versionamento e falha? | RDEP-009; SRES-008; ADR-002 | MUST | Sim | Microsoft/gRPC | RESOLVED |
+| RES-010 | Isolamento de processo | Como conter crash, hang e recursos do Assistant Core? | RDEP-010; ADR-002/003 | MUST | Sim | Microsoft Win32 | RESOLVED |
+| RES-011 | SQLite lifecycle | Como tratar concorrência, backup, integridade e migração? | RDEP-011; SRES-006; ADR-004/009 | MUST | Sim | SQLite oficial | RESOLVED |
+| RES-012 | Windows Credential Manager | É adequado para credenciais BYOK discretas? | RDEP-012; SRES-001/003; ADR-005 | MUST | Sim | Microsoft Win32 | RESOLVED |
+| RES-013 | DPAPI | Quando usar DPAPI diretamente? | RDEP-013; SRES-001/003; ADR-005 | MUST | Sim | Microsoft Win32 | RESOLVED |
+| RES-014 | YouTube Live Chat | Quais APIs, OAuth, quotas, erros e políticas se aplicam? | RDEP-014; SRES-002; OQ-012; ADR-004 | MUST | Sim | Google/YouTube | RESOLVED |
+| RES-015 | Abstração de IA | Qual contrato mínimo comum aos providers? | RDEP-015; ADR-004 | MUST | Não | providers oficiais | PARTIALLY_RESOLVED |
+| RES-016 | IA local | Ollama deve integrar o V1? | RDEP-016; OQ-006; ADR-004 | COULD | Não | Ollama; benchmark futuro | CLIENT_DECISION |
+| RES-017 | Abstração TTS | Qual contrato mínimo comum a TTS local/cloud? | RDEP-017; ADR-004/006 | MUST | Não | Microsoft/ElevenLabs | PARTIALLY_RESOLVED |
+| RES-018 | Installer | Qual tecnologia cobre app e plugin com rollback? | RDEP-018; SRES-007; OQ-008; ADR-007 | MUST | Sim | Microsoft/WiX/Inno | PARTIALLY_RESOLVED |
+| RES-019 | Upgrade | Como atualizar com integridade e compatibilidade? | RDEP-019; SRES-009; ADR-007 | MUST | Sim | Microsoft/installer | RESOLVED |
+| RES-020 | Repair | Como reparar sem apagar dados ou secrets válidos? | RDEP-020; ADR-007 | MUST | Não | installer oficial | RESOLVED |
+| RES-021 | Uninstall | Quais dados e credenciais remover ou preservar? | RDEP-021; ADR-005/007 | MUST | Não | Requirements + política | CLIENT_DECISION |
+| RES-022 | Faixa de compatibilidade OBS | Suportar versão exata ou toda 32.x? | RDEP-022; OQ-013; ADR-010 | MUST | Não | OBS releases/KB | CLIENT_DECISION |
+| RES-023 | Memória e retenção | Memória persistente será habilitada e sob qual política? | RDEP-023; SRES-010; ADR-009 | SHOULD | Não | política do produto | CLIENT_DECISION |
+| RES-024 | Privacidade dos providers | Quais termos aplicar aos providers selecionados? | RDEP-024; SRES-011; ADR-004/009 | MUST | Não | termos vigentes | PARTIALLY_RESOLVED |
+| RES-025 | Observabilidade e redaction | Como produzir diagnóstico local sem expor dados? | SRES-005; SEC-020..023; ADR-008 | MUST | Sim | Microsoft .NET | RESOLVED |
+| RES-026 | Supply chain e assinatura | Como verificar dependências, binários, installer e updates? | SRES-007/009/012; SEC-031..034; ADR-007 | MUST | Sim | Microsoft; fornecedores | RESOLVED |
+| RES-027 | Compatibilidade .NET 10 / Windows | Quais edições Windows alvo são oficialmente suportadas pelo runtime? | CON-001/002; RNF-019/020; ADR-007/010 | MUST | Não | Microsoft .NET | CLIENT_DECISION |
 
-## Fora deste backlog atual
+## Resultado
 
-RAG, Graph RAG, runtime multi-agent, cloud infrastructure, microsserviços, Twitch e outros providers futuros não justificam pesquisa na V1 sem mudança aprovada de escopo.
+- RESOLVED: 16
+- PARTIALLY_RESOLVED: 6
+- CLIENT_DECISION: 5
+- BLOCKED: 0
+- Total: 27
+
+`PARTIALLY_RESOLVED` indica evidência suficiente para Architecture, mas escolha final dependente de ADR, provider ou protótipo. Não há pesquisa bloqueada.

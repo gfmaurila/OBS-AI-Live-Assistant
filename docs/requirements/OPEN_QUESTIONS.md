@@ -21,3 +21,19 @@ Nenhuma pergunta abaixo bloqueia o fechamento de Requirements. Algumas bloqueiam
 | OQ-015 | Quais requisitos de acessibilidade adicionais se aplicam à UI além de operação por teclado e comunicação textual de estado? | PRODUCT DECISION | NON-BLOCKING | UI Design | Refinamento de UX |
 
 **Blocking Questions de Requirements:** 0.
+
+## Atualização após Technical Research — 2026-10-06
+
+| Pergunta | Resultado da pesquisa | Pendência remanescente |
+|---|---|---|
+| OQ-001 | RESOLVED: Hybrid, plugin mínimo + WebSocket/Core externo, é a recomendação evidenciada. | ADR-001 |
+| OQ-002 | RESOLVED: Frontend Dock API é o caminho oficial para UI embutida. | ADR-001/008 |
+| OQ-003 | PARTIALLY_RESOLVED: três alternativas comparadas. | ADR-006 + protótipo |
+| OQ-004 | RESOLVED: Credential Manager recomendado; DPAPI user-scope complementar. | ADR-005 |
+| OQ-006 | Pesquisa concluída: IA local é OPTIONAL/FUTURE. | CLIENT_DECISION |
+| OQ-009 | Evidência de compatibilidade e mudança de layout registrada. | CLIENT_DECISION sobre faixa |
+| OQ-010 | Controles necessários confirmados; valores não foram inventados. | PRODUCT DECISION/testes |
+| OQ-011 | PARTIALLY_RESOLVED: finalistas e controles comparados. | ADR-007 + protótipo |
+| OQ-013 | RESOLVED: OAuth desktop, browser do sistema, loopback e PKCE; escopo mínimo. | ADR do adapter |
+
+As demais perguntas continuam como decisões de produto/cliente. Nenhuma é bloqueante para Architecture baseline.

@@ -33,3 +33,7 @@ Os critérios completos estão em [SECURITY_REQUIREMENTS.md](SECURITY_REQUIREMEN
 - Trust Boundaries: **8 de 8**.
 
 Resultado: **PASSED**.
+
+## Extensão Technical Research — 2026-10-06
+
+As 12 dependências `SRES-*` foram preservadas e mapeadas aos `RES-*`, incluindo redaction/observabilidade e supply chain. Evidência, assets, requirements, ameaças, riscos, ADR e impacto arquitetural estão consolidados em [`RESEARCH_MATRIX.md`](../research/RESEARCH_MATRIX.md). Resultado: **PASSED**.
