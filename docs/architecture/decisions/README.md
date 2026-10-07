@@ -11,9 +11,9 @@
 | [ADR-007](ADR-007-installer-update.md) | Installer e update | PROPOSED |
 | [ADR-008](ADR-008-configuration-ui-observability.md) | Configuração, UI e observabilidade | ACCEPTED |
 | [ADR-009](ADR-009-memory-retention.md) | Memória, histórico e retenção | DEFERRED |
-| [ADR-010](ADR-010-compatibility-strategy.md) | Estratégia de compatibilidade | PROPOSED |
+| [ADR-010](ADR-010-compatibility-strategy.md) | Estratégia de compatibilidade | ACCEPTED |
 | [ADR-011](ADR-011-architecture-style.md) | Estilo arquitetural | ACCEPTED |
 
-Totais: 11 ADRs; 7 `ACCEPTED`; 3 `PROPOSED`; 1 `DEFERRED`; 0 `REJECTED`.
+Totais: 11 ADRs; 8 `ACCEPTED`; 2 `PROPOSED`; 1 `DEFERRED`; 0 `REJECTED`.
 
-`PROPOSED` indica direção suficiente para planejamento, condicionada a validação declarada. `DEFERRED` mantém a capacidade desabilitada e fora da baseline V1. Nenhum ADR autoriza implementação.
+`PROPOSED` indica direção suficiente para planejamento, condicionada a validação declarada. `DEFERRED` mantém a capacidade desabilitada e fora da baseline V1. Nenhum ADR autoriza implementação. ADR-010 passou para `ACCEPTED` após a validação da TASK-003 (protótipo e matriz de compatibilidade).

@@ -84,4 +84,15 @@ Build Gate; OBS Compatibility Gate; Security Gate; Acceptance Gate; Documentatio
 
 ## Status
 
-READY
+DONE (2026-10-07)
+
+## Execução (registro)
+
+- Branch: `feature/task-TASK-003-validar-compatibilidade` a partir de `develop` (`d41acd7`).
+- Protótipo read-only `prototypes/compat-sniff` criado e executado: SO `supported`, .NET `supported`, OBS `supported`, veredito `supported`, exit 0. Fatores no ambiente declarado: Windows 11 25H2 x64 (build 26200), .NET runtime 10.0.12, OBS 32.1.2 (`bin\64bit\obs64.exe`) com `obs-websocket.dll` presente.
+- Matriz de compatibilidade estabelecida: `docs/architecture/compatibility/COMPATIBILITY_MATRIX.md` (baseline V1, versão mínima OBS 32.1.x com mínimo testado 32.1.2, combinações testadas, fail-closed, políticas Windows 10/.NET 10 encaminhadas antes do release).
+- ADR-010 atualizado para **ACCEPTED** com registro de validação; sem blocker registrado e sem ampliar a promessa de suporte.
+- Controles determinísticos adicionados (`CompatibilityMatrixTests` — 9 testes) no projeto `ObsAi.Architecture.Tests` (OBS Compatibility / INTEGRATION / smoke por ambiente declarado: evidência via execução do protótipo no ambiente real).
+- Gates: build 0 avisos/0 erros; testes aprovados (9 arquitetura da Task + baseline); format verificado; Security Gate e Secret Scan sem secret/finding Critical/High; Code Review aprovado.
+- Merge em `develop` concluído e validado; branches de feature limpas.
+- Prompt Traceability: `docs/prompts/history/prompt19.md` no mesmo commit.

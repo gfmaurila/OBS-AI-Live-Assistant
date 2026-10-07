@@ -6,7 +6,7 @@ Status: **BACKLOG QUALITY GATE PASSED**. Implementation Readiness: **READY**.
 |---|---|---|---|---|---|---|---|---:|---|
 | TASK-001 | EPIC-01 | Criar a fundação da solution e do tooling | P0 | M | MEDIUM | — | DONE | 1 | SEQUENTIAL |
 | TASK-002 | EPIC-01 | Materializar projetos e regras de dependência | P0 | M | MEDIUM | TASK-001 | DONE | 1 | SEQUENTIAL |
-| TASK-003 | EPIC-12 | Validar a estratégia de compatibilidade | P0 | L | HIGH | TASK-001, TASK-002 | READY | 1 | PARALLEL SAFE após TASK-002 |
+| TASK-003 | EPIC-12 | Validar a estratégia de compatibilidade | P0 | L | HIGH | TASK-001, TASK-002 | DONE | 1 | PARALLEL SAFE após TASK-002 |
 | TASK-004 | EPIC-13 | Estabelecer a arquitetura de testes e os quality gates | P0 | M | MEDIUM | TASK-001, TASK-002 | READY | 1 | PARALLEL SAFE após TASK-002 |
 | TASK-005 | EPIC-02 | Definir contracts e ports da aplicação | P0 | L | HIGH | TASK-002, TASK-004 | BACKLOG | 2 | SEQUENTIAL |
 | TASK-006 | EPIC-02 | Implementar o modelo de domínio de sessão, perfil e contexto | P0 | L | MEDIUM | TASK-002, TASK-004 | BACKLOG | 2 | PARALLEL SAFE com TASK-005 |
@@ -57,4 +57,4 @@ Status: **BACKLOG QUALITY GATE PASSED**. Implementation Readiness: **READY**.
 | TASK-051 | EPIC-14 | Validar desempenho, recursos e matriz final | P1 | L | HIGH | TASK-003, TASK-044, TASK-050 | BACKLOG | 8 | SEQUENTIAL |
 | TASK-052 | EPIC-15 | Preparar a V1 para o Release Quality Gate | P0 | L | HIGH | TASK-048, TASK-050, TASK-051 | BACKLOG | 9 | SEQUENTIAL |
 
-Os arquivos individuais nas pastas de estado são a autoridade operacional. `TASK-001` e `TASK-002` estão `DONE`; `TASK-003` e `TASK-004` passaram a `READY` após a conclusão de `TASK-002`. Nenhuma Task de implementação foi executada por este documento.
+Os arquivos individuais nas pastas de estado são a autoridade operacional. `TASK-001`, `TASK-002` e `TASK-003` estão `DONE`; `TASK-004` está `READY` (dependências concluídas). As Tasks bloqueadas por `TASK-003` (`TASK-024`, `TASK-033`, `TASK-036`, `TASK-045`, `TASK-046`, `TASK-051`) seguem `BACKLOG`, pois dependem também de outras dependências ainda não concluídas. Nenhuma Task de implementação foi executada por este documento.

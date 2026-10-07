@@ -128,7 +128,7 @@ Esta matriz liga cada Requirement, Security Requirement, ADR e Research Item a p
 | ADR-007 | PROPOSED | TASK-003, **TASK-045 (validação)**, TASK-046 a TASK-048, TASK-050, TASK-052 |
 | ADR-008 | ACCEPTED | TASK-006, TASK-009 a TASK-012, TASK-014 a TASK-016, TASK-028, TASK-032, TASK-040 a TASK-044, TASK-050 |
 | ADR-009 | DEFERRED | TASK-006, TASK-011, TASK-019, TASK-021, TASK-043, TASK-050 |
-| ADR-010 | PROPOSED | **TASK-003 (validação)**, TASK-004, TASK-024, TASK-027, TASK-045, TASK-046, TASK-048, TASK-049, TASK-051, TASK-052 |
+| ADR-010 | ACCEPTED | **TASK-003 (validação OK)**, TASK-004, TASK-024, TASK-027, TASK-045, TASK-046, TASK-048, TASK-049, TASK-051, TASK-052 |
 | ADR-011 | ACCEPTED | TASK-001, TASK-002, TASK-005, TASK-006, TASK-015, TASK-035, TASK-049, TASK-050 |
 
 ## Research validation
@@ -169,5 +169,5 @@ Esta matriz liga cada Requirement, Security Requirement, ADR e Research Item a p
 - MUST SEC sem cobertura: **0**
 - ADR sem cobertura: **0**
 - Research sem aplicação/revalidação: **0**
-- Proposed ADR Validation Tasks: **3** (`TASK-003`, `TASK-038`, `TASK-045`)
+- Proposed ADR Validation Tasks: **2** (`TASK-038`, `TASK-045`)
 - Resultado: **PASSED**
