@@ -37,3 +37,7 @@ As fontes canônicas sustentam os requisitos; o [histórico de prompts](../promp
 Resultado da rastreabilidade: **PASSED**.
 
 Os requisitos de segurança derivados estão mapeados em [`docs/security/SECURITY_TRACEABILITY.md`](../security/SECURITY_TRACEABILITY.md). Essa extensão preserva os RF/RNF e não altera o resultado deste gate.
+
+## Extensão Technical Research — 2026-10-06
+
+Os 24 itens originais foram preservados e consolidados com duas dependências transversais de Security e a compatibilidade .NET/Windows evidenciada nesta fase, totalizando 27 `RES-*`. A ligação `Knowledge → RF/RNF → SEC → Research → ADR Candidate → Acceptance Criteria` está registrada em [`RESEARCH_MATRIX.md`](../research/RESEARCH_MATRIX.md). Resultado da extensão: **PASSED**.
