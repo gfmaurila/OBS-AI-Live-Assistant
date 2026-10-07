@@ -4,7 +4,7 @@ O Dependency Graph prevalece sobre a ordem visual. Dentro de uma Wave, Tasks mar
 
 | Wave | Objetivo | Tasks | Observações |
 |---:|---|---|---|
-| 1 | Foundation e validação inicial | TASK-001 a TASK-004 | TASK-001, TASK-002 e TASK-003 estão DONE; quality tooling (TASK-004) é a próxima READY. |
+| 1 | Foundation e validação inicial | TASK-001 a TASK-004 | TASK-001 a TASK-004 estão DONE; Wave 1 concluída. |
 | 2 | Core, contracts, configuração e security policies | TASK-005 a TASK-016 | Contracts precedem adapters; Domain pode avançar em paralelo com ports. |
 | 3 | Infrastructure local | TASK-017 a TASK-023, TASK-043 | Secrets, SQLite, observability e contrato/.NET IPC. |
 | 4 | OBS e IPC nativo | TASK-024 a TASK-029 | Código in-process mínimo; integração sequencial nos pontos de alto risco. |
@@ -23,4 +23,6 @@ O Dependency Graph prevalece sobre a ordem visual. Dentro de uma Wave, Tasks mar
 
 ## Primeira Task
 
-**TASK-001 — Criar a fundação da solution e do tooling.** Concluída em `develop` (2026-10-07). **TASK-002 — Materializar projetos e regras de dependência.** Concluída em `develop` (2026-10-07). **TASK-003 — Validar a estratégia de compatibilidade.** Concluída em `develop` (2026-10-07) (matriz de compatibilidade, protótipo `compat-sniff` e ADR-010 `ACCEPTED`). A próxima Task é **TASK-004 — Estabelecer a arquitetura de testes e os quality gates**, agora `READY`, que só começa sob nova autorização.
+**TASK-001 — Criar a fundação da solution e do tooling.** Concluída em `develop` (2026-10-07). **TASK-002 — Materializar projetos e regras de dependência.** Concluída em `develop` (2026-10-07). **TASK-003 — Validar a estratégia de compatibilidade.** Concluída em `develop` (2026-10-07) (matriz de compatibilidade, protótipo `compat-sniff` e ADR-010 `ACCEPTED`). **TASK-004 — Estabelecer a arquitetura de testes e os quality gates.** Concluída em `develop` (2026-10-07) (fundação de testes por categoria, tooling `quality-gates.ps1`, `TestingFoundationTests` e doc canônica).
+
+Com `TASK-004` DONE, as candidatas a READY (todas as dependências concluídas) são **TASK-005 — Definir contracts e ports**, **TASK-006 — Implementar o modelo de domínio** e **TASK-024 — Criar skeleton do plugin OBS**. A próxima Task segundo a ordem de implementação é **TASK-005**, que só começa sob nova autorização do cliente.

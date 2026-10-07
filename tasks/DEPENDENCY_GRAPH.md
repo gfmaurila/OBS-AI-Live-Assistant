@@ -208,4 +208,4 @@ flowchart LR
 | TASK-051 | TASK-003, TASK-044, TASK-050 | TASK-052 |
 | TASK-052 | TASK-048, TASK-050, TASK-051 | Nenhuma |
 
-Nesta baseline, `TASK-001`, `TASK-002` e `TASK-003` possuem todas as dependências `DONE` e estão `DONE`. `TASK-004` passou a satisfazer a Definition of Ready e está `READY` (dependências `TASK-001`, `TASK-002` concluídas). `TASK-024`, `TASK-033`, `TASK-036`, `TASK-045`, `TASK-046` e `TASK-051` ainda dependem de outras Tasks não concluídas e seguem em `backlog/`, apesar de `TASK-003` já estar `DONE`.
+Nesta baseline, `TASK-001` a `TASK-004` possuem todas as dependências `DONE` e estão `DONE`. Com `TASK-004` concluída, **`TASK-005`, `TASK-006` e `TASK-024`** passam a ter todas as dependências concluídas e são **candidatas a READY** (aguardam validação de DoR e autorização do cliente; não foram promovidas artificialmente pela tarefa da `TASK-004`). `TASK-019`, `TASK-033`, `TASK-036`, `TASK-045`, `TASK-046`, `TASK-048` e `TASK-051` ainda dependem de outras Tasks não concluídas e seguem em `backlog/` até que seus demais compromissos de dependência sejam cumpridos.
