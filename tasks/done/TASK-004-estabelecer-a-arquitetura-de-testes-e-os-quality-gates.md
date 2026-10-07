@@ -84,7 +84,7 @@ Build Gate; Unit Test Gate; Architecture Gate; Documentation Gate; Code Review G
 
 ## Status
 
-IMPLEMENTATION COMPLETE — PENDING MERGE.
+DONE (2026-10-07)
 
 ## Execução (registro)
 
@@ -93,6 +93,7 @@ IMPLEMENTATION COMPLETE — PENDING MERGE.
 - Tooling: `tooling/quality-gates.ps1` + `tooling/README.md` (runner determinístico dos comandos canônicos; sem instalação de ferramentas, sem secrets).
 - Doc de comandos atualizada (`docs/testing/README.md`); `PROJECT_STRUCTURE.md` e `QUALITY_GATES.md` refletem o estado real.
 - Controles determinísticos adicionados (`TestingFoundationTests` — 13 testes) no projeto `ObsAi.Architecture.Tests` validando a arquitetura de testes; as seis âncoras dos scaffolds garantem rastreabilidade da categoria na carta.
-- Gates pré-merge: restore exit 0; build 0 avisos/0 erros; testes aprovados **43/43** (24 anteriores + 13 de fundação + 6 âncoras); format da solução e do protótipo exit 0; Architecture Gate e Acceptance Gate aprovados; Security Gate e Secret Scan sem secrets nem finding Critical/High; Code Review aprovado sem findings.
-- Prompt Traceability: `docs/prompts/history/prompt20.md` preparado no mesmo commit.
-- Pendências para `DONE`: commit, push, PR, merge em `develop`, validação pós-merge, registro final do estado e cleanup da feature.
+- Gates pré-merge e pós-merge finais: restore exit 0; build 0 avisos/0 erros; testes aprovados **43/43** (24 anteriores + 13 de fundação + 6 âncoras); format da solução e do protótipo exit 0; Architecture Gate e Acceptance Gate aprovados; Security Gate e Secret Scan sem secrets nem finding Critical/High; Code Review aprovado sem findings.
+- Integração: PR [#14](https://github.com/gfmaurila/OBS-AI-Live-Assistant/pull/14) mergeado em `develop` (`078ffeed13f4f8399e5720e4ffa335b29a45e23c`). A primeira validação pós-merge detectou conversão CRLF por `core.autocrlf=true`; a correção durável `.gitattributes` (`*.cs text eol=lf`) foi validada e mergeada pelo PR [#15](https://github.com/gfmaurila/OBS-AI-Live-Assistant/pull/15) (`d5502775289289aa5ef233512c51fb5066bd03ee`). A validação pós-merge final passou integralmente em `develop`.
+- Prompt Traceability: `docs/prompts/history/prompt20.md` no commit de implementação.
+- A feature original local e remota foi removida após os merges e a validação final; nenhuma outra Task foi executada.

@@ -8,11 +8,11 @@ Este diretório transforma a documentação aprovada em backlog executável. A a
 - Security Review: **PASSED**
 - Implementation Readiness: **READY**
 - Tasks: **52**
-- Tasks DONE: **3** (`TASK-001`, `TASK-002`, `TASK-003`)
-- Tasks READY: **1** (`TASK-004`)
+- Tasks DONE: **4** (`TASK-001`, `TASK-002`, `TASK-003`, `TASK-004`)
+- Tasks READY: **0** formalizada (candidatas a READY com dependências concluídas: **`TASK-005`**, **`TASK-006`**, **`TASK-024`** — aguardam validação de DoR e autorização do cliente)
 - Dependency Cycles: **0**
 - Product Source Code: **CREATED** (scaffold `ObsAi.*`; funcionalidades de produto: NOT STARTED)
-- Implementation: **IN PROGRESS** (`TASK-001`, `TASK-002` e `TASK-003` concluídas em `develop`)
+- Implementation: **IN PROGRESS** (`TASK-001` a `TASK-004` concluídas em `develop`)
 
 ## Navegação
 
