@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <RootNamespace>ObsAi.Providers</RootNamespace>
+    <AssemblyName>ObsAi.Providers</AssemblyName>
+    <Description>Adapters de providers de chat, IA e TTS e contract mapping, encapsulando vendors e SDKs externos.</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ObsAi.Application\ObsAi.Application.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -37,11 +37,11 @@ Aplica-se a `release/1.0.0XXXX -> main`. Exige Final Quality Gate, PR aprovado, 
 
 A partir de `TASK-001` (fundação da solution), os gates abaixo possuem comandos determinísticos e são aplicáveis à solução: **Build**, **Format validation** (`dotnet restore`, `dotnet build --no-restore`, `dotnet format --verify-no-changes --no-restore` — registrados em `AGENTS.md`).
 
-Nenhuma categoria de teste executável (Unit, Integration, Architecture, Installer, OBS Compatibility, Regression) existe antes das Tasks correspondentes (`TASK-002`, `TASK-004`); esses gates permanecem **NOT APPLICABLE UNTIL IMPLEMENTATION** e não podem ser marcados como PASSED sem comandos e artefatos reais:
+A partir de `TASK-002`, os gates **Architecture Validation** e **Unit Tests** (convenções auxiliares) são aplicáveis via `dotnet test --no-build` no projeto `tests/Architecture/ObsAi.Architecture.Tests` (15 testes determinísticos: 9 de arquitetura + 6 de convenções). Qualquer `ProjectReference` ou `PackageReference` fora das regras autorizadas pelo grafo falha nesses testes e bloqueia o merge.
 
-- Unit Tests
+Nenhuma categoria de teste executável (Integration, Installer, OBS Compatibility, Regression) existe antes das Tasks correspondentes (`TASK-004` e posteriores); esses gates permanecem **NOT APPLICABLE UNTIL IMPLEMENTATION** e não podem ser marcados como PASSED sem comandos e artefatos reais:
+
 - Integration Tests
-- Architecture Validation
 - Installer Tests
 - OBS Compatibility Tests
 - Regression Tests

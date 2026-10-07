@@ -1,22 +1,23 @@
 # Estrutura física planejada
 
-Status: **FOUNDATION CREATED / INTERNAL DIRECTORIES PENDING**. A `TASK-001` criou a solution, as convenções comuns (`global.json`, `Directory.Build.props`, `Directory.Packages.props`, `.editorconfig`) e os diretórios raiz `src/` e `tests/`. Os diretórios internos abaixo permanecem `PLANNED / NOT CREATED` até as Tasks correspondentes (`TASK-002` para projetos, `TASK-004` para a arquitetura de testes). Esta estrutura orienta backlog e Tasks; não autoriza criar diretórios de produto antes do Client Approval Gate.
+Status: **PROJECTS CREATED / INTERNAL DIRECTORIES PARTIAL**. A `TASK-001` criou a solution, as convenções comuns (`global.json`, `Directory.Build.props`, `Directory.Packages.props`, `.editorconfig`) e os diretórios raiz `src/` e `tests/`. A `TASK-002` criou os seis projetos `ObsAi.*` em `src/`, as referências mínimas e o projeto determinístico `ObsAi.Architecture.Tests` em `tests/Architecture/`. Os demais agrupamentos de teste (`Unit`, `Integration`, `Contracts`, `Security`, `FailureIsolation`, `ObsCompatibility`, `Installer`) permanecem `PLANNED / NOT CREATED` até a `TASK-004`, e o plugin nativo (`native/ObsAi.ObsPlugin`) até a `TASK-024`. Esta estrutura orienta backlog e Tasks; não autoriza ampliar escopo sem nova Task.
 
 ```text
 OBS-AI-Live-Assistant/
-├── src/                               # CREATED (raiz); subprojetos PLANNED / NOT CREATED
-│   ├── ObsAi.Domain/                  # PLANNED / NOT CREATED (TASK-002)
-│   ├── ObsAi.Application/             # PLANNED / NOT CREATED (TASK-002)
-│   ├── ObsAi.Infrastructure/          # PLANNED / NOT CREATED (TASK-002)
-│   ├── ObsAi.Providers/               # PLANNED / NOT CREATED (TASK-002)
-│   ├── ObsAi.ObsIntegration/          # PLANNED / NOT CREATED (TASK-002)
-│   ├── ObsAi.Host/                    # PLANNED / NOT CREATED (TASK-002)
+├── src/                               # CREATED (TASK-001); subprojetos CREATED (TASK-002)
+│   ├── ObsAi.Domain/                  # CREATED (TASK-002) — zero dependências
+│   ├── ObsAi.Application/             # CREATED (TASK-002) — depende de Domain
+│   ├── ObsAi.Infrastructure/          # CREATED (TASK-002) — depende de Application
+│   ├── ObsAi.Providers/               # CREATED (TASK-002) — depende de Application
+│   ├── ObsAi.ObsIntegration/          # CREATED (TASK-002) — depende de Application
+│   ├── ObsAi.Host/                    # CREATED (TASK-002) — composition root
 │   └── native/
 │       └── ObsAi.ObsPlugin/           # PLANNED / NOT CREATED (TASK-024)
-├── tests/                             # CREATED (raiz); subprojetos PLANNED / NOT CREATED
+├── tests/                             # CREATED (TASK-001); subprojetos PARCIAL (TASK-002/TASK-004)
 │   ├── Unit/                          # PLANNED / NOT CREATED (TASK-004)
 │   ├── Integration/                   # PLANNED / NOT CREATED (TASK-004)
-│   ├── Architecture/                  # PLANNED / NOT CREATED (TASK-004)
+│   ├── Architecture/
+│   │   └── ObsAi.Architecture.Tests/  # CREATED (TASK-002) — regras de dependência e convenções
 │   ├── Contracts/                     # PLANNED / NOT CREATED (TASK-004)
 │   ├── Security/                      # PLANNED / NOT CREATED (TASK-004)
 │   ├── FailureIsolation/              # PLANNED / NOT CREATED (TASK-004)
@@ -66,4 +67,4 @@ ObsAi.ObsPlugin <-> contrato IPC versionado <-> ObsAi.ObsIntegration
 
 ## Regras de criação
 
-Os nomes podem ser refinados na Execution Plan se o refinamento preservar boundaries e ADRs. Nesta Task foram criados apenas a solution `OBS-AI-Live-Assistant.slnx`, as convenções comuns e as raízes `src/` e `tests/`; nenhum projeto C#/C++, banco, migration, installer ou teste executável foi criado.
+Os nomes podem ser refinados na Execution Plan se o refinamento preservar boundaries e ADRs. A `TASK-001` criou a solution `OBS-AI-Live-Assistant.slnx`, as convenções comuns e as raízes `src/` e `tests/`. A `TASK-002` criou os seis projetos `ObsAi.*`, as referências mínimas do grafo acima, o projeto `ObsAi.Architecture.Tests` e centralizou os packages de teste em `Directory.Packages.props`. Referências adicionadas (ou removidas) como `ProjectReference` entre projetos de `src/` fazem o gate de arquitetura falhar até serem refletidas na tabela `AllowedProjectReferences` do projeto de testes. Nenhum banco, migration, installer ou teste executável de integração foi criado.

@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <RootNamespace>ObsAi.Application</RootNamespace>
+    <AssemblyName>ObsAi.Application</AssemblyName>
+    <Description>Casos de uso, orchestration, ports, pipeline e filas bounded do Assistant Core, sem referência a implementações concretas.</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ObsAi.Domain\ObsAi.Domain.csproj" />
+  </ItemGroup>
+
+</Project>

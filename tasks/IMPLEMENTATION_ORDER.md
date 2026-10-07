@@ -4,7 +4,7 @@ O Dependency Graph prevalece sobre a ordem visual. Dentro de uma Wave, Tasks mar
 
 | Wave | Objetivo | Tasks | Observações |
 |---:|---|---|---|
-| 1 | Foundation e validação inicial | TASK-001 a TASK-004 | TASK-001 é a única READY; compatibilidade e quality tooling seguem a estrutura. |
+| 1 | Foundation e validação inicial | TASK-001 a TASK-004 | TASK-001 e TASK-002 estão DONE; compatibilidade e quality tooling (TASK-003, TASK-004) são as próximas READY. |
 | 2 | Core, contracts, configuração e security policies | TASK-005 a TASK-016 | Contracts precedem adapters; Domain pode avançar em paralelo com ports. |
 | 3 | Infrastructure local | TASK-017 a TASK-023, TASK-043 | Secrets, SQLite, observability e contrato/.NET IPC. |
 | 4 | OBS e IPC nativo | TASK-024 a TASK-029 | Código in-process mínimo; integração sequencial nos pontos de alto risco. |
@@ -23,4 +23,4 @@ O Dependency Graph prevalece sobre a ordem visual. Dentro de uma Wave, Tasks mar
 
 ## Primeira Task
 
-**TASK-001 — Criar a fundação da solution e do tooling.** Concluída em `develop` (2026-10-07). A próxima Task é **TASK-002 — Materializar projetos e regras de dependência**, agora `READY`, que só começa sob nova autorização.
+**TASK-001 — Criar a fundação da solution e do tooling.** Concluída em `develop` (2026-10-07). **TASK-002 — Materializar projetos e regras de dependência.** Concluída em `develop` (2026-10-07). As próximas Tasks são **TASK-003 — Validar a estratégia de compatibilidade** e **TASK-004 — Estabelecer a arquitetura de testes e os quality gates**, agora `READY`, que só começam sob nova autorização.

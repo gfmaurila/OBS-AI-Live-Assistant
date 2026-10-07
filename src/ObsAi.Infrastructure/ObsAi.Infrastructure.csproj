@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <RootNamespace>ObsAi.Infrastructure</RootNamespace>
+    <AssemblyName>ObsAi.Infrastructure</AssemblyName>
+    <Description>Adapters de infraestrutura local: SQLite, credential store, arquivos, logging e clock, encapsulando SDKs externos.</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ObsAi.Application\ObsAi.Application.csproj" />
+  </ItemGroup>
+
+</Project>

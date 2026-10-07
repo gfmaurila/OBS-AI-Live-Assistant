@@ -9,7 +9,8 @@ OBS-AI-Live-Assistant é uma aplicação Windows independente e planejada para o
 - Advanced Skills: **BLOCKED / NON-BLOCKING FOR REQUIREMENTS**, pois o pacote oficial não está disponível.
 - Knowledge Quality Gate: **PASSED**.
 - Requirements, Security Requirements, Technical Research, Architecture e Backlog: **CONCLUÍDOS / QUALITY GATES PASSED**; Implementation Readiness: **READY**.
-- **TASK-001 — Fundação da solution e do tooling: CONCLUÍDA** (solution, `global.json`, convenções comuns e diretórios `src/` e `tests/`). Funcionalidades de produto: **NOT STARTED**.
+- **TASK-001 — Fundação da solution e do tooling: CONCLUÍDA** (solution, `global.json`, convenções comuns e diretórios `src/` e `tests/`).
+- **TASK-002 — Materializar projetos e regras de dependência: CONCLUÍDA** (projetos `ObsAi.Domain`, `ObsAi.Application`, `ObsAi.Infrastructure`, `ObsAi.Providers`, `ObsAi.ObsIntegration`, `ObsAi.Host` + testes determinísticos de arquitetura em `tests/Architecture/`). Scaffold de produto sem funcionalidades: **CREATED**; funcionalidades de produto: **NOT STARTED**.
 
 ## Direção tecnológica
 

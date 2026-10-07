@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <RootNamespace>ObsAi.ObsIntegration</RootNamespace>
+    <AssemblyName>ObsAi.ObsIntegration</AssemblyName>
+    <Description>Adapters de integração OBS: obs-websocket, bridge IPC e policies de capabilities, sem lógica de negócio.</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ObsAi.Application\ObsAi.Application.csproj" />
+  </ItemGroup>
+
+</Project>
