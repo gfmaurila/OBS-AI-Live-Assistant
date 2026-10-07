@@ -84,4 +84,15 @@ Build Gate; Unit Test Gate; Architecture Gate; Documentation Gate; Code Review G
 
 ## Status
 
-READY
+IMPLEMENTATION COMPLETE — PENDING MERGE.
+
+## Execução (registro)
+
+- Branch: `feature/task-TASK-004-testing-architecture-quality-gates` a partir de `develop` (`1bbc0a7`).
+- Fundação determinística estabelecida: `docs/testing/TEST_ARCHITECTURE.md` (fonte canônica), scaffolds por categoria em `tests/` (`Unit`, `Integration`, `Contracts`, `Security`, `FailureIsolation`, `Installer` — xunit, net10.0, packages centralizados, teste-âncora de governança, sem `ProjectReference`), e `ObsCompatibility` mantendo o harness existente (`prototypes/compat-sniff` + `CompatibilityMatrixTests`; suite formal em `TASK-051`) sem projeto novo.
+- Tooling: `tooling/quality-gates.ps1` + `tooling/README.md` (runner determinístico dos comandos canônicos; sem instalação de ferramentas, sem secrets).
+- Doc de comandos atualizada (`docs/testing/README.md`); `PROJECT_STRUCTURE.md` e `QUALITY_GATES.md` refletem o estado real.
+- Controles determinísticos adicionados (`TestingFoundationTests` — 13 testes) no projeto `ObsAi.Architecture.Tests` validando a arquitetura de testes; as seis âncoras dos scaffolds garantem rastreabilidade da categoria na carta.
+- Gates pré-merge: restore exit 0; build 0 avisos/0 erros; testes aprovados **43/43** (24 anteriores + 13 de fundação + 6 âncoras); format da solução e do protótipo exit 0; Architecture Gate e Acceptance Gate aprovados; Security Gate e Secret Scan sem secrets nem finding Critical/High; Code Review aprovado sem findings.
+- Prompt Traceability: `docs/prompts/history/prompt20.md` preparado no mesmo commit.
+- Pendências para `DONE`: commit, push, PR, merge em `develop`, validação pós-merge, registro final do estado e cleanup da feature.

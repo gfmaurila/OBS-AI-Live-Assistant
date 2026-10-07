@@ -11,4 +11,22 @@
   <Folder Name="/tests/Architecture/">
     <Project Path="tests/Architecture/ObsAi.Architecture.Tests/ObsAi.Architecture.Tests.csproj" />
   </Folder>
+  <Folder Name="/tests/Contracts/">
+    <Project Path="tests/Contracts/ObsAi.Contract.Tests/ObsAi.Contract.Tests.csproj" />
+  </Folder>
+  <Folder Name="/tests/FailureIsolation/">
+    <Project Path="tests/FailureIsolation/ObsAi.FailureIsolation.Tests/ObsAi.FailureIsolation.Tests.csproj" />
+  </Folder>
+  <Folder Name="/tests/Installer/">
+    <Project Path="tests/Installer/ObsAi.Installer.Tests/ObsAi.Installer.Tests.csproj" />
+  </Folder>
+  <Folder Name="/tests/Integration/">
+    <Project Path="tests/Integration/ObsAi.Integration.Tests/ObsAi.Integration.Tests.csproj" />
+  </Folder>
+  <Folder Name="/tests/Security/">
+    <Project Path="tests/Security/ObsAi.Security.Tests/ObsAi.Security.Tests.csproj" />
+  </Folder>
+  <Folder Name="/tests/Unit/">
+    <Project Path="tests/Unit/ObsAi.Unit.Tests/ObsAi.Unit.Tests.csproj" />
+  </Folder>
 </Solution>

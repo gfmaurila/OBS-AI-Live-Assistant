@@ -1,9 +1,33 @@
 # Documentação de Testing
 
-Os testes do produto estão **NOT STARTED** porque não existem código-fonte funcional, projeto nativo, banco de dados ou instalador.
+A fundação de testes e quality gates foi estabelecida pela `TASK-004`. A fonte canônica é a [Arquitetura de Testes e Quality Gates](TEST_ARCHITECTURE.md), que define categorias, projeto/harness, comandos e gates por estágio.
 
-A `TASK-003` estabeleceu o **OBS Compatibility / smoke** por evidência executável: o protótipo read-only `prototypes/compat-sniff` foi executado no ambiente declarado (Windows 11 25H2 x64, .NET 10.0.12, OBS 32.1.2) e a matriz de compatibilidade é validada por testes determinísticos (`CompatibilityMatrixTests`, no projeto `ObsAi.Architecture.Tests`). As suítes executáveis de Integração, Contrato, Banco, Security, Installer e OBS Compatibility permanecem `NOT CREATED` até a `TASK-004` e Tasks posteriores.
+## Estado atual
 
-Comandos determinísticos de restore, build, Unit Tests, Integration Tests, formatação, análise estática, build nativo, Installer Tests e OBS Compatibility Tests permanecem indefinidos até a aprovação das decisões correspondentes de tooling e Architecture.
+| Categoria | Suite | Gate atual |
+|---|---|---|
+| Architecture | `tests/Architecture/ObsAi.Architecture.Tests` | EXECUTADO (testes determinísticos; inclui `TestingFoundationTests`) |
+| Unit | `tests/Unit/ObsAi.Unit.Tests` (scaffold) | Âncora EXECUTED; comportamento de produto NOT EXECUTED — TASK-005+ |
+| Integration | `tests/Integration/ObsAi.Integration.Tests` (scaffold) | Âncora EXECUTED; comportamento de produto NOT EXECUTED — TASK-007+ |
+| Contracts | `tests/Contracts/ObsAi.Contract.Tests` (scaffold) | Âncora EXECUTED; comportamento de produto NOT EXECUTED — TASK-005/TASK-022+ |
+| Security | `tests/Security/ObsAi.Security.Tests` (scaffold) | Âncora EXECUTED; comportamento de produto NOT EXECUTED — TASK-015+ |
+| FailureIsolation | `tests/FailureIsolation/ObsAi.FailureIsolation.Tests` (scaffold) | Âncora EXECUTED; comportamento de produto NOT EXECUTED — TASK-008/013/026+ |
+| Installer | `tests/Installer/ObsAi.Installer.Tests` (scaffold) | Âncora EXECUTED; comportamento de produto NOT EXECUTED — TASK-046+ |
+| ObsCompatibility | harness `prototypes/compat-sniff` + `CompatibilityMatrixTests` | PARTIAL — smoke (TASK-003); formal NOT CREATED (TASK-051) |
+| Regression/E2E | consolidação em TASK-049/TASK-050 | NOT CREATED |
 
-As categorias futuras deverão considerar testes unitários, integração, contratos, banco de dados, Security, integração com OBS, instalador, compatibilidade, regressão e degradação em falhas. O escopo exato depende de Requirements e Architecture.
+Os scaffolds da TASK-004 são projetos xunit (net10.0) com teste-âncora de governança rastreável, sem `ProjectReference` e sem testes fictícios (verificado por `TestingFoundationTests`).
+
+## Comandos canônicos
+
+| Comando | Gate |
+|---|---|
+| `dotnet restore` | Restore |
+| `dotnet build --no-restore` | Build |
+| `dotnet test --no-build` | Testes determinísticos |
+| `dotnet format --verify-no-changes --no-restore` | Format (solucao) |
+| `dotnet format --verify-no-changes --no-restore prototypes\compat-sniff\CompatibilityProbe.csproj` | Format (prototipo) |
+| `dotnet run --project prototypes\compat-sniff\CompatibilityProbe.csproj` | ObsCompatibility smoke |
+| `powershell -ExecutionPolicy Bypass -File tooling\quality-gates.ps1` | Runner determinístico de conveniência |
+
+Gates não executados permanecem identificados (`NOT EXECUTED` / `NOT CREATED` / `NOT APPLICABLE`) e nunca são aprovados sem comandos e artefatos reais. Detalhes por categoria e rastreabilidade no `TEST_ARCHITECTURE.md`.

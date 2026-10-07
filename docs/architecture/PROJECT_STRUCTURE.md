@@ -1,6 +1,6 @@
 # Estrutura física planejada
 
-Status: **PROJECTS CREATED / INTERNAL DIRECTORIES PARTIAL**. A `TASK-001` criou a solution, as convenções comuns (`global.json`, `Directory.Build.props`, `Directory.Packages.props`, `.editorconfig`) e os diretórios raiz `src/` e `tests/`. A `TASK-002` criou os seis projetos `ObsAi.*` em `src/`, as referências mínimas e o projeto determinístico `ObsAi.Architecture.Tests` em `tests/Architecture/`. A `TASK-003` criou `prototypes/compat-sniff` (sonda de evidência de compatibilidade, fora da solution) e `docs/architecture/compatibility/` (matriz). Os demais agrupamentos de teste (`Unit`, `Integration`, `Contracts`, `Security`, `FailureIsolation`, `ObsCompatibility`, `Installer`) permanecem `PLANNED / NOT CREATED` até a `TASK-004`, e o plugin nativo (`native/ObsAi.ObsPlugin`) até a `TASK-024`. Esta estrutura orienta backlog e Tasks; não autoriza ampliar escopo sem nova Task.
+Status: **PROJECTS CREATED / INTERNAL DIRECTORIES PARTIAL**. A `TASK-001` criou a solution, as convenções comuns (`global.json`, `Directory.Build.props`, `Directory.Packages.props`, `.editorconfig`) e os diretórios raiz `src/` e `tests/`. A `TASK-002` criou os seis projetos `ObsAi.*` em `src/`, as referências mínimas e o projeto determinístico `ObsAi.Architecture.Tests` em `tests/Architecture/`. A `TASK-003` criou `prototypes/compat-sniff` (sonda de evidência de compatibilidade, fora da solution) e `docs/architecture/compatibility/` (matriz). A `TASK-004` criou os scaffolds dos projetos de teste por categoria (`Unit`, `Integration`, `Contracts`, `Security`, `FailureIsolation`, `Installer` — testes-âncora de governança, sem `ProjectReference`) e o tooling de quality gates (`tooling/`). ObsCompatibility **não recebe projeto próprio**: usa o harness existente (protótipo + `CompatibilityMatrixTests`; suite formal em `TASK-051`). O plugin nativo (`native/ObsAi.ObsPlugin`) permanece `PLANNED / NOT CREATED` até a `TASK-024`. Esta estrutura orienta backlog e Tasks; não autoriza ampliar escopo sem nova Task.
 
 ```text
 OBS-AI-Live-Assistant/
@@ -14,17 +14,16 @@ OBS-AI-Live-Assistant/
 │   └── native/
 │       └── ObsAi.ObsPlugin/           # PLANNED / NOT CREATED (TASK-024)
 ├── tests/                             # CREATED (TASK-001); subprojetos PARCIAL (TASK-002/TASK-004)
-│   ├── Unit/                          # PLANNED / NOT CREATED (TASK-004)
-│   ├── Integration/                   # PLANNED / NOT CREATED (TASK-004)
+│   ├── Unit/                          # SCAFFOLD CREATED (TASK-004) — ObsAi.Unit.Tests
+│   ├── Integration/                   # SCAFFOLD CREATED (TASK-004) — ObsAi.Integration.Tests
 │   ├── Architecture/
-│   │   └── ObsAi.Architecture.Tests/  # CREATED (TASK-002) — regras de dependência e convenções
-│   ├── Contracts/                     # PLANNED / NOT CREATED (TASK-004)
-│   ├── Security/                      # PLANNED / NOT CREATED (TASK-004)
-│   ├── FailureIsolation/              # PLANNED / NOT CREATED (TASK-004)
-│   ├── ObsCompatibility/              # PLANNED / NOT CREATED (TASK-004)
-│   └── Installer/                     # PLANNED / NOT CREATED (TASK-004)
+│   │   └── ObsAi.Architecture.Tests/  # CREATED (TASK-002) — regras de dependência, convenções e arquitetura de testes (TASK-004)
+│   ├── Contracts/                     # SCAFFOLD CREATED (TASK-004) — ObsAi.Contract.Tests
+│   ├── Security/                      # SCAFFOLD CREATED (TASK-004) — ObsAi.Security.Tests
+│   ├── FailureIsolation/              # SCAFFOLD CREATED (TASK-004) — ObsAi.FailureIsolation.Tests
+│   └── Installer/                     # SCAFFOLD CREATED (TASK-004) — ObsAi.Installer.Tests
 ├── installer/                         # PLANNED / NOT CREATED
-├── tooling/                           # PLANNED / NOT CREATED
+├── tooling/                           # CREATED (TASK-004) — quality-gates.ps1 + README.md
 ├── prototypes/
 │   └── compat-sniff/                  # CREATED (TASK-003) — evidência de compatibilidade, fora da solution
 ├── docs/                              # documentação canônica existente
@@ -69,4 +68,4 @@ ObsAi.ObsPlugin <-> contrato IPC versionado <-> ObsAi.ObsIntegration
 
 ## Regras de criação
 
-Os nomes podem ser refinados na Execution Plan se o refinamento preservar boundaries e ADRs. A `TASK-001` criou a solution `OBS-AI-Live-Assistant.slnx`, as convenções comuns e as raízes `src/` e `tests/`. A `TASK-002` criou os seis projetos `ObsAi.*`, as referências mínimas do grafo acima, o projeto `ObsAi.Architecture.Tests` e centralizou os packages de teste em `Directory.Packages.props`. A `TASK-003` criou `prototypes/compat-sniff` como ferramenta de evidência **fora da solution** (não participa do grafo de dependências nem dos gates da solução; possui build e formatação próprios documentados). Referências adicionadas (ou removidas) como `ProjectReference` entre projetos de `src/` fazem o gate de arquitetura falhar até serem refletidas na tabela `AllowedProjectReferences` do projeto de testes. Nenhum banco, migration, installer ou teste executável de integração foi criado.
+Os nomes podem ser refinados na Execution Plan se o refinamento preservar boundaries e ADRs. A `TASK-001` criou a solution `OBS-AI-Live-Assistant.slnx`, as convenções comuns e as raízes `src/` e `tests/`. A `TASK-002` criou os seis projetos `ObsAi.*`, as referências mínimas do grafo acima, o projeto `ObsAi.Architecture.Tests` e centralizou os packages de teste em `Directory.Packages.props`. A `TASK-003` criou `prototypes/compat-sniff` como ferramenta de evidência **fora da solution** (não participa do grafo de dependências nem dos gates da solução; possui build e formatação próprios documentados). A `TASK-004` criou os scaffolds dos projetos de teste por categoria em `tests/` (xunit, packages de teste centralizados, teste-âncora de governança, **sem `ProjectReference`** — regra verificada por `TestingFoundationTests`) e o `tooling/quality-gates.ps1`. Referências adicionadas (ou removidas) como `ProjectReference` entre projetos de `src/` fazem o gate de arquitetura falhar até serem refletidas na tabela `AllowedProjectReferences` do projeto de testes. Nenhum banco, migration, installer ou teste executável de integração foi criado.

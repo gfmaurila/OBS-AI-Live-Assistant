@@ -11,7 +11,7 @@ Este diretório é o ponto de entrada central da documentação do OBS-AI-Live-A
 - [Pesquisa](research/README.md) — inventário, fontes oficiais, matrizes, recomendações e Research Quality Gate concluído.
 - [Requirements](requirements/README.md) — requisitos V1 concluídos, rastreados e aprovados pelo Requirements Quality Gate.
 - [Security](security/README.md) — requisitos, Threat Model, Trust Boundaries, riscos e gate de segurança concluídos.
-- [Testing](testing/README.md) — estado dos testes e categorias futuras de validação.
+- [Testing](testing/README.md) — arquitetura de testes, categorias, comandos e estado dos quality gates.
 - [Reports](reports/README.md) — relatórios factuais sobre o estado do projeto.
 - [Histórico de prompts](prompts/README.md) — arquivo cronológico de prompts operacionais.
 - [Tasks](../tasks/README.md) — backlog executável, Dependency Graph, Waves, rastreabilidade, DoR, DoD e Release Plan da V1.
