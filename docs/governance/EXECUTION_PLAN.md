@@ -15,7 +15,7 @@ KIT IA DEV
 -> IMPLEMENTATION
 ```
 
-A sequência obrigatória mais detalhada em `AGENTS.md` permanece autoritativa. Esta visão destaca a progressão imediata do projeto. O Knowledge Quality Gate está `PASSED`; Requirements está `READY`, mas permanece `NOT STARTED` até nova autorização. Advanced Skills continua `BLOCKED`, classificada como `NON-BLOCKING FOR REQUIREMENTS`, e não é inserida como gate obrigatório.
+A sequência obrigatória mais detalhada em `AGENTS.md` permanece autoritativa. Esta visão destaca a progressão imediata do projeto. O Knowledge Quality Gate e o Requirements Quality Gate estão `PASSED`; Requirements está `CONCLUÍDO`. A próxima fase obrigatória é Security Requirements, seguida da preparação de Research e Architecture conforme suas dependências e autorizações. Advanced Skills continua `BLOCKED`, classificada como não bloqueadora para a fase concluída, e não é inserida como gate obrigatório.
 
 ## Fluxo de Task
 
