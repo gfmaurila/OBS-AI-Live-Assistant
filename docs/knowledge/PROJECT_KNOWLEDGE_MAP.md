@@ -78,3 +78,7 @@ Somente itens `ADOPT` e `ADAPT` podem alimentar diretamente a elaboração inici
 ## Atualização de Research — 2026-10-06
 
 A evidência técnica externa foi consolidada em [`docs/research/RESEARCH_MATRIX.md`](../research/RESEARCH_MATRIX.md). Classificações `REQUIRES_RESEARCH` acima passam a ter evidência para Architecture, mas permanecem `REQUIRES_ADR` ou `REQUIRES_CLIENT_DECISION` quando a escolha final ainda não foi autorizada.
+
+## Atualização de Architecture — 2026-10-07
+
+A [Architecture Baseline](../architecture/ARCHITECTURE.md), o [Architecture Decision Map](../architecture/ARCHITECTURE_DECISION_MAP.md) e 11 ADRs formalizaram as decisões suportadas pela pesquisa. Hybrid OBS, Named Pipes, process isolation, provider architecture, SQLite, Windows secret storage, Dock fino/observabilidade e Modular Monolith estão `ACCEPTED`; TTS/audio, installer/update e compatibilidade estão `PROPOSED`; Persistent Memory está `DEFERRED`. Architecture Quality Gate e Security Architecture Review: **PASSED**. Backlog Readiness: **READY**.

@@ -41,3 +41,7 @@ Os requisitos de segurança derivados estão mapeados em [`docs/security/SECURIT
 ## Extensão Technical Research — 2026-10-06
 
 Os 24 itens originais foram preservados e consolidados com duas dependências transversais de Security e a compatibilidade .NET/Windows evidenciada nesta fase, totalizando 27 `RES-*`. A ligação `Knowledge → RF/RNF → SEC → Research → ADR Candidate → Acceptance Criteria` está registrada em [`RESEARCH_MATRIX.md`](../research/RESEARCH_MATRIX.md). Resultado da extensão: **PASSED**.
+
+## Extensão Architecture — 2026-10-07
+
+Os 36 RF e 28 RNF estão ligados a Research, ADR e componentes futuros no [`ARCHITECTURE_DECISION_MAP.md`](../architecture/ARCHITECTURE_DECISION_MAP.md). Os 10 candidatos foram formalizados, com um ADR adicional para o estilo arquitetural. Architecture Traceability: **PASSED**; critérios de aceite continuam canônicos neste diretório.

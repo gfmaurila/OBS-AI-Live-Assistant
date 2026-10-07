@@ -7,3 +7,4 @@ Reports registram o estado factual do projeto e evidências de validações conc
 - [Relatório de Requirements](REQUIREMENTS_REPORT.md)
 - [Relatório de Security Requirements](SECURITY_REQUIREMENTS_REPORT.md)
 - [Relatório de Technical Research](TECHNICAL_RESEARCH_REPORT.md)
+- [Relatório de Architecture + ADRs](ARCHITECTURE_REPORT.md)
