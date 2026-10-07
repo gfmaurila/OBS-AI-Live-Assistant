@@ -8,7 +8,7 @@ OBS-AI-Live-Assistant é uma aplicação Windows independente e planejada para o
 - Base do Kit IA Dev: instalada.
 - Advanced Skills: **BLOCKED / NON-BLOCKING FOR REQUIREMENTS**, pois o pacote oficial não está disponível.
 - Knowledge Quality Gate: **PASSED**.
-- Requirements: **NOT STARTED / READY**; Research e aprovação de Architecture: **NOT STARTED**.
+- Requirements: **CONCLUÍDO / QUALITY GATE PASSED**; Security Requirements, Research e Architecture: **NOT STARTED**.
 - Código-fonte do produto e implementação: **NOT CREATED / NOT STARTED**.
 
 ## Direção tecnológica

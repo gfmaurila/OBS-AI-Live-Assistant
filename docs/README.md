@@ -9,7 +9,7 @@ Este diretório é o ponto de entrada central da documentação do OBS-AI-Live-A
 - [Governança](governance/README.md) — ordem de execução, idioma oficial, GitFlow e Quality Gates.
 - Conhecimento — [mapa](knowledge/PROJECT_KNOWLEDGE_MAP.md), [decisões de tratamento das fontes](knowledge/KNOWLEDGE_DECISIONS.md) e [conflitos](knowledge/KNOWLEDGE_CONFLICTS.md).
 - [Pesquisa](research/README.md) — política e backlog de Research; ainda não existem resultados de pesquisa.
-- [Requirements](requirements/README.md) — espaço reservado para o processo autorizado de Requirements.
+- [Requirements](requirements/README.md) — requisitos V1 concluídos, rastreados e aprovados pelo Requirements Quality Gate.
 - [Security](security/README.md) — restrições atuais e trabalho futuro de segurança.
 - [Testing](testing/README.md) — estado dos testes e categorias futuras de validação.
 - [Reports](reports/README.md) — relatórios factuais sobre o estado do projeto.
