@@ -15,7 +15,25 @@ KIT IA DEV
 -> IMPLEMENTATION
 ```
 
-A sequência obrigatória mais detalhada em `AGENTS.md` permanece autoritativa. Esta visão destaca a progressão imediata do projeto. Knowledge, Requirements e Security Requirements estão `CONCLUÍDOS`, com seus Quality Gates `PASSED`. A próxima atividade permitida é a preparação de Research e Architecture conforme dependências e autorizações próprias. Advanced Skills continua `BLOCKED`, classificada como não bloqueadora para as fases concluídas, e não é inserida como gate obrigatório.
+A sequência obrigatória mais detalhada em `AGENTS.md` permanece autoritativa. Knowledge, Requirements, Security Requirements, Research, Architecture, ADRs, Backlog, Dependency Graph e Implementation Tasks estão concluídos com seus gates documentais `PASSED`. Implementation Readiness está `READY`, mas nenhuma Task de implementação começa sem autorização explícita do cliente. Advanced Skills continua `BLOCKED`, classificada como não bloqueadora.
+
+## Protocolo de execução das Implementation Tasks
+
+1. selecionar a primeira Task `READY` por prioridade e ordem topológica;
+2. confirmar que todas as dependências estão `DONE` em `develop`;
+3. sincronizar `develop` e criar `feature/task-TASK-XXX-<descricao>`;
+4. executar a implementação completa daquela Task;
+5. executar somente os testes e Quality Gates aplicáveis registrados no arquivo da Task;
+6. realizar Code Review e Security Review quando aplicável;
+7. corrigir findings obrigatórios;
+8. executar Secret Scan e arquivar o prompt;
+9. commit, push, PR e PR Validation;
+10. fazer merge automático somente `feature/task-* -> develop` quando todos os gates passarem;
+11. validar `develop`, excluir a feature local/remota e confirmar Working Tree `CLEAN`;
+12. atualizar a Task para `DONE`, recalcular dependências e promover as novas Tasks elegíveis a `READY`;
+13. selecionar a próxima Task somente sob a autorização aplicável.
+
+Uma autorização futura para uma Task individual cobre o setup dessa Task até o fim do fluxo acima, mas não autoriza automaticamente a Task seguinte nem promoções para `hml`, `release/*` ou `main`.
 
 ## Fluxo de Task
 

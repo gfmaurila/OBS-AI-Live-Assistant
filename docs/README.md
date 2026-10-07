@@ -14,7 +14,7 @@ Este diretório é o ponto de entrada central da documentação do OBS-AI-Live-A
 - [Testing](testing/README.md) — estado dos testes e categorias futuras de validação.
 - [Reports](reports/README.md) — relatórios factuais sobre o estado do projeto.
 - [Histórico de prompts](prompts/README.md) — arquivo cronológico de prompts operacionais.
-- [Tasks](../tasks/DEPENDENCY_GRAPH.md) — diretórios de estado e grafo de dependências ainda não preenchido.
+- [Tasks](../tasks/README.md) — backlog executável, Dependency Graph, Waves, rastreabilidade, DoR, DoD e Release Plan da V1.
 
 ## Regras das fontes canônicas
 
