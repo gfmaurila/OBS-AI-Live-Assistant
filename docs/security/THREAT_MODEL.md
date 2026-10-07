@@ -1,0 +1,34 @@
+# Threat Model inicial
+
+Este modelo usa STRIDE para estruturar cenários de ameaça. Os registros descrevem risco futuro a ser controlado; não afirmam vulnerabilidade explorável atual, pois não existe runtime do produto.
+
+Probabilidade e impacto são qualitativos (`BAIXA`, `MÉDIA`, `ALTA`).
+
+| ID | STRIDE | Origem | Alvo | Descrição | Impacto | Prob. | Mitigação requerida | Status | SEC | Research/ADR |
+|---|---|---|---|---|---|---|---|---|---|---|
+| THT-001 | Tampering | Viewer/API | Pipeline de entrada | Payload malformado, encoding inesperado ou campo adulterado atravessa validação | ALTA | ALTA | Contrato, normalização, limites, rejeição segura | OPEN / CONTROLLED | SEC-001, SEC-002 | RES-014; ADR-004 |
+| THT-002 | Denial of Service | Viewer/bot | Filas/providers | Flood, spam ou repetição consome quota e recursos | ALTA | ALTA | Moderação, cooldown, rate limit, filas finitas | OPEN / CONTROLLED | SEC-003, SEC-014, SEC-015 | RES-010; ADR-003, ADR-008 |
+| THT-003 | Elevation of Privilege | Viewer | Assistant/OBS | Prompt injection tenta converter conteúdo em instrução ou autorização | CRÍTICA | ALTA | Separação dado/controle, contexto mínimo, allowlist e autorização | OPEN / CONTROLLED | SEC-003, SEC-004, SEC-006 | ADR-001, ADR-008 |
+| THT-004 | Denial of Service | Viewer/provider | Assistant Core | Entrada/saída longa, concorrência ou fila ilimitada exaure memória/CPU | ALTA | ALTA | Limites configuráveis, backpressure, observabilidade | OPEN / CONTROLLED | SEC-002, SEC-014, SEC-015, SEC-019 | RES-010; ADR-003 |
+| THT-005 | Denial of Service | Provider/rede | Operações pendentes | Timeout ausente, retry infinito ou cancellation ineficaz retém capacidade | ALTA | MÉDIA | Timeout, cancellation, retry limitado e suspensão controlada | OPEN / CONTROLLED | SEC-016 a SEC-019 | RES-010, RES-014 a RES-017; ADR-003, ADR-004 |
+| THT-006 | Tampering | AI Provider/modelo | Texto/TTS/ações | Output malicioso ou incompatível é tratado como confiável | CRÍTICA | MÉDIA | Validação e moderação por destino; nenhuma autoridade implícita | OPEN / CONTROLLED | SEC-001, SEC-005, SEC-034 | RES-015, RES-024; ADR-004, ADR-008 |
+| THT-007 | Information Disclosure | AI/TTS Provider | Dados do streamer/viewer | Contexto excessivo ou output publica dado privado | ALTA | MÉDIA | Minimização, isolamento de sessão, validação de saída | OPEN / CONTROLLED | SEC-005, SEC-024, SEC-031, SEC-034 | RES-023, RES-024; ADR-009 |
+| THT-008 | Tampering | Processo/cliente local | Integração OBS | Mensagem forjada, repetida ou incompatível altera estado | CRÍTICA | MÉDIA | Autenticação/autorização, validação, versionamento, idempotência conforme ação | OPEN / CONTROLLED | SEC-006, SEC-020, SEC-030 | RES-007 a RES-010; ADR-001, ADR-002 |
+| THT-009 | Elevation of Privilege | Chat/AI/processo local | OBS/OS | Ator obtém capacidade sensível além da autorização | CRÍTICA | MÉDIA | Least privilege, allowlist, confirmação e negação por padrão | OPEN / CONTROLLED | SEC-006, SEC-007, SEC-030 | RES-007 a RES-010; ADR-001, ADR-002 |
+| THT-010 | Information Disclosure | UI/log/erro | Secrets | Credencial aparece em tela, log, exception, prompt ou telemetria | CRÍTICA | MÉDIA | Separação, masking, redaction e testes sentinela | OPEN / CONTROLLED | SEC-008 a SEC-011 | RES-012, RES-013; ADR-005 |
+| THT-011 | Spoofing | Rede/provider falso | Assistant Core | Endpoint ou resposta externa falsa é aceita | ALTA | MÉDIA | Verificação de destino/autenticidade e contrato | OPEN / CONTROLLED | SEC-001, SEC-033, SEC-034 | RES-014 a RES-017; ADR-004 |
+| THT-012 | Information Disclosure | Máquina local/backup | Tokens e chaves | Secret persistente é lido fora do escopo autorizado | CRÍTICA | MÉDIA | Storage protegido, acesso mínimo, lifecycle | OPEN / CONTROLLED | SEC-008, SEC-009, SEC-012, SEC-013 | RES-012, RES-013, RES-021; ADR-005 |
+| THT-013 | Spoofing | Ator externo | OAuth/provider | Code/token roubado ou revogado é reutilizado | CRÍTICA | MÉDIA | Scopes mínimos, expiração, refresh/revogação segura | OPEN / CONTROLLED | SEC-012, SEC-033 | RES-014; ADR-005 |
+| THT-014 | Information Disclosure | Usuário/processo local | Storage local | Banco, configuração, cache ou temporário expõe dados | ALTA | MÉDIA | Minimização, proteção de acesso, limpeza, secrets separados | OPEN / CONTROLLED | SEC-013, SEC-022 | RES-011 a RES-013; ADR-004, ADR-005 |
+| THT-015 | Denial of Service | Provider/Core/banco | OBS | Falha externa ou do Core propaga crash/hang ao OBS | CRÍTICA | MÉDIA | Isolamento, timeout, falha segura e degradação | OPEN / CONTROLLED | SEC-016, SEC-018, SEC-020, SEC-021 | RES-007 a RES-010; ADR-001 a ADR-003 |
+| THT-016 | Tampering | Falha/ator local | Banco/configuração | Corrupção ou migration parcial é aceita silenciosamente | ALTA | MÉDIA | Integridade, validação, transição/recovery controlados | OPEN / CONTROLLED | SEC-019, SEC-022, SEC-023 | RES-011, RES-019; ADR-004, ADR-007 |
+| THT-017 | Denial of Service / Disclosure | Logging | Disco/dados | Logs crescem sem limite ou registram conteúdo sensível | ALTA | MÉDIA | Redaction, retenção, rotação/limites e minimização | OPEN / CONTROLLED | SEC-011, SEC-019, SEC-026 | SRES-005; ADR-008 |
+| THT-018 | Information Disclosure | Produto/provider | Viewer/streamer | Dados ficam retidos/enviados sem finalidade ou prazo | ALTA | MÉDIA | Minimização, retenção e exclusão por categoria | OPEN / CONTROLLED | SEC-024, SEC-025, SEC-034 | RES-023, RES-024; ADR-009 |
+| THT-019 | Repudiation / Tampering | Usuário/processo | Ação/sessão | Ação sensível ou resposta tardia não pode ser correlacionada ao contexto correto | ALTA | BAIXA | Auditabilidade minimizada, correlation e isolamento de sessão | OPEN / CONTROLLED | SEC-026, SEC-030, SEC-031 | RES-009, RES-023; ADR-002, ADR-009 |
+| THT-020 | Elevation of Privilege | Installer/updater | OS/OBS | Instalação usa privilégio excessivo ou altera recurso alheio | CRÍTICA | MÉDIA | Menor privilégio, escopo explícito, rollback | OPEN / CONTROLLED | SEC-007, SEC-027, SEC-028 | RES-003, RES-018 a RES-021; ADR-007 |
+| THT-021 | Tampering | Distribuição | Pacote/binários | Installer ou update adulterado é executado | CRÍTICA | MÉDIA | Origem e integridade verificáveis, assinatura a pesquisar | OPEN / CONTROLLED | SEC-027 a SEC-029 | RES-018, RES-019; ADR-007 |
+| THT-022 | Tampering | Supply chain | Binários/dependências | Pacote vulnerável ou comprometido entra no produto | CRÍTICA | MÉDIA | Inventário, integridade, revisão de vulnerabilidade e atualização | OPEN / CONTROLLED | SEC-029 | SRES-012; ADR-007 |
+
+## Cobertura de entidades
+
+Viewer, Chat Provider, AI Provider, TTS Provider, Assistant Core, OBS Integration, máquina local, armazenamento local, comunicação de rede e installer/updater estão cobertos. A revisão será refinada quando Architecture definir fluxos e tecnologias.
