@@ -1,9 +1,14 @@
-# Documentação de Architecture
+# Arquitetura
 
-Architecture está **NOT STARTED** como fase de aprovação. Este diretório contém somente uma baseline documental e de planejamento.
+A Architecture Baseline do OBS-AI-Live-Assistant foi concluída em 2026-10-07. Ela define como o produto será decomposto, sem criar código, banco, installer ou integração no OBS.
 
-- [Estrutura do projeto](PROJECT_STRUCTURE.md) descreve o repositório atual e identifica possíveis diretórios de produto como planejados.
-- `decisions/` está reservado para Architecture Decision Records aprovados.
-- `diagrams/` está reservado para diagramas produzidos durante uma fase autorizada de Architecture.
+- [Baseline principal](ARCHITECTURE.md)
+- [Mapa de decisões](ARCHITECTURE_DECISION_MAP.md)
+- [Estrutura física planejada](PROJECT_STRUCTURE.md)
+- [ADRs](decisions/README.md)
+- [Diagramas](diagrams/README.md)
+- [Relatório e Quality Gates](../reports/ARCHITECTURE_REPORT.md)
 
-Nenhum arquivo deste diretório aprova a divisão da integração com OBS, protocolo de IPC, mecanismo de Dock, roteamento de áudio, armazenamento de credenciais, implementação do banco, bibliotecas de providers ou tecnologia de instalação.
+Status: **CONCLUÍDA**. Architecture Quality Gate: **PASSED**. Security Architecture Review: **PASSED**. Backlog Readiness: **READY**.
+
+Os ADRs `PROPOSED` ou `DEFERRED` delimitam escolhas que dependem de protótipo ou decisão do cliente; não impedem decompor o sistema em backlog e Tasks. Nenhum artefato desta pasta autoriza implementação.

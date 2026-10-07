@@ -37,3 +37,7 @@ Resultado: **PASSED**.
 ## Extensão Technical Research — 2026-10-06
 
 As 12 dependências `SRES-*` foram preservadas e mapeadas aos `RES-*`, incluindo redaction/observabilidade e supply chain. Evidência, assets, requirements, ameaças, riscos, ADR e impacto arquitetural estão consolidados em [`RESEARCH_MATRIX.md`](../research/RESEARCH_MATRIX.md). Resultado: **PASSED**.
+
+## Extensão Architecture — 2026-10-07
+
+Os 34 Security Requirements, 20 assets, 22 threats, 15 riscos e 8 trust boundaries foram revalidados contra os 11 ADRs, a baseline e os diagramas de boundaries/failure isolation. O mapa consolidado está em [`ARCHITECTURE_DECISION_MAP.md`](../architecture/ARCHITECTURE_DECISION_MAP.md). Security Architecture Review: **PASSED**; riscos permanecem `OPEN / CONTROLLED` até implementação e testes.

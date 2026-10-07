@@ -1,35 +1,69 @@
-# Estrutura do projeto
+# Estrutura física planejada
 
-## Estado
-
-Este documento representa somente a estrutura documental atual e uma disposição conceitual do produto. Ele não é uma especificação final de Architecture.
+Status: **APPROVED FOR PLANNING / NOT CREATED**. Esta estrutura orienta backlog e Tasks; não autoriza criar diretórios de produto antes do Client Approval Gate.
 
 ```text
 OBS-AI-Live-Assistant/
-|-- .ai/                 # papéis de IA, referências de conhecimento e governança obrigatória
-|-- .claude/             # regras do Claude, documentação de hooks e Skills do projeto
-|-- .codex/              # Skills do projeto para Codex
-|-- .github/             # orientações de ferramentas e futura configuração de CI
-|-- agent_docs/          # restrições especializadas de engenharia
-|-- docs/                # documentação canônica do projeto
-|-- tasks/               # ciclo de vida das Tasks e futuro grafo de dependências
-|-- AGENTS.md             # contrato para múltiplas ferramentas
-|-- PROJECT_SKILLS.md     # registro das Skills instaladas
-`-- estrutura futura do produto
-    |-- assistant-core/   # PLANNED / NOT CREATED / SUBJECT TO ARCHITECTURE APPROVAL
-    |-- obs-integration/  # PLANNED / NOT CREATED / SUBJECT TO ARCHITECTURE APPROVAL
-    |-- tests/            # PLANNED / NOT CREATED / SUBJECT TO ARCHITECTURE APPROVAL
-    |-- installer/        # PLANNED / NOT CREATED / SUBJECT TO ARCHITECTURE APPROVAL
-    `-- tooling/          # PLANNED / NOT CREATED / SUBJECT TO ARCHITECTURE APPROVAL
+├── src/                               # PLANNED / NOT CREATED
+│   ├── ObsAi.Domain/                  # políticas e modelos sem dependências externas
+│   ├── ObsAi.Application/             # casos de uso, ports e pipeline
+│   ├── ObsAi.Infrastructure/          # SQLite, secret store, logging e OS adapters
+│   ├── ObsAi.Providers/               # adapters Chat, AI e TTS
+│   ├── ObsAi.ObsIntegration/          # obs-websocket adapter e boundary do bridge
+│   ├── ObsAi.Host/                    # processo Assistant Core e composition root
+│   └── native/
+│       └── ObsAi.ObsPlugin/           # C++ mínimo: Dock, lifecycle, IPC e áudio validado
+├── tests/                             # PLANNED / NOT CREATED
+│   ├── Unit/
+│   ├── Integration/
+│   ├── Architecture/
+│   ├── Contracts/
+│   ├── Security/
+│   ├── FailureIsolation/
+│   ├── ObsCompatibility/
+│   └── Installer/
+├── installer/                         # PLANNED / NOT CREATED
+├── tooling/                           # PLANNED / NOT CREATED
+├── docs/                              # documentação canônica existente
+├── tasks/                             # lifecycle e futuro dependency graph
+├── .ai/ .claude/ .codex/ .github/    # governança e tooling existente
+└── agent_docs/                        # regras especializadas existentes
 ```
 
-## Limite físico atual
+## Dependency rules
 
-Existem somente artefatos de governança, agentes, Skills, histórico de prompts, estados de Tasks e documentação. Não existem `src/`, solution, projeto nativo, banco de dados, instalador ou Dock do OBS.
+```text
+ObsAi.Domain
+      ↑
+ObsAi.Application
+      ↑
+Adapters: Infrastructure / Providers / ObsIntegration
+      ↑
+ObsAi.Host (composition root)
 
-## Restrições de planejamento
+ObsAi.ObsPlugin <-> contrato IPC versionado <-> ObsAi.ObsIntegration
+```
 
-- `assistant-core/` é um nome conceitual para responsabilidades da aplicação externa; seu nome final e estrutura física exigem aprovação de Architecture.
-- `obs-integration/` não significa que um plugin nativo foi escolhido. A divisão de responsabilidades entre plugin nativo, OBS WebSocket e IPC está marcada como `REQUIRES_RESEARCH`, `REQUIRES_ADR` e, quando aplicável, `REQUIRES_CLIENT_DECISION`.
-- Diretórios de produto não devem ser criados antes de o fluxo obrigatório alcançar a Task aprovada correspondente.
-- Nenhuma estrutura do projeto de referência CMS/Azure constitui requisito deste projeto.
+- `Domain` não depende de Application, OBS, SQLite, YouTube, AI/TTS vendors, Windows APIs ou rede.
+- `Application` depende de Domain e de seus próprios ports; não referencia implementações.
+- Adapters implementam ports e encapsulam SDKs, formatos, autenticação e erros externos.
+- `Host` compõe dependências e governa lifecycle; não recebe regras de domínio exclusivas.
+- O plugin nativo não carrega .NET nem acessa providers, banco, secrets ou configuração de negócio.
+- Contratos IPC são mínimos, versionados e livres de tipos de SDK do OBS/vendor.
+- Test projects podem depender do alvo necessário; produção nunca depende de testes/tooling.
+
+## Ownership conceitual
+
+| Projeto planejado | Ownership |
+|---|---|
+| `ObsAi.Domain` | Session, LiveContext, Assistant Profile, políticas, estados e valores normalizados |
+| `ObsAi.Application` | pipeline, queues, orchestration, authorization, provider/persistence/OBS ports |
+| `ObsAi.Infrastructure` | SQLite, Windows Credential Manager/DPAPI, arquivos, logging e clock |
+| `ObsAi.Providers` | YouTube, AI e TTS adapters e contract mapping |
+| `ObsAi.ObsIntegration` | obs-websocket, bridge IPC e policies de capability OBS |
+| `ObsAi.Host` | processo, startup/shutdown, DI/composition, health e configuração runtime |
+| `ObsAi.ObsPlugin` | módulo C++ x64, Dock, frontend events e capability nativa validada |
+
+## Regras de criação
+
+Os nomes podem ser refinados na Execution Plan se o refinamento preservar boundaries e ADRs. Nenhuma pasta acima, solution, projeto C#/C++, banco, migration, installer ou teste executável foi criada nesta Task.
