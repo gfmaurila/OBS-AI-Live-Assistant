@@ -23,4 +23,4 @@ O Dependency Graph prevalece sobre a ordem visual. Dentro de uma Wave, Tasks mar
 
 ## Primeira Task
 
-**TASK-001 — Criar a fundação da solution e do tooling.** Ela não depende de decisão de provider, ADR proposto ou client decision. A execução só começa após nova autorização.
+**TASK-001 — Criar a fundação da solution e do tooling.** Concluída em `develop` (2026-10-07). A próxima Task é **TASK-002 — Materializar projetos e regras de dependência**, agora `READY`, que só começa sob nova autorização.

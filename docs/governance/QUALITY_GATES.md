@@ -33,11 +33,12 @@ Aplica-se à criação e estabilização de `release/1.0.0XXXX` a partir de `hml
 
 Aplica-se a `release/1.0.0XXXX -> main`. Exige Final Quality Gate, PR aprovado, confirmação de versão estável e autorização de produção. Tag e GitHub Release ocorrem somente após o merge de uma release real aprovada.
 
-## Gates futuros de implementação
+## Gates de implementação
 
-Os itens abaixo permanecem **NOT APPLICABLE UNTIL IMPLEMENTATION**. Eles não podem ser marcados como PASSED antes de existirem comandos determinísticos e artefatos correspondentes:
+A partir de `TASK-001` (fundação da solution), os gates abaixo possuem comandos determinísticos e são aplicáveis à solução: **Build**, **Format validation** (`dotnet restore`, `dotnet build --no-restore`, `dotnet format --verify-no-changes --no-restore` — registrados em `AGENTS.md`).
 
-- Build
+Nenhuma categoria de teste executável (Unit, Integration, Architecture, Installer, OBS Compatibility, Regression) existe antes das Tasks correspondentes (`TASK-002`, `TASK-004`); esses gates permanecem **NOT APPLICABLE UNTIL IMPLEMENTATION** e não podem ser marcados como PASSED sem comandos e artefatos reais:
+
 - Unit Tests
 - Integration Tests
 - Architecture Validation
