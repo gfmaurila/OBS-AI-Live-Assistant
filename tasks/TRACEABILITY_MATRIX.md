@@ -185,6 +185,17 @@ Detalhamento canônico: `docs/architecture/DOMAIN_MODEL.md`.
 
 Detalhamento canônico: `docs/architecture/SESSION_LIFECYCLE.md`.
 
+## Evidência implementada — TASK-008
+
+| Requirements/decisões | Implementação | Testes |
+|---|---|---|
+| RF-013, RF-021, RF-025 | `BoundedWorkBuffer<T>`, `WorkQueueRunner<T>`, `WorkQueueSettings`, políticas `Reject`/`DiscardOldest` por `QueueKind` | `BoundedWorkBufferTests`, `WorkQueueRunnerTests`, `QueueFlowTests` |
+| RNF-008, RNF-016 | capacidade e concurrency configuráveis sem números fixos de produto; carga excedente não expande memória | `WorkQueueSettingsTests`, `QueueFlowTests`, `QueueSecurityTests` |
+| SEC-014, SEC-015, SEC-019, SEC-021 | saturação não bloqueante e observável, topologia por estágio, superfície sem conteúdo/authority e falhas de item isoladas | `QueueSecurityTests`, `QueueFailureTests`, `ApplicationQueueArchitectureTests` |
+| ADR-003 | filas locais bounded request/response/tts com encerramento coordenado | `ApplicationQueueArchitectureTests`, `QueueFailureTests` |
+
+Detalhamento canônico: `docs/architecture/QUEUES.md`.
+
 ## Resultado
 
 - MUST RF/RNF sem cobertura: **0**

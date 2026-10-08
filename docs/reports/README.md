@@ -12,3 +12,4 @@ Reports registram o estado factual do projeto e evidências de validações conc
 - [Relatório de TASK-001 — Fundação da solution e do tooling](TASK-001_REPORT.md)
 - [Relatório de TASK-002 — Materializar projetos e regras de dependência](TASK-002_REPORT.md)
 - [Relatório de TASK-003 — Validar a estratégia de compatibilidade](TASK-003_REPORT.md)
+- [Relatório de TASK-008 — Implementar filas bounded e backpressure](TASK-008_REPORT.md)
