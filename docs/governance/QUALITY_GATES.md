@@ -43,9 +43,10 @@ A `TASK-004` estabeleceu a **Arquitetura de Testes e Quality Gates** (`docs/test
 
 Categorias sem suite executável permanecem **NOT APPLICABLE UNTIL IMPLEMENTATION** e não podem ser marcadas como PASSED sem comandos e artefatos reais:
 
-- **Unit Tests** — contracts da TASK-005 e invariantes de domínio da TASK-006 `EXECUTED`
-- **Security Tests** — minimização e isolamento de dados do domínio da TASK-006 `EXECUTED`; controles restantes aplicáveis em Tasks futuras
-- **Integration Tests** — âncora do scaffold `EXECUTED`; comportamento de produto `NOT EXECUTED` (aplicável TASK-007+)
+- **Unit Tests** — contracts da TASK-005, invariantes de domínio da TASK-006 e do orquestrador de lifecycle da TASK-007 `EXECUTED`
+- **Security Tests** — minimização e isolamento de dados do domínio da TASK-006 e autoridade de lease/`SessionId` da TASK-007 `EXECUTED`; controles restantes aplicáveis em Tasks futuras
+- **Integration Tests** — fluxos de lifecycle de sessão da TASK-007 `EXECUTED`; adapters e providers permanecem `NOT EXECUTED` (aplicável TASK-015+)
+- **FailureIsolation Tests** — shutdown ordenado e falhas de publicação da TASK-007 `EXECUTED`; filas, timeout e IPC permanecem `NOT EXECUTED` (aplicável TASK-008/013/026+)
 - **Installer Tests** — âncora do scaffold `EXECUTED`; comportamento de produto `NOT EXECUTED` (aplicável TASK-046+)
 - **OBS Compatibility Tests** — `PARTIAL` (smoke TASK-003); formal `NOT CREATED` (TASK-051)
 - **Regression Tests** — `NOT CREATED` (TASK-049/TASK-050)

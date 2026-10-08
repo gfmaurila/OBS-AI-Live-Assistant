@@ -29,7 +29,7 @@ public sealed class TestingFoundationTests
 
     private static readonly string[] InactiveScaffoldProjectNames = new[]
     {
-        "ObsAi.Integration.Tests", "ObsAi.FailureIsolation.Tests", "ObsAi.Installer.Tests",
+        "ObsAi.Installer.Tests",
     };
 
     private static readonly string[] ApprovedTestPackages = new[]
@@ -45,8 +45,6 @@ public sealed class TestingFoundationTests
     private static readonly string[] ApplicationOnlyReference = new[] { "ObsAi.Application" };
 
     private static readonly string[] ApplicationAndDomainReferences = new[] { "ObsAi.Application", "ObsAi.Domain" };
-
-    private static readonly string[] DomainOnlyReference = new[] { "ObsAi.Domain" };
 
     [Fact]
     public void TestingArchitectureCharter_ExistsAtCanonicalLocation()
@@ -137,11 +135,27 @@ public sealed class TestingFoundationTests
     }
 
     [Fact]
-    public void Task006SecurityTests_ReferenceOnlyDomain()
+    public void Task006SecurityTests_ReferenceApplicationAndDomain()
     {
         var project = RepositoryModel.LoadProjects(RepositoryRoot).Single(candidate => candidate.Name == "ObsAi.Security.Tests");
 
-        Assert.Equal(DomainOnlyReference, project.ReferencedProjects);
+        Assert.Equal(ApplicationAndDomainReferences, project.ReferencedProjects);
+    }
+
+    [Fact]
+    public void Task007IntegrationTests_ReferenceApplicationAndDomain()
+    {
+        var project = RepositoryModel.LoadProjects(RepositoryRoot).Single(candidate => candidate.Name == "ObsAi.Integration.Tests");
+
+        Assert.Equal(ApplicationAndDomainReferences, project.ReferencedProjects);
+    }
+
+    [Fact]
+    public void Task007FailureIsolationTests_ReferenceApplicationAndDomain()
+    {
+        var project = RepositoryModel.LoadProjects(RepositoryRoot).Single(candidate => candidate.Name == "ObsAi.FailureIsolation.Tests");
+
+        Assert.Equal(ApplicationAndDomainReferences, project.ReferencedProjects);
     }
 
     [Fact]

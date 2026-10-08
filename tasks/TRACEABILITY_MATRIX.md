@@ -174,6 +174,17 @@ Esta matriz liga cada Requirement, Security Requirement, ADR e Research Item a p
 
 Detalhamento canônico: `docs/architecture/DOMAIN_MODEL.md`.
 
+## Evidência implementada — TASK-007
+
+| Requirements/decisões | Implementação | Testes |
+|---|---|---|
+| RF-001, RF-009, RF-026, RF-029 | `StartSession`, `Pause`, `Resume`, `Shutdown`, `TryAcquireOperation`, `TryCommitResult` | `AssistantSessionOrchestratorTests`, `SessionLifecycleFlowTests` |
+| RNF-001, RNF-002, RNF-010, RNF-026 | estados explícitos, shutdown ordenado idempotente e cancelamento propagado por lease | `SessionLifecycleFlowTests`, `SessionLifecycleFailureTests` |
+| SEC-017, SEC-020, SEC-021, SEC-031 | cancelamento que recupera capacidade, observadores de cancelamento isolados, admissão fechada em pausa e descarte de resultado de sessão anterior | `SessionLifecycleSecurityTests`, `SessionLifecycleFailureTests` |
+| ADR-003, ADR-009 | ciclo de operação com autoridade de sessão e memória efêmera por geração | `ApplicationLifecycleArchitectureTests` |
+
+Detalhamento canônico: `docs/architecture/SESSION_LIFECYCLE.md`.
+
 ## Resultado
 
 - MUST RF/RNF sem cobertura: **0**

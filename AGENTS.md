@@ -46,7 +46,7 @@ Do not create product source code before the explicit implementation approval ga
 
 ## Commands
 
-Commands executados com sucesso na solução `OBS-AI-Live-Assistant.slnx` (.NET 10, SDK fixado em `global.json`). A solução contém os projetos `ObsAi.Domain`, `ObsAi.Application`, `ObsAi.Infrastructure`, `ObsAi.Providers`, `ObsAi.ObsIntegration`, `ObsAi.Host` e os projetos de teste `ObsAi.Architecture.Tests`, `ObsAi.Unit.Tests`, `ObsAi.Integration.Tests`, `ObsAi.Contract.Tests`, `ObsAi.Security.Tests`, `ObsAi.FailureIsolation.Tests` e `ObsAi.Installer.Tests`. `ObsAi.Application` contém os contracts/ports vendor-neutral da `TASK-005`; `ObsAi.Domain` contém o modelo de sessão, perfil e contexto efêmero da `TASK-006`; `dotnet test --no-build` executa 85 testes determinísticos no momento.
+Commands executados com sucesso na solução `OBS-AI-Live-Assistant.slnx` (.NET 10, SDK fixado em `global.json`). A solução contém os projetos `ObsAi.Domain`, `ObsAi.Application`, `ObsAi.Infrastructure`, `ObsAi.Providers`, `ObsAi.ObsIntegration`, `ObsAi.Host` e os projetos de teste `ObsAi.Architecture.Tests`, `ObsAi.Unit.Tests`, `ObsAi.Integration.Tests`, `ObsAi.Contract.Tests`, `ObsAi.Security.Tests`, `ObsAi.FailureIsolation.Tests` e `ObsAi.Installer.Tests`. `ObsAi.Application` contém os contracts/ports vendor-neutral da `TASK-005`; `ObsAi.Domain` contém o modelo de sessão, perfil e contexto efêmero da `TASK-006`; `ObsAi.Application.Lifecycle` contém o lifecycle e a orquestração de sessão da `TASK-007`; `dotnet test --no-build` executa 119 testes determinísticos no momento.
 
 ```text
 Restore: dotnet restore
@@ -79,7 +79,7 @@ CLAUDE.md             Thin Claude Code wrapper
 PROJECT_SKILLS.md     Installed skill registry
 ```
 
-Solution and build configuration files (`OBS-AI-Live-Assistant.slnx`, `global.json`, `Directory.Build.props`, `Directory.Packages.props`, `.editorconfig`) exist as the foundation. `ObsAi.Application` contains the vendor-neutral contracts and ports delivered by `TASK-005`; `ObsAi.Domain` contains the session, profile and ephemeral-context model delivered by `TASK-006`; the other product projects remain structural scaffolds. Deterministic Architecture, Unit, Contract and Security tests cover the implemented boundaries; adapters, functional orchestration, packaging and installer implementation remain absent until their approved tasks complete.
+Solution and build configuration files (`OBS-AI-Live-Assistant.slnx`, `global.json`, `Directory.Build.props`, `Directory.Packages.props`, `.editorconfig`) exist as the foundation. `ObsAi.Application` contains the vendor-neutral contracts and ports delivered by `TASK-005`; `ObsAi.Domain` contains the session, profile and ephemeral-context model delivered by `TASK-006`; `ObsAi.Application.Lifecycle` contains the session lifecycle and orchestration boundary delivered by `TASK-007`; the other product projects remain structural scaffolds. Deterministic Architecture, Unit, Contract, Integration, FailureIsolation and Security tests cover the implemented boundaries; adapters, functional orchestration, packaging and installer implementation remain absent until their approved tasks complete.
 
 ## Workflow Rules
 

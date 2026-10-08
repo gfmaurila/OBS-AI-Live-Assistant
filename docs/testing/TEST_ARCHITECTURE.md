@@ -18,12 +18,12 @@ Estabelecer a fundação determinística de testes e quality gates: categorias, 
 
 | Categoria | Projeto ou harness | Local canônico | Framework/harness | O que valida (surgirá com o produto) | Gate atual | Aplicável a partir de |
 |---|---|---:|---|---|---|---|
-| Unit | Projeto | `tests/Unit/ObsAi.Unit.Tests` | xunit (net10.0) | regras de domínio e convenções puras de Domain/Application | EXECUTED para contracts da TASK-005 e domínio da TASK-006 | TASK-005+ |
-| Integration | Projeto | `tests/Integration/ObsAi.Integration.Tests` | xunit (net10.0) | pipelines, adapters e fluxos entre boundaries | NOT EXECUTED para comportamento de produto; âncora do scaffold EXECUTED | TASK-007+ |
-| Architecture | Projeto existente | `tests/Architecture/ObsAi.Architecture.Tests` | xunit determinístico | dependências, convenções, matriz de compatibilidade, arquitetura de testes, contracts e domínio | EXECUTED (TASK-002/003/004/005/006) | desde TASK-002 |
+| Unit | Projeto | `tests/Unit/ObsAi.Unit.Tests` | xunit (net10.0) | regras de domínio e convenções puras de Domain/Application | EXECUTED para contracts da TASK-005, domínio da TASK-006 e lifecycle da TASK-007 | TASK-005+ |
+| Integration | Projeto | `tests/Integration/ObsAi.Integration.Tests` | xunit (net10.0) | pipelines, adapters e fluxos entre boundaries | EXECUTED para fluxos de lifecycle de sessão da TASK-007; adapters e providers NOT EXECUTED | TASK-007+ |
+| Architecture | Projeto existente | `tests/Architecture/ObsAi.Architecture.Tests` | xunit determinístico | dependências, convenções, matriz de compatibilidade, arquitetura de testes, contracts, domínio e lifecycle | EXECUTED (TASK-002/003/004/005/006/007) | desde TASK-002 |
 | Contracts | Projeto | `tests/Contracts/ObsAi.Contract.Tests` | xunit (net10.0) | ports, contratos IPC e envelope versionado | EXECUTED para ports da TASK-005; IPC NOT EXECUTED | TASK-005 (ports) / TASK-022+ (IPC) |
-| Security | Projeto | `tests/Security/ObsAi.Security.Tests` | xunit (net10.0) | autorização, redaction, minimização, isolamento de sessão, secrets e políticas | EXECUTED para minimização e isolamento do domínio da TASK-006; demais controles NOT EXECUTED | TASK-006+ conforme requisito da Task |
-| FailureIsolation | Projeto | `tests/FailureIsolation/ObsAi.FailureIsolation.Tests` | xunit (net10.0) | falhas, timeout, retry, filas bounded, IPC e encerramento | NOT EXECUTED para comportamento de produto; âncora do scaffold EXECUTED | TASK-008/013/026+ |
+| Security | Projeto | `tests/Security/ObsAi.Security.Tests` | xunit (net10.0) | autorização, redaction, minimização, isolamento de sessão, secrets e políticas | EXECUTED para minimização/isolamento da TASK-006 e autoridade de lease da TASK-007; demais controles NOT EXECUTED | TASK-006+ conforme requisito da Task |
+| FailureIsolation | Projeto | `tests/FailureIsolation/ObsAi.FailureIsolation.Tests` | xunit (net10.0) | falhas, timeout, retry, filas bounded, IPC e encerramento | EXECUTED para shutdown ordenado e falhas de publicação da TASK-007; filas, timeout e IPC NOT EXECUTED | TASK-007+ (encerramento) / TASK-008/013/026+ (demais) |
 | ObsCompatibility | Harness (sem projeto novo) | `prototypes/compat-sniff` + `CompatibilityMatrixTests` + `docs/architecture/compatibility/` | sonda read-only + xunit determinístico | matriz OBS 32.x x64, Windows 10/11 x64, .NET 10, fail-closed | PARTIAL — smoke (TASK-003); suite formal NOT CREATED (TASK-051) | desde TASK-003; formal TASK-051 |
 | Installer | Projeto | `tests/Installer/ObsAi.Installer.Tests` | xunit (net10.0) | detecção de ambiente, upgrade/repair/uninstall/rollback | NOT EXECUTED para comportamento de produto; âncora do scaffold EXECUTED | TASK-046+ |
 | Regression/E2E | Consolidação | suites existentes + `TASK-049`/`TASK-050` | xunit | regressão e integração end-to-end | NOT CREATED | TASK-049/TASK-050 |
@@ -40,7 +40,7 @@ Estabelecer a fundação determinística de testes e quality gates: categorias, 
 ## Decisões
 
 - **ObsCompatibility** usa o harness existente (sonda read-only `prototypes\compat-sniff` + testes determinísticos de matriz) em vez de um projeto vazio; a suite formal executável permanece em `TASK-051`.
-- **Scaffolds da TASK-004** não recebem `ProjectReference` até a Task correspondente autorizar. A TASK-005 ativou Unit e Contracts para `ObsAi.Application`; a TASK-006 adiciona `ObsAi.Domain` à suite Unit e ativa Security exclusivamente para `ObsAi.Domain`. Integration, FailureIsolation e Installer continuam sem referência. Um teste determinístico valida esses estados.
+- **Scaffolds da TASK-004** não recebem `ProjectReference` até a Task correspondente autorizar. A TASK-005 ativou Unit e Contracts para `ObsAi.Application`; a TASK-006 adicionou `ObsAi.Domain` à suite Unit e ativou Security; a TASK-007 ampliou Unit, Security, Integration e FailureIsolation para `ObsAi.Application` e `ObsAi.Domain`. Apenas Installer continua sem referência. Um teste determinístico valida esses estados.
 - **Comandos canônicos** são os do `AGENTS.md` e do `tooling\quality-gates.ps1`; nenhum gate é aprovado sem execução real com evidência.
 
 ## Comandos canônicos para gates
