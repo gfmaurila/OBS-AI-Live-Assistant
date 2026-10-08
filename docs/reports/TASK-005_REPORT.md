@@ -5,7 +5,7 @@
 - Data: 2026-10-07
 - IA: Codex
 - Branch: `feature/task-TASK-005-application-contracts-ports`
-- Estado deste registro: gates técnicos pré-merge aprovados; integração em `develop` pendente.
+- Estado deste registro: implementação mergeada em `develop` e validação pós-merge aprovada.
 
 ## Definition of Ready
 
@@ -52,6 +52,11 @@ Resultado: **APROVADO** após correção.
 
 Prompt operacional integral arquivado em `docs/prompts/history/prompt21.md`.
 
-## Pendências de Definition of Done
+## Integração e validação pós-merge
 
-Commit, push, PR, validação do PR, merge em `develop`, validação pós-merge, transição final para `DONE`, recálculo do grafo e cleanup serão registrados após execução real. A Task não é declarada `DONE` neste estágio.
+- Commit de implementação: `8f27ec4425844a16b379a2bbb2b747528b64358e`.
+- PR [#17](https://github.com/gfmaurila/OBS-AI-Live-Assistant/pull/17): base/head corretos, mergeable e sem conflitos; CI e branch protection não configurados.
+- Merge em `develop`: `ed555be7343e95b1d18a7b45789428b79917ab2d`.
+- Pipeline oficial pós-merge: restore/build/tests/format `PASSED`; 65/65 testes; 0 avisos/0 erros.
+- Dependency Graph recalculado: nenhuma nova Task formalmente READY; `TASK-006` e `TASK-024` seguem candidatas a READY.
+- A transição administrativa para `DONE` é integrada por PR separado, sem commit direto em `develop`.

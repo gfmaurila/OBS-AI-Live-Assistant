@@ -11,6 +11,6 @@ A Architecture Baseline do OBS-AI-Live-Assistant foi concluída em 2026-10-07. E
 - [Diagramas](diagrams/README.md)
 - [Relatório e Quality Gates](../reports/ARCHITECTURE_REPORT.md)
 
-Status: **CONCLUÍDA / EM IMPLEMENTAÇÃO**. Architecture Quality Gate: **PASSED**. Security Architecture Review: **PASSED**. Backlog Readiness: **READY**. Estratégia de compatibilidade (ADR-010): **ACCEPTED** desde 2026-10-07 (TASK-003). Os contracts e ports da aplicação foram materializados pela TASK-005 sem alterar as decisões da baseline.
+Status: **CONCLUÍDA / APPLICATION CONTRACTS IMPLEMENTED**. Architecture Quality Gate: **PASSED**. Security Architecture Review: **PASSED**. Backlog Readiness: **READY**. Estratégia de compatibilidade (ADR-010): **ACCEPTED** desde 2026-10-07 (TASK-003). Os contracts e ports da aplicação foram materializados e validados pela TASK-005 sem alterar as decisões da baseline.
 
 Os ADRs `PROPOSED` ou `DEFERRED` delimitam escolhas que dependem de protótipo ou decisão do cliente; não impedem decompor o sistema em backlog e Tasks. Nenhum artefato desta pasta autoriza implementação.
