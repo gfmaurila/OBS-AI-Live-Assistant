@@ -15,7 +15,7 @@ OBS-AI-Live-Assistant é uma aplicação Windows independente e planejada para o
 - **TASK-004 — Estabelecer a arquitetura de testes e os quality gates: CONCLUÍDA** (carta canônica em `docs/testing/TEST_ARCHITECTURE.md`, projetos de teste por categoria e runner `tooling/quality-gates.ps1`).
 - **TASK-005 — Definir contracts e ports da aplicação: CONCLUÍDA** (contracts/ports vendor-neutral em `ObsAi.Application`; suites Unit, Contract e Architecture aprovadas; merge e validação pós-merge concluídos).
 - **TASK-006 — Implementar o modelo de domínio de sessão, perfil e contexto: CONCLUÍDA** (`ObsAi.Domain`; suites Unit, Architecture e Security aprovadas; merge e validação pós-merge concluídos).
-- **TASK-007 — Implementar lifecycle e orquestração de sessão: EM EXECUÇÃO** (`ObsAi.Application.Lifecycle`; suites Unit, Integration, FailureIsolation, Security e Architecture aplicáveis).
+- **TASK-007 — Implementar lifecycle e orquestração de sessão: CONCLUÍDA** (`ObsAi.Application.Lifecycle`; suites Unit, Integration, FailureIsolation, Security e Architecture aprovadas; 119/119 testes; merge e validação pós-merge concluídos).
 
 ## Direção tecnológica
 
