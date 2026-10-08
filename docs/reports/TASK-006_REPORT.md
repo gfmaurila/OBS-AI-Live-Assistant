@@ -5,7 +5,7 @@
 - Data: 2026-10-08
 - IA: Codex
 - Branch de implementação: `feature/task-TASK-006-domain-session-profile-context`
-- Estado deste registro: implementação concluída e aguardando integração em `develop`.
+- Estado deste registro: implementação mergeada em `develop`, validação pós-merge aprovada e finalização administrativa em andamento.
 
 ## Definition of Ready
 
@@ -64,6 +64,12 @@ Resultado: **PASSED**.
 
 Prompt operacional integral arquivado em `docs/prompts/history/prompt22.md`.
 
-## Integração
+## Integração e validação pós-merge
 
-Commit, PR, merge, validação pós-merge e finalização administrativa serão registrados após sua conclusão. A Task permanece `IN_PROGRESS` até esses gates.
+- commit de implementação: `e9a4bf0fb22b17dee9b9f7decb8e4d6dd8a767db`;
+- PR de implementação: [#19](https://github.com/gfmaurila/OBS-AI-Live-Assistant/pull/19), base/head corretos, mergeable e sem conflitos;
+- CI, reviews obrigatórios e branch protection: não configurados;
+- merge em `develop`: `c78fc1fde4798e694784900b11dcf952cdce61da`;
+- pipeline oficial pós-merge: restore/build/testes/format `PASSED`; 85/85 testes; 0 avisos e 0 erros;
+- Dependency Graph recalculado: `TASK-007`, `TASK-009`, `TASK-014` e `TASK-024` são candidatas a READY, sem promoção automática;
+- a transição administrativa para `DONE` é integrada por PR separado, sem commit direto em `develop`.
