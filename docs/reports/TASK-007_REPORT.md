@@ -5,7 +5,7 @@
 - Data: 2026-10-08
 - IA: opencode (big-pickle)
 - Branch de implementação: `feature/task-TASK-007-session-lifecycle-orchestration`
-- Estado deste registro: implementação concluída e aguardando integração em `develop`.
+- Estado deste registro: **concluído** — implementação mergeada em `develop`, validação pós-merge aprovada e finalização administrativa registrada.
 
 ## Definition of Ready
 
@@ -73,4 +73,9 @@ Prompt operacional (reconstrução autorizada, verbatim indisponível) arquivado
 
 ## Integração
 
-Commit, PR, merge, validação pós-merge e finalização administrativa serão registrados após sua conclusão. A Task permanece `IN_PROGRESS` até esses gates.
+- commit de implementação: `58600e3e3099c1a235ab7f9554b62bf7d150d4fa` (branch `feature/task-TASK-007-session-lifecycle-orchestration`);
+- PR de implementação: [#21](https://github.com/gfmaurila/OBS-AI-Live-Assistant/pull/21), status **MERGED**;
+- squash merge em `develop`: `a2ca24d4ef54f2180c15afb21690ced4681be9ed`;
+- validação pós-merge em `develop`: restore, build 14 projetos, 119/119 testes e format — todos `PASSED`; `tooling/quality-gates.ps1` com todos os gates `PASSED`;
+- finalização administrativa: Task movida para `tasks/done/`, Status `DONE`; backlog, README, grafo, ordem, matriz e relatório atualizados (PR de finalização registrado);
+- branches temporárias de implementação e finalização removidas; working tree limpo.

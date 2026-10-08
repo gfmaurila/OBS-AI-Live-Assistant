@@ -208,4 +208,4 @@ flowchart LR
 | TASK-051 | TASK-003, TASK-044, TASK-050 | TASK-052 |
 | TASK-052 | TASK-048, TASK-050, TASK-051 | Nenhuma |
 
-Nesta baseline, `TASK-001` a `TASK-006` estão `DONE` e `TASK-007` está `IN_PROGRESS` após DoR formal e autorização explícita. A conclusão da `TASK-006` satisfaz suas arestas em `TASK-007`, `TASK-009`, `TASK-011`, `TASK-014` e `TASK-019`; em `TASK-007` não restam dependências pendentes. Considerando as demais Tasks, **`TASK-009`, `TASK-014` e `TASK-024`** permanecem candidatas a READY, sem promoção ou execução automática. `TASK-011` e `TASK-019` continuam bloqueadas por dependências pendentes. Ciclos: **0**; validação topológica: **PASSED**.
+Nesta baseline, `TASK-001` a `TASK-007` estão `DONE`. A conclusão da `TASK-007` satisfaz suas arestas em `TASK-008`, `TASK-013` e `TASK-029`; em `TASK-008` não restam dependências pendentes. Considerando as demais Tasks, **`TASK-008`, `TASK-009`, `TASK-014` e `TASK-024`** permanecem candidatas a READY, sem promoção ou execução automática. `TASK-013`, `TASK-011` e `TASK-019` continuam bloqueadas por dependências pendentes. Ciclos: **0**; validação topológica: **PASSED**.
