@@ -15,6 +15,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\src\ObsAi.Application\ObsAi.Application.csproj" />
+    <ProjectReference Include="..\..\..\src\ObsAi.Domain\ObsAi.Domain.csproj" />
   </ItemGroup>
 
 </Project>

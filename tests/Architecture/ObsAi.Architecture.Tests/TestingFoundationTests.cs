@@ -29,8 +29,7 @@ public sealed class TestingFoundationTests
 
     private static readonly string[] InactiveScaffoldProjectNames = new[]
     {
-        "ObsAi.Integration.Tests", "ObsAi.Security.Tests",
-        "ObsAi.FailureIsolation.Tests", "ObsAi.Installer.Tests",
+        "ObsAi.Integration.Tests", "ObsAi.FailureIsolation.Tests", "ObsAi.Installer.Tests",
     };
 
     private static readonly string[] ApprovedTestPackages = new[]
@@ -44,6 +43,10 @@ public sealed class TestingFoundationTests
     };
 
     private static readonly string[] ApplicationOnlyReference = new[] { "ObsAi.Application" };
+
+    private static readonly string[] ApplicationAndDomainReferences = new[] { "ObsAi.Application", "ObsAi.Domain" };
+
+    private static readonly string[] DomainOnlyReference = new[] { "ObsAi.Domain" };
 
     [Fact]
     public void TestingArchitectureCharter_ExistsAtCanonicalLocation()
@@ -117,14 +120,28 @@ public sealed class TestingFoundationTests
         }
     }
 
-    [Theory]
-    [InlineData("ObsAi.Unit.Tests")]
-    [InlineData("ObsAi.Contract.Tests")]
-    public void Task005ActivatedTestProjects_ReferenceOnlyApplication(string projectName)
+    [Fact]
+    public void Task005ContractTests_ReferenceOnlyApplication()
     {
-        var project = RepositoryModel.LoadProjects(RepositoryRoot).Single(candidate => candidate.Name == projectName);
+        var project = RepositoryModel.LoadProjects(RepositoryRoot).Single(candidate => candidate.Name == "ObsAi.Contract.Tests");
 
         Assert.Equal(ApplicationOnlyReference, project.ReferencedProjects);
+    }
+
+    [Fact]
+    public void Task006UnitTests_ReferenceApplicationAndDomain()
+    {
+        var project = RepositoryModel.LoadProjects(RepositoryRoot).Single(candidate => candidate.Name == "ObsAi.Unit.Tests");
+
+        Assert.Equal(ApplicationAndDomainReferences, project.ReferencedProjects);
+    }
+
+    [Fact]
+    public void Task006SecurityTests_ReferenceOnlyDomain()
+    {
+        var project = RepositoryModel.LoadProjects(RepositoryRoot).Single(candidate => candidate.Name == "ObsAi.Security.Tests");
+
+        Assert.Equal(DomainOnlyReference, project.ReferencedProjects);
     }
 
     [Fact]
