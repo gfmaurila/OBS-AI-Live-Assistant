@@ -206,6 +206,16 @@ public sealed class ChatInputValidationTests
     }
 
     [Fact]
+    public void Validate_RawOversizeWhitespaceText_IsRejectedBeforeScanningContent()
+    {
+        var limits = InputValidationLimits.Create(maximumTextLength: 4, maximumReferenceLength: 64);
+        var result = ChatInputValidator.Validate(CreateMessage("     "), limits);
+
+        Assert.True(result.IsRejected);
+        Assert.Equal(InputRejectionReason.OversizeText, result.Rejection!.Reason);
+    }
+
+    [Fact]
     public void Validate_OversizeReference_IsRejectedAsOversizeReference()
     {
         var limits = InputValidationLimits.Create(maximumTextLength: 128, maximumReferenceLength: 4);
@@ -213,6 +223,27 @@ public sealed class ChatInputValidationTests
 
         Assert.True(result.IsRejected);
         Assert.Equal(InputRejectionReason.OversizeReference, result.Rejection!.Reason);
+    }
+
+    [Fact]
+    public void Validate_RawOversizeReference_IsRejectedBeforeTrimming()
+    {
+        var limits = InputValidationLimits.Create(maximumTextLength: 128, maximumReferenceLength: 4);
+        var result = ChatInputValidator.Validate(
+            CreateMessage("hello", channel: "  c1  ", message: "m1", sender: "s1"),
+            limits);
+
+        Assert.True(result.IsRejected);
+        Assert.Equal(InputRejectionReason.OversizeReference, result.Rejection!.Reason);
+    }
+
+    [Fact]
+    public void Validate_UnpairedSurrogateInReference_IsRejectedAsMalformedEncoding()
+    {
+        var result = ChatInputValidator.Validate(CreateMessage("hello", channel: "bad\ud800reference"), DefaultLimits);
+
+        Assert.True(result.IsRejected);
+        Assert.Equal(InputRejectionReason.MalformedEncoding, result.Rejection!.Reason);
     }
 
     [Theory]

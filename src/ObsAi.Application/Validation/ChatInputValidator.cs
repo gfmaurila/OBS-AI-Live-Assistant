@@ -62,10 +62,31 @@ public static class ChatInputValidator
         out string normalized,
         out InputRejectionReason? reason)
     {
+        if (reference is null)
+        {
+            normalized = null!;
+            reason = InputRejectionReason.MissingRequiredField;
+            return false;
+        }
+
+        if (reference.Length > maximumLength)
+        {
+            normalized = null!;
+            reason = InputRejectionReason.OversizeReference;
+            return false;
+        }
+
         if (string.IsNullOrWhiteSpace(reference))
         {
             normalized = null!;
             reason = InputRejectionReason.MissingRequiredField;
+            return false;
+        }
+
+        if (HasUnpairedSurrogate(reference))
+        {
+            normalized = null!;
+            reason = InputRejectionReason.MalformedEncoding;
             return false;
         }
 
@@ -94,7 +115,7 @@ public static class ChatInputValidator
         out string normalized,
         out InputRejectionReason? reason)
     {
-        if (string.IsNullOrWhiteSpace(text))
+        if (text is null)
         {
             normalized = null!;
             reason = InputRejectionReason.MissingRequiredField;
@@ -105,6 +126,13 @@ public static class ChatInputValidator
         {
             normalized = null!;
             reason = InputRejectionReason.OversizeText;
+            return false;
+        }
+
+        if (string.IsNullOrWhiteSpace(text))
+        {
+            normalized = null!;
+            reason = InputRejectionReason.MissingRequiredField;
             return false;
         }
 
