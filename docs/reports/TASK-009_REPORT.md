@@ -97,5 +97,6 @@ Risco residual: limites numéricos de produto e sua persistência continuam corr
 - PR de implementação: [#25](https://github.com/gfmaurila/OBS-AI-Live-Assistant/pull/25), status **MERGED**;
 - squash merge da implementação em `develop`: `4c3acaa2c6784958ad6ea5f51a43e861a2c8aa03`;
 - validação pós-merge da implementação: 225/225 testes e gates oficiais `PASSED`;
+- PR de finalização: [#26](https://github.com/gfmaurila/OBS-AI-Live-Assistant/pull/26), base `develop`;
 - finalização: Task movida para `tasks/done/`; backlog, grafo, ordem, READMEs, documentação e relatório atualizados;
 - branch de finalização existente: `feature/task-TASK-009-finalization`.

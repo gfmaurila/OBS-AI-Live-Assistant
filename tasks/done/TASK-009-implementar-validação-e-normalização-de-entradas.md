@@ -133,6 +133,7 @@ DONE
 ## Registro de finalização
 
 - Implementação mergeada em `develop` via PR [#25](https://github.com/gfmaurila/OBS-AI-Live-Assistant/pull/25) (squash, commit `4c3acaa2c6784958ad6ea5f51a43e861a2c8aa03`) em 2026-10-08; branch `feature/task-TASK-009-input-validation`.
+- Finalização administrativa submetida via PR [#26](https://github.com/gfmaurila/OBS-AI-Live-Assistant/pull/26), branch `feature/task-TASK-009-finalization`, com os três testes de regressão e o relatório canônico.
 - Validação pós-merge da implementação em `develop`: Restore, Build (0 avisos/0 erros), 225/225 testes determinísticos e Format — todos `PASSED`; `tooling/quality-gates.ps1` com todos os gates `PASSED`. A finalização adicionou 3 testes de regressão (228/228) para limite bruto antes de varredura/normalização e encoding de referências.
 - Code Review (0 Critical/0 High/0 Medium/0 Low), Security Audit e Architecture Gate: `PASSED`.
 - Secret Scan: 3 varreduras do conteúdo staged, nenhum hit real (falsos positivos de nomes de fragmentos `Secret`/`Token`/`ApiKey` e marcador de teste `SECRET-IDENTITY-42` registrados). Prompts arquivados: `docs/prompts/history/prompt25.md` e `docs/prompts/history/prompt26.md`.
