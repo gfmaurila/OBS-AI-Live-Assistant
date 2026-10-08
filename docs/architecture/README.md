@@ -8,11 +8,12 @@ A Architecture Baseline do OBS-AI-Live-Assistant foi concluída em 2026-10-07. E
 - [Contracts e ports da aplicação](APPLICATION_CONTRACTS.md) — fronteiras vendor-neutral materializadas pela TASK-005
 - [Modelo de domínio](DOMAIN_MODEL.md) — sessão, perfil e contexto efêmero materializados pela TASK-006
 - [Lifecycle de sessão](SESSION_LIFECYCLE.md) — estados, leases e shutdown ordenado materializados pela TASK-007
+- [Filas bounded e backpressure](QUEUES.md) — buffers limitados e políticas de saturação materializados pela TASK-008
 - [Compatibilidade](compatibility/README.md) — matriz de compatibilidade (ADR-010, validada na TASK-003)
 - [ADRs](decisions/README.md)
 - [Diagramas](diagrams/README.md)
 - [Relatório e Quality Gates](../reports/ARCHITECTURE_REPORT.md)
 
-Status: **CONCLUÍDA / APPLICATION CONTRACTS, DOMAIN MODEL AND SESSION LIFECYCLE IMPLEMENTED**. Architecture Quality Gate: **PASSED**. Security Architecture Review: **PASSED**. Backlog Readiness: **READY**. Estratégia de compatibilidade (ADR-010): **ACCEPTED** desde 2026-10-07 (TASK-003). Os contracts e ports da aplicação foram materializados pela TASK-005; o modelo de sessão, perfil e contexto efêmero foi materializado pela TASK-006; o lifecycle e a orquestração de sessão foram materializados pela TASK-007, sem alterar as decisões da baseline.
+Status: **CONCLUÍDA / APPLICATION CONTRACTS, DOMAIN MODEL, SESSION LIFECYCLE AND BOUNDED QUEUES IMPLEMENTED**. Architecture Quality Gate: **PASSED**. Security Architecture Review: **PASSED**. Backlog Readiness: **READY**. Estratégia de compatibilidade (ADR-010): **ACCEPTED** desde 2026-10-07 (TASK-003). Os contracts e ports da aplicação foram materializados pela TASK-005; o modelo de sessão, perfil e contexto efêmero foi materializado pela TASK-006; o lifecycle e a orquestração de sessão foram materializados pela TASK-007; as filas bounded e o backpressure do pipeline foram materializados pela TASK-008, sem alterar as decisões da baseline.
 
 Os ADRs `PROPOSED` ou `DEFERRED` delimitam escolhas que dependem de protótipo ou decisão do cliente; não impedem decompor o sistema em backlog e Tasks. Nenhum artefato desta pasta autoriza implementação.

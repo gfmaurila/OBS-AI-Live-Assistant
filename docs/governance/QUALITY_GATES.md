@@ -43,12 +43,13 @@ A `TASK-004` estabeleceu a **Arquitetura de Testes e Quality Gates** (`docs/test
 
 Categorias sem suite executável permanecem **NOT APPLICABLE UNTIL IMPLEMENTATION** e não podem ser marcadas como PASSED sem comandos e artefatos reais:
 
-- **Unit Tests** — contracts da TASK-005, invariantes de domínio da TASK-006 e do orquestrador de lifecycle da TASK-007 `EXECUTED`
-- **Security Tests** — minimização e isolamento de dados do domínio da TASK-006 e autoridade de lease/`SessionId` da TASK-007 `EXECUTED`; controles restantes aplicáveis em Tasks futuras
-- **Integration Tests** — fluxos de lifecycle de sessão da TASK-007 `EXECUTED`; adapters e providers permanecem `NOT EXECUTED` (aplicável TASK-015+)
-- **FailureIsolation Tests** — shutdown ordenado e falhas de publicação da TASK-007 `EXECUTED`; filas, timeout e IPC permanecem `NOT EXECUTED` (aplicável TASK-008/013/026+)
+- **Unit Tests** — contracts da TASK-005, invariantes de domínio da TASK-006, do orquestrador de lifecycle da TASK-007 e das filas bounded da TASK-008 `EXECUTED`
+- **Security Tests** — minimização e isolamento de dados do domínio da TASK-006, autoridade de lease/`SessionId` da TASK-007 e saturação/isolamento das filas bounded da TASK-008 `EXECUTED`; controles restantes aplicáveis em Tasks futuras
+- **Integration Tests** — fluxos de lifecycle de sessão da TASK-007 e fluxos de filas bounded/backpressure da TASK-008 `EXECUTED`; adapters e providers permanecem `NOT EXECUTED` (aplicável TASK-015+)
+- **FailureIsolation Tests** — shutdown ordenado e falhas de publicação da TASK-007 e filas bounded da TASK-008 `EXECUTED`; timeout e IPC permanecem `NOT EXECUTED` (aplicável TASK-013/026+)
+- **Overload/anti-bússola determinístico (TASK-008)** — floods adversários de `QueueFlowTests`/`QueueSecurityTests` provam que carga excedente não expande memória nem derruba o runner, sem `Task.Delay` arbitrário (RNF-019)
 - **Installer Tests** — âncora do scaffold `EXECUTED`; comportamento de produto `NOT EXECUTED` (aplicável TASK-046+)
 - **OBS Compatibility Tests** — `PARTIAL` (smoke TASK-003); formal `NOT CREATED` (TASK-051)
 - **Regression Tests** — `NOT CREATED` (TASK-049/TASK-050)
 
-Contagem de testes determinísticos no `ObsAi.Architecture.Tests`: TASK-002 (9 de arquitetura + 6 de convenções), TASK-003 (+9 de compatibilidade), TASK-004 (+13 de fundação de testes + 6 âncoras dos scaffolds). Valores exatos são registrados no relatório da Task.
+Contagem de testes determinísticos no `ObsAi.Architecture.Tests`: TASK-002 (9 de arquitetura + 6 de convenções), TASK-003 (+9 de compatibilidade), TASK-004 (+13 de fundação de testes + 6 âncoras dos scaffolds). Valores exatos são registrados no relatório da Task. A TASK-007 consolidou 119 testes determinísticos no total da solução; a TASK-008 elevou o total para 166, com `dotnet test --no-build` passando nas suites Unit, Integration, Security, FailureIsolation, Architecture, Contracts e Installer.
