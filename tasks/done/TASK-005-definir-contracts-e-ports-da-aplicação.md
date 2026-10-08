@@ -84,7 +84,7 @@ Build Gate; Unit Test Gate; Architecture Gate; Contract Gate; Security Gate; Cod
 
 ## Status
 
-REVIEW (2026-10-07)
+DONE (2026-10-07)
 
 ## Definition of Ready — evidência
 
@@ -111,4 +111,7 @@ REVIEW (2026-10-07)
 - Architecture Gate, Contract Gate, Unit Gate, Security Review e Secret Scan: `PASSED`; Secrets: `NONE`.
 - Code Review: um finding Medium sobre falhas não normalizadas em streams foi corrigido; findings abertos Critical/High/Medium/Low: 0.
 - Prompt Traceability: `docs/prompts/history/prompt21.md`.
-- Pendente para `DONE`: commit, push, PR, merge em `develop`, validação pós-merge e cleanup.
+- Commit de implementação: `8f27ec4425844a16b379a2bbb2b747528b64358e`.
+- PR [#17](https://github.com/gfmaurila/OBS-AI-Live-Assistant/pull/17) mergeado em `develop` no commit `ed555be7343e95b1d18a7b45789428b79917ab2d`.
+- Validação pós-merge no `develop`: restore/build/tests/format `PASSED`; 65/65 testes; 0 avisos/0 erros.
+- Finalização administrativa, recálculo do grafo e cleanup executados por PR próprio, sem commit direto em `develop`.

@@ -8,7 +8,7 @@ Status: **BACKLOG QUALITY GATE PASSED**. Implementation Readiness: **READY**.
 | TASK-002 | EPIC-01 | Materializar projetos e regras de dependência | P0 | M | MEDIUM | TASK-001 | DONE | 1 | SEQUENTIAL |
 | TASK-003 | EPIC-12 | Validar a estratégia de compatibilidade | P0 | L | HIGH | TASK-001, TASK-002 | DONE | 1 | PARALLEL SAFE após TASK-002 |
 | TASK-004 | EPIC-13 | Estabelecer a arquitetura de testes e os quality gates | P0 | M | MEDIUM | TASK-001, TASK-002 | DONE | 1 | PARALLEL SAFE após TASK-002 |
-| TASK-005 | EPIC-02 | Definir contracts e ports da aplicação | P0 | L | HIGH | TASK-002, TASK-004 | REVIEW | 2 | SEQUENTIAL |
+| TASK-005 | EPIC-02 | Definir contracts e ports da aplicação | P0 | L | HIGH | TASK-002, TASK-004 | DONE | 2 | SEQUENTIAL |
 | TASK-006 | EPIC-02 | Implementar o modelo de domínio de sessão, perfil e contexto | P0 | L | MEDIUM | TASK-002, TASK-004 | BACKLOG | 2 | PARALLEL SAFE com TASK-005 |
 | TASK-007 | EPIC-02 | Implementar lifecycle e orquestração de sessão | P0 | L | HIGH | TASK-005, TASK-006 | BACKLOG | 2 | SEQUENTIAL |
 | TASK-008 | EPIC-02 | Implementar filas bounded e backpressure | P0 | L | HIGH | TASK-005, TASK-007 | BACKLOG | 2 | SEQUENTIAL |
@@ -57,4 +57,4 @@ Status: **BACKLOG QUALITY GATE PASSED**. Implementation Readiness: **READY**.
 | TASK-051 | EPIC-14 | Validar desempenho, recursos e matriz final | P1 | L | HIGH | TASK-003, TASK-044, TASK-050 | BACKLOG | 8 | SEQUENTIAL |
 | TASK-052 | EPIC-15 | Preparar a V1 para o Release Quality Gate | P0 | L | HIGH | TASK-048, TASK-050, TASK-051 | BACKLOG | 9 | SEQUENTIAL |
 
-Os arquivos individuais nas pastas de estado são a autoridade operacional. `TASK-001` a `TASK-004` estão `DONE`; `TASK-005` passou na DoR, foi implementada exclusivamente e está em `REVIEW`, aguardando PR/merge e validação pós-merge para `DONE`. Nenhuma Task está formalmente `READY`; `TASK-006` e `TASK-024` permanecem candidatas a READY, sem execução. As demais Tasks seguem em `BACKLOG` conforme o grafo.
+Os arquivos individuais nas pastas de estado são a autoridade operacional. `TASK-001` a `TASK-005` estão `DONE`. Nenhuma Task está formalmente `READY`; `TASK-006` e `TASK-024` permanecem candidatas a READY, sem execução. As demais Tasks seguem em `BACKLOG` conforme o grafo; nenhuma Task dependente foi executada pela TASK-005.

@@ -79,7 +79,7 @@ CLAUDE.md             Thin Claude Code wrapper
 PROJECT_SKILLS.md     Installed skill registry
 ```
 
-Solution and build configuration files (`OBS-AI-Live-Assistant.slnx`, `global.json`, `Directory.Build.props`, `Directory.Packages.props`, `.editorconfig`) exist as the foundation. Product source code is scaffolded (empty `ObsAi.*` projects with minimal references); the deterministic architecture project and category test scaffolds exist. Functional product code, executable product-behavior tests, packaging, and installer implementation remain intentionally absent until their approved tasks complete.
+Solution and build configuration files (`OBS-AI-Live-Assistant.slnx`, `global.json`, `Directory.Build.props`, `Directory.Packages.props`, `.editorconfig`) exist as the foundation. `ObsAi.Application` contains the vendor-neutral contracts and ports delivered by `TASK-005`; the other product projects remain structural scaffolds. Deterministic Architecture, Unit and Contract tests cover the implemented boundaries; adapters, functional orchestration, packaging and installer implementation remain absent until their approved tasks complete.
 
 ## Workflow Rules
 

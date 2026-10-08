@@ -17,4 +17,4 @@ Uma Task somente pode mudar de `BACKLOG` para `READY` quando todos os itens abai
 
 ## Aplicação atual
 
-`TASK-001` a `TASK-004` passaram para `DONE`. A `TASK-005` teve DoR formalmente aprovada em 2026-10-07, recebeu autorização explícita, foi implementada e está em `review/`; ainda não está `DONE` porque merge e validação pós-merge são obrigatórios. Nenhuma Task está formalmente `READY`. `TASK-006` e `TASK-024` possuem dependências concluídas e permanecem candidatas a READY, sem execução. As demais ainda dependem direta ou transitivamente de trabalho não concluído.
+`TASK-001` a `TASK-005` passaram para `DONE`. Nenhuma Task está formalmente `READY`. `TASK-006` e `TASK-024` possuem dependências concluídas e permanecem candidatas a READY, sem execução. As demais ainda dependem direta ou transitivamente de trabalho não concluído. `READY` não autoriza implementação sem aprovação do cliente.
