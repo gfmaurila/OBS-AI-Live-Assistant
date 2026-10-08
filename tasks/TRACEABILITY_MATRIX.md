@@ -196,6 +196,17 @@ Detalhamento canônico: `docs/architecture/SESSION_LIFECYCLE.md`.
 
 Detalhamento canônico: `docs/architecture/QUEUES.md`.
 
+## Evidência implementada — TASK-009
+
+| Requirements/decisões | Implementação | Testes |
+|---|---|---|
+| RF-006, RF-007 | `ChatInputValidator` e `NormalizedChatMessage` com identidade operacional mínima e origem; entradas equivalentes produzem o mesmo campo comum | `ChatInputValidationTests`, `ChatInputValidationContractTests` |
+| RNF-004, RNF-005 | validação fail-closed antes de qualquer sink; superfície sem payload e sem metadados extras | `ChatInputValidationSecurityTests`, `ChatInputValidationContractTests` |
+| SEC-001, SEC-002, SEC-019, SEC-024 | rejeição de ausente/malformado/oversize/encoding antes de provider e fila; tamanho bruto limitado antes da normalização; limites configuráveis sem números de produto | `ChatInputValidationTests`, `ChatInputValidationSecurityTests`, `ApplicationInputValidationArchitectureTests` |
+| ADR-004, ADR-008 | validação nos boundaries antes do uso e controles centrais fail-closed | `ApplicationInputValidationArchitectureTests` |
+
+Detalhamento canônico: `docs/architecture/INPUT_VALIDATION.md`.
+
 ## Resultado
 
 - MUST RF/RNF sem cobertura: **0**
