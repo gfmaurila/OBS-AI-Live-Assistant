@@ -70,6 +70,36 @@ UNIT; INTEGRATION; FAILURE; SECURITY.
 - critérios e testes refinados sem blocker;
 - branch `feature/task-TASK-007-<descricao>` determinável.
 
+### Evidência de prontidão
+
+- TASK-005 e TASK-006 confirmadas em `develop` (`DONE`);
+- escopo, fora de escopo, critérios e testes UNIT/INTEGRATION/FAILURE/SECURITY confirmados;
+- RF/RNF/SEC e ADR-003/009 consultados integralmente;
+- riscos de saída tardia, cancelamento não propagado, estado ambíguo, isolamento de sessão e falsificação de autoridade mapeados;
+- nenhum blocker Critical/High ou conflito canônico identificado;
+- autorização operacional explícita recebida em 2026-10-08.
+
+Resultado: **PASSED**.
+
+## Plano de implementação
+
+1. materializar estados, razões de rejeição e aquisição de lease em `ObsAi.Application.Lifecycle`;
+2. materializar o orquestrador de sessão (start/pause/resume/shutdown/admissão/commit) com lock único e geração por sessão;
+3. materializar o lease de operação sem superfície de autoridade pública;
+4. cobrir invariantes com testes Unit, Integration, FailureIsolation, Security e Architecture;
+5. documentar o contrato e sua rastreabilidade sem antecipar filas, providers, persistência ou IPC.
+
+## Matriz critério → teste
+
+| Critério | Testes |
+|---|---|
+| pausa bloqueia novas admissões e preserva trabalho em voo | `AssistantSessionOrchestratorTests`; `SessionLifecycleFlowTests` |
+| shutdown cancela trabalho e impede saídas tardias | `SessionLifecycleFlowTests`; `SessionLifecycleSecurityTests` |
+| falha do Core não cria autoridade ou estado ambíguo | `SessionLifecycleFailureTests` |
+| cancelamento propagado com segurança e sem ampliar privilégio | `SessionLifecycleSecurityTests` |
+| sessão e contexto isolados; lease de sessão anterior inutilizável | `SessionLifecycleSecurityTests` |
+| superfície sem autoridade forjável | `ApplicationLifecycleArchitectureTests` |
+
 ## Definition of Done
 
 - implementação, testes e documentação concluídos;
@@ -84,4 +114,4 @@ Build Gate; Unit Test Gate; Integration Test Gate; Failure Gate; Security Gate; 
 
 ## Status
 
-BACKLOG
+IN_PROGRESS
