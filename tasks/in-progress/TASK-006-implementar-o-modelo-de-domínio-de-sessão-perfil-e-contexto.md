@@ -1,4 +1,4 @@
-﻿# TASK-006 — Implementar o modelo de domínio de sessão, perfil e contexto
+# TASK-006 — Implementar o modelo de domínio de sessão, perfil e contexto
 
 ## Objetivo
 
@@ -70,6 +70,35 @@ UNIT; ARCHITECTURE; SECURITY.
 - critérios e testes refinados sem blocker;
 - branch `feature/task-TASK-006-<descricao>` determinável.
 
+### Evidência de prontidão
+
+- TASK-002 e TASK-004 confirmadas em `tasks/done/`;
+- escopo, fora de escopo, critérios e testes UNIT/ARCHITECTURE/SECURITY confirmados;
+- RF/RNF/SEC e ADR-008/009/011 consultados integralmente;
+- riscos de dados não confiáveis, retenção indevida, acoplamento externo e Persistent Memory mapeados;
+- nenhum blocker Critical/High ou conflito canônico identificado;
+- autorização operacional explícita recebida em 2026-10-08.
+
+Resultado: **PASSED**.
+
+## Plano de implementação
+
+1. materializar identificadores, perfil e limites no projeto `ObsAi.Domain`;
+2. materializar contexto efêmero allowlisted, limitado e vinculado a sessão;
+3. materializar a sessão e o encerramento que invalida e limpa o contexto;
+4. cobrir invariantes com testes Unit, Architecture e Security;
+5. documentar o contrato e sua rastreabilidade sem antecipar orquestração, configuração ou persistência.
+
+## Matriz critério → teste
+
+| Critério | Testes |
+|---|---|
+| contexto allowlisted e limitado | `LiveContextTests`; `DomainDataMinimizationTests` |
+| encerramento impede reutilização | `AssistantSessionTests`; `DomainDataMinimizationTests` |
+| Persistent Memory ausente | `DomainModelArchitectureTests`; `DomainDataMinimizationTests` |
+| sem provider/infraestrutura fora do escopo | `DomainModelArchitectureTests`; testes arquiteturais existentes |
+| perfil com invariantes verificáveis | `AssistantProfileTests` |
+
 ## Definition of Done
 
 - implementação, testes e documentação concluídos;
@@ -84,4 +113,4 @@ Build Gate; Unit Test Gate; Architecture Gate; Security Gate; Acceptance Gate; C
 
 ## Status
 
-BACKLOG
+IN_PROGRESS

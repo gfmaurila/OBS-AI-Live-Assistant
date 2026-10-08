@@ -163,6 +163,17 @@ Esta matriz liga cada Requirement, Security Requirement, ADR e Research Item a p
 | RES-026 | TASK-045, TASK-048, TASK-052 |
 | RES-027 | TASK-003, TASK-045, TASK-051 |
 
+## Evidência implementada — TASK-006
+
+| Requirements/decisões | Implementação | Testes |
+|---|---|---|
+| RF-003, RF-004, RF-015, RF-029 | `AssistantProfile`, `AssistantSession`, `LiveContext` | `AssistantProfileTests`, `AssistantSessionTests`, `LiveContextTests` |
+| RNF-005, RNF-018, RNF-023, RNF-026 | limites explícitos, zero dependências externas e descarte no fim da sessão | suites Unit e Architecture |
+| SEC-024, SEC-025, SEC-031 | allowlist, bounds, isolamento por `SessionId` e invalidação após encerramento | `DomainDataMinimizationTests` |
+| ADR-008, ADR-009, ADR-011 | boundaries de domínio, contexto apenas efêmero e estado explícito | `DomainModelArchitectureTests` |
+
+Detalhamento canônico: `docs/architecture/DOMAIN_MODEL.md`.
+
 ## Resultado
 
 - MUST RF/RNF sem cobertura: **0**

@@ -43,7 +43,8 @@ A `TASK-004` estabeleceu a **Arquitetura de Testes e Quality Gates** (`docs/test
 
 Categorias sem suite executável permanecem **NOT APPLICABLE UNTIL IMPLEMENTATION** e não podem ser marcadas como PASSED sem comandos e artefatos reais:
 
-- **Unit Tests** — âncora do scaffold `EXECUTED`; comportamento de produto `NOT EXECUTED` (aplicável TASK-005+)
+- **Unit Tests** — contracts da TASK-005 e invariantes de domínio da TASK-006 `EXECUTED`
+- **Security Tests** — minimização e isolamento de dados do domínio da TASK-006 `EXECUTED`; controles restantes aplicáveis em Tasks futuras
 - **Integration Tests** — âncora do scaffold `EXECUTED`; comportamento de produto `NOT EXECUTED` (aplicável TASK-007+)
 - **Installer Tests** — âncora do scaffold `EXECUTED`; comportamento de produto `NOT EXECUTED` (aplicável TASK-046+)
 - **OBS Compatibility Tests** — `PARTIAL` (smoke TASK-003); formal `NOT CREATED` (TASK-051)
