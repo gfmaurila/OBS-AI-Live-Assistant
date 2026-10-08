@@ -14,7 +14,7 @@ OBS-AI-Live-Assistant é uma aplicação Windows independente e planejada para o
 - **TASK-003 — Validar a estratégia de compatibilidade: CONCLUÍDA** (matriz de compatibilidade em `docs/architecture/compatibility/`, protótipo de evidência `prototypes/compat-sniff` e ADR-010 **ACCEPTED**).
 - **TASK-004 — Estabelecer a arquitetura de testes e os quality gates: CONCLUÍDA** (carta canônica em `docs/testing/TEST_ARCHITECTURE.md`, projetos de teste por categoria e runner `tooling/quality-gates.ps1`).
 - **TASK-005 — Definir contracts e ports da aplicação: CONCLUÍDA** (contracts/ports vendor-neutral em `ObsAi.Application`; suites Unit, Contract e Architecture aprovadas; merge e validação pós-merge concluídos).
-- **TASK-006 — Implementar o modelo de domínio de sessão, perfil e contexto: EM EXECUÇÃO** (`ObsAi.Domain`; testes Unit, Architecture e Security aplicáveis).
+- **TASK-006 — Implementar o modelo de domínio de sessão, perfil e contexto: CONCLUÍDA** (`ObsAi.Domain`; suites Unit, Architecture e Security aprovadas; merge e validação pós-merge concluídos).
 
 ## Direção tecnológica
 
