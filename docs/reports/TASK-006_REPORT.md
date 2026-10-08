@@ -72,4 +72,4 @@ Prompt operacional integral arquivado em `docs/prompts/history/prompt22.md`.
 - merge em `develop`: `c78fc1fde4798e694784900b11dcf952cdce61da`;
 - pipeline oficial pós-merge: restore/build/testes/format `PASSED`; 85/85 testes; 0 avisos e 0 erros;
 - Dependency Graph recalculado: `TASK-007`, `TASK-009`, `TASK-014` e `TASK-024` são candidatas a READY, sem promoção automática;
-- a transição administrativa para `DONE` é integrada por PR separado, sem commit direto em `develop`.
+- PR de finalização administrativa: [#20](https://github.com/gfmaurila/OBS-AI-Live-Assistant/pull/20), sem commit direto em `develop`.
