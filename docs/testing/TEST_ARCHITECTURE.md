@@ -18,10 +18,10 @@ Estabelecer a fundação determinística de testes e quality gates: categorias, 
 
 | Categoria | Projeto ou harness | Local canônico | Framework/harness | O que valida (surgirá com o produto) | Gate atual | Aplicável a partir de |
 |---|---|---:|---|---|---|---|
-| Unit | Projeto | `tests/Unit/ObsAi.Unit.Tests` | xunit (net10.0) | regras de domínio e convenções puras de Domain/Application | NOT EXECUTED para comportamento de produto; âncora do scaffold EXECUTED | TASK-005+ |
+| Unit | Projeto | `tests/Unit/ObsAi.Unit.Tests` | xunit (net10.0) | regras de domínio e convenções puras de Domain/Application | EXECUTED para invariantes dos contracts da TASK-005 | TASK-005+ |
 | Integration | Projeto | `tests/Integration/ObsAi.Integration.Tests` | xunit (net10.0) | pipelines, adapters e fluxos entre boundaries | NOT EXECUTED para comportamento de produto; âncora do scaffold EXECUTED | TASK-007+ |
-| Architecture | Projeto existente | `tests/Architecture/ObsAi.Architecture.Tests` | xunit determinístico | dependências, convenções, matriz de compatibilidade, arquitetura de testes | EXECUTED (TASK-002/003/004) | desde TASK-002 |
-| Contracts | Projeto | `tests/Contracts/ObsAi.Contract.Tests` | xunit (net10.0) | ports, contratos IPC e envelope versionado | NOT EXECUTED para comportamento de produto; âncora do scaffold EXECUTED | TASK-005 (ports) / TASK-022+ (IPC) |
+| Architecture | Projeto existente | `tests/Architecture/ObsAi.Architecture.Tests` | xunit determinístico | dependências, convenções, matriz de compatibilidade, arquitetura de testes e contracts | EXECUTED (TASK-002/003/004/005) | desde TASK-002 |
+| Contracts | Projeto | `tests/Contracts/ObsAi.Contract.Tests` | xunit (net10.0) | ports, contratos IPC e envelope versionado | EXECUTED para ports da TASK-005; IPC NOT EXECUTED | TASK-005 (ports) / TASK-022+ (IPC) |
 | Security | Projeto | `tests/Security/ObsAi.Security.Tests` | xunit (net10.0) | autorização, redaction, secrets e políticas | NOT EXECUTED para comportamento de produto; âncora do scaffold EXECUTED | TASK-015+ |
 | FailureIsolation | Projeto | `tests/FailureIsolation/ObsAi.FailureIsolation.Tests` | xunit (net10.0) | falhas, timeout, retry, filas bounded, IPC e encerramento | NOT EXECUTED para comportamento de produto; âncora do scaffold EXECUTED | TASK-008/013/026+ |
 | ObsCompatibility | Harness (sem projeto novo) | `prototypes/compat-sniff` + `CompatibilityMatrixTests` + `docs/architecture/compatibility/` | sonda read-only + xunit determinístico | matriz OBS 32.x x64, Windows 10/11 x64, .NET 10, fail-closed | PARTIAL — smoke (TASK-003); suite formal NOT CREATED (TASK-051) | desde TASK-003; formal TASK-051 |
@@ -40,7 +40,7 @@ Estabelecer a fundação determinística de testes e quality gates: categorias, 
 ## Decisões
 
 - **ObsCompatibility** usa o harness existente (sonda read-only `prototypes\compat-sniff` + testes determinísticos de matriz) em vez de um projeto vazio; a suite formal executável permanece em `TASK-051`.
-- **Scaffolds da TASK-004** não recebem `ProjectReference` até a Task correspondente autorizar; um teste determinístico veda referências nos scaffolds.
+- **Scaffolds da TASK-004** não recebem `ProjectReference` até a Task correspondente autorizar. A TASK-005 ativou Unit e Contracts com referência exclusiva a `ObsAi.Application`; os demais scaffolds continuam sem referência. Um teste determinístico valida ambos os estados.
 - **Comandos canônicos** são os do `AGENTS.md` e do `tooling\quality-gates.ps1`; nenhum gate é aprovado sem execução real com evidência.
 
 ## Comandos canônicos para gates
@@ -57,7 +57,7 @@ Estabelecer a fundação determinística de testes e quality gates: categorias, 
 
 ## Gate de arquitetura de testes
 
-`TestingFoundationTests` (em `ObsAi.Architecture.Tests`) valida esta carta e o grafo de projetos de teste de forma determinística: categorias declaradas, localizações, gate status válidos, solução registrada, scaffolds sem referências, ausência de análises triviais, comandos e tooling documentados.
+`TestingFoundationTests` (em `ObsAi.Architecture.Tests`) valida esta carta e o grafo de projetos de teste de forma determinística: categorias declaradas, localizações, gate status válidos, solução registrada, referências somente nas suites ativadas, ausência de análises triviais, comandos e tooling documentados.
 
 ## Rastreabilidade
 

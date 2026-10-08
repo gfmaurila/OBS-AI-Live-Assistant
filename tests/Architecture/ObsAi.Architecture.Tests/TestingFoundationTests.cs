@@ -27,10 +27,10 @@ public sealed class TestingFoundationTests
         "tests/Installer/ObsAi.Installer.Tests/ObsAi.Installer.Tests.csproj",
     };
 
-    private static readonly string[] ScaffoldedProjectNames = new[]
+    private static readonly string[] InactiveScaffoldProjectNames = new[]
     {
-        "ObsAi.Unit.Tests", "ObsAi.Integration.Tests", "ObsAi.Contract.Tests",
-        "ObsAi.Security.Tests", "ObsAi.FailureIsolation.Tests", "ObsAi.Installer.Tests",
+        "ObsAi.Integration.Tests", "ObsAi.Security.Tests",
+        "ObsAi.FailureIsolation.Tests", "ObsAi.Installer.Tests",
     };
 
     private static readonly string[] ApprovedTestPackages = new[]
@@ -42,6 +42,8 @@ public sealed class TestingFoundationTests
     {
         "EXECUTED", "PARTIAL", "NOT EXECUTED", "NOT CREATED", "NOT APPLICABLE",
     };
+
+    private static readonly string[] ApplicationOnlyReference = new[] { "ObsAi.Application" };
 
     [Fact]
     public void TestingArchitectureCharter_ExistsAtCanonicalLocation()
@@ -105,21 +107,31 @@ public sealed class TestingFoundationTests
     }
 
     [Fact]
-    public void ScaffoldedTestProjects_HaveNoProjectReferences()
+    public void InactiveScaffoldedTestProjects_HaveNoProjectReferences()
     {
         var projects = RepositoryModel.LoadProjects(RepositoryRoot);
-        foreach (var projectName in ScaffoldedProjectNames)
+        foreach (var projectName in InactiveScaffoldProjectNames)
         {
             var project = projects.Single(candidate => candidate.Name == projectName);
             Assert.Empty(project.ReferencedProjects);
         }
     }
 
+    [Theory]
+    [InlineData("ObsAi.Unit.Tests")]
+    [InlineData("ObsAi.Contract.Tests")]
+    public void Task005ActivatedTestProjects_ReferenceOnlyApplication(string projectName)
+    {
+        var project = RepositoryModel.LoadProjects(RepositoryRoot).Single(candidate => candidate.Name == projectName);
+
+        Assert.Equal(ApplicationOnlyReference, project.ReferencedProjects);
+    }
+
     [Fact]
     public void ScaffoldedTestProjects_ReferenceOnlyApprovedTestPackages()
     {
         var projects = RepositoryModel.LoadProjects(RepositoryRoot);
-        foreach (var projectName in ScaffoldedProjectNames)
+        foreach (var projectName in ScaffoldedCategoryProjects.Select(Path.GetFileNameWithoutExtension))
         {
             var project = projects.Single(candidate => candidate.Name == projectName);
             Assert.Equal(ApprovedTestPackages, project.PackageReferences);

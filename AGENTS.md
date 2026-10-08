@@ -46,7 +46,7 @@ Do not create product source code before the explicit implementation approval ga
 
 ## Commands
 
-Commands executados com sucesso na solução `OBS-AI-Live-Assistant.slnx` (.NET 10, SDK fixado em `global.json`). A solução contém os projetos `ObsAi.Domain`, `ObsAi.Application`, `ObsAi.Infrastructure`, `ObsAi.Providers`, `ObsAi.ObsIntegration`, `ObsAi.Host` (criados em `TASK-002`) e os projetos de teste `ObsAi.Architecture.Tests`, `ObsAi.Unit.Tests`, `ObsAi.Integration.Tests`, `ObsAi.Contract.Tests`, `ObsAi.Security.Tests`, `ObsAi.FailureIsolation.Tests` e `ObsAi.Installer.Tests`. `dotnet test --no-build` executa 43 testes determinísticos no momento (37 no projeto de arquitetura e 6 âncoras de scaffold).
+Commands executados com sucesso na solução `OBS-AI-Live-Assistant.slnx` (.NET 10, SDK fixado em `global.json`). A solução contém os projetos `ObsAi.Domain`, `ObsAi.Application`, `ObsAi.Infrastructure`, `ObsAi.Providers`, `ObsAi.ObsIntegration`, `ObsAi.Host` e os projetos de teste `ObsAi.Architecture.Tests`, `ObsAi.Unit.Tests`, `ObsAi.Integration.Tests`, `ObsAi.Contract.Tests`, `ObsAi.Security.Tests`, `ObsAi.FailureIsolation.Tests` e `ObsAi.Installer.Tests`. `ObsAi.Application` contém os contracts/ports vendor-neutral da `TASK-005`; `dotnet test --no-build` executa 65 testes determinísticos no momento.
 
 ```text
 Restore: dotnet restore
