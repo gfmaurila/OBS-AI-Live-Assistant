@@ -5,7 +5,7 @@
 - Data: 2026-10-08
 - IA: opencode (big-pickle)
 - Branch de implementação: `feature/task-TASK-008-bounded-queues`
-- Estado deste registro: **em andamento** — implementação, testes e quality gates concluídos; commit, push, PR, validação pós-merge e finalização administrativa pendentes.
+- Estado deste registro: **concluído** — implementação mergeada em `develop`, validação pós-merge aprovada e finalização administrativa registrada.
 
 ## Definition of Ready
 
@@ -75,9 +75,10 @@ Prompt operacional arquivado em `docs/prompts/history/prompt24.md`.
 
 ## Integração
 
-- commit de implementação: pendente (verificado por qualidade de diff e secret scan antes do push);
-- PR de implementação: pendente;
-- squash merge em `develop`: pendente;
-- validação pós-merge: pendente;
-- finalização administrativa: pendente;
-- branches temporárias e working tree: pendentes de cleanup pós-merge.
+- commit de implementação: `efb7ebd` (branch `feature/task-TASK-008-bounded-queues`);
+- PR de implementação: [#23](https://github.com/gfmaurila/OBS-AI-Live-Assistant/pull/23), status **MERGED**;
+- squash merge em `develop`: `19260d0678da511c4703c38bfff24fcecaafbbcc`;
+- validação pós-merge em `develop`: restore, build 14 projetos, 166/166 testes e format — todos `PASSED`; `tooling/quality-gates.ps1` com todos os gates `PASSED`;
+- finalização administrativa: Task movida para `tasks/done/`, Status `DONE`; backlog, grafo, ordem, matriz e relatório atualizados (PR de finalização registrado);
+- branches temporárias de implementação e finalização removidas; working tree limpo.
+- Observação incidental: o worktree órfão pré-existente `.git/worktrees/-tmp-task005-validation-worktree` emitiu avisos benignos de `Permission denied` durante commit/pull; não afetou o resultado e não pertence a esta Task.
