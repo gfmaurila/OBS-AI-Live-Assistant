@@ -35,13 +35,14 @@ Nenhum outro metadado é carregado adiante (RNF-005, SEC-024): a representação
 
 Ordem determinística dos controles, por campo:
 
-1. **Campos obrigatórios** — referências (channel/message/sender) e texto ausentes, `null` ou somente espaços → `MissingRequiredField`.
-2. **Limite de tamanho bruto** — o texto acima do limite é rejeitado **antes** de qualquer normalização ou alocação (`OversizeText`), evitando custo premium sob carga adversária (SEC-019).
-3. **Encoding bem-formado** — surrogate órfão (alto/baixo sem par) → `MalformedEncoding` (Unicode má-formado).
-4. **Impritabilidade/schema** — caractere de controle em referência → `MalformedReference`; no texto → `MalformedText`.
-5. **Normalização** — texto passa por NFC (Form C), `Trim` e colapso de execuções de espaço para um único espaço; referências são apenas aparadas. Entradas equivalentes (espaços redundantes; pré-composta vs. decomposta) produzem o mesmo campo comum (RF-007).
-6. **Limite de tamanho normalizado** — texto ou referência acima do limite configurado → `OversizeText`/`OversizeReference`.
-7. **Timestamp** — `ReceivedAtUtc == default` → `MalformedTimestamp`.
+1. **Presença** — referências (channel/message/sender) e texto `null` → `MissingRequiredField`.
+2. **Limite de tamanho bruto** — texto e referências acima dos respectivos limites são rejeitados **antes** de qualquer normalização, varredura integral ou alocação (`OversizeText`/`OversizeReference`), evitando custo premium sob carga adversária (SEC-019).
+3. **Campos obrigatórios** — referências e texto vazios ou somente espaços → `MissingRequiredField`.
+4. **Encoding bem-formado** — surrogate órfão (alto/baixo sem par) em texto ou referência → `MalformedEncoding` (Unicode malformado).
+5. **Imprimibilidade/schema** — caractere de controle em referência → `MalformedReference`; no texto → `MalformedText`.
+6. **Normalização** — texto passa por NFC (Form C), `Trim` e colapso de execuções de espaço para um único espaço; referências são apenas aparadas. Entradas equivalentes (espaços redundantes; pré-composta vs. decomposta) produzem o mesmo campo comum (RF-007).
+7. **Limite de tamanho normalizado** — texto ou referência acima do limite configurado → `OversizeText`/`OversizeReference`.
+8. **Timestamp** — `ReceivedAtUtc == default` → `MalformedTimestamp`.
 
 `InputRejectionReason` é o diagnóstico seguro: carrega somente a classificação, nunca o payload, o texto ou a identidade operacional, e pode ser surfacido em logs sem vazar conteúdo (RNF-004, SEC-024).
 

@@ -13,3 +13,4 @@ Reports registram o estado factual do projeto e evidências de validações conc
 - [Relatório de TASK-002 — Materializar projetos e regras de dependência](TASK-002_REPORT.md)
 - [Relatório de TASK-003 — Validar a estratégia de compatibilidade](TASK-003_REPORT.md)
 - [Relatório de TASK-008 — Implementar filas bounded e backpressure](TASK-008_REPORT.md)
+- [Relatório de TASK-009 — Implementar validação e normalização de entradas](TASK-009_REPORT.md)

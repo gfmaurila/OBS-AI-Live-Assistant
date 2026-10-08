@@ -17,6 +17,7 @@ OBS-AI-Live-Assistant é uma aplicação Windows independente e planejada para o
 - **TASK-006 — Implementar o modelo de domínio de sessão, perfil e contexto: CONCLUÍDA** (`ObsAi.Domain`; suites Unit, Architecture e Security aprovadas; merge e validação pós-merge concluídos).
 - **TASK-007 — Implementar lifecycle e orquestração de sessão: CONCLUÍDA** (`ObsAi.Application.Lifecycle`; suites Unit, Integration, FailureIsolation, Security e Architecture aprovadas; merge e validação pós-merge concluídos).
 - **TASK-008 — Implementar filas bounded e backpressure: CONCLUÍDA** (`ObsAi.Application.Queues`; filas bounded por estágio com políticas `Reject`/`DiscardOldest`, runner com concurrency limitada e shutdown coordenado; suites Unit, Integration, FailureIsolation, Security e Architecture aprovadas; 166/166 testes; merge e validação pós-merge concluídos).
+- **TASK-009 — Implementar validação e normalização de entradas: CONCLUÍDA** (`ObsAi.Application.Validation`; validação fail-closed de schema, encoding, tamanho bruto/normalizado e timestamp com limites configuráveis, normalização NFC e representação `NormalizedChatMessage` mínima; suites Unit, Contract, Security e Architecture aprovadas; 228/228 testes; merge e validação pós-merge concluídos).
 
 ## Direção tecnológica
 

@@ -16,7 +16,7 @@ public enum InputRejectionReason
     /// <summary>The message text contains characters outside the allowed printable schema.</summary>
     MalformedText = 3,
 
-    /// <summary>The message text is not well-formed Unicode (for example, an unpaired surrogate).</summary>
+    /// <summary>An input field is not well-formed Unicode (for example, an unpaired surrogate).</summary>
     MalformedEncoding = 4,
 
     /// <summary>A normalized reference exceeds the configured size limit.</summary>
