@@ -9,12 +9,12 @@ Este diretório transforma a documentação aprovada em backlog executável. A a
 - Implementation Readiness: **READY**
 - Tasks: **52**
 - Tasks DONE: **9** (`TASK-001` a `TASK-009`)
-- Tasks IN_PROGRESS: **1** (`TASK-013` — implementação local pronta; integração pendente)
-- Tasks READY: **0** formalizada (candidatas com dependências concluídas: **`TASK-014`**, **`TASK-024`** — sem execução)
+- Tasks IN_PROGRESS: **2** (`TASK-013` e `TASK-014`, implementações locais concluídas e integração remota pendente)
+- Tasks READY: **0** formalizada (`TASK-015` e `TASK-024` permanecem candidatas nesta etapa intermediária, sem promoção)
 - Tasks REVIEW: **0**
 - Dependency Cycles: **0**
-- Product Source Code: **PARTIAL** (`ObsAi.Application` com contracts/ports, lifecycle de sessão, filas bounded, validação de entradas e resiliência local; `ObsAi.Domain` com sessão, perfil e contexto efêmero; demais funcionalidades e adapters ainda não iniciados)
-- Implementation: **IN PROGRESS** (`TASK-001` a `TASK-009` concluídas em `develop`; `TASK-013` em execução local, sem integração remota)
+- Product Source Code: **PARTIAL** (`ObsAi.Application` com contracts/ports, lifecycle de sessão, filas bounded, validação de entradas, resiliência e configuração não secreta; `ObsAi.Domain` com sessão, perfil e contexto efêmero; demais funcionalidades e adapters ainda não iniciados)
+- Implementation: **IN PROGRESS** (`TASK-001` a `TASK-009` concluídas em `develop`; `TASK-013` e `TASK-014` concluídas localmente, sem integração remota)
 
 ## Navegação
 

@@ -219,6 +219,19 @@ Detalhamento canônico: `docs/architecture/INPUT_VALIDATION.md`.
 
 Detalhamento canônico: `docs/architecture/RESILIENCE.md`. Estado: implementação local pronta; integração remota e transição para `DONE` pendentes.
 
+## Evidência implementada — TASK-014
+
+| Requirements/decisões | Implementação | Testes |
+|---|---|---|
+| RF-002, RF-003, RNF-022 | `ConfigurationValidator`, `ConfigurationState`, perfis e seleção | `ConfigurationValidatorTests`, `ConfigurationStateTests` |
+| RF-008, RF-011 | triggers e `RateLimitSettings` limitados | `ConfigurationValidatorTests` |
+| RF-017, RF-023 | AI/TTS por referências e allowlists separadas | Unit e Security Tests |
+| SEC-002, SEC-014 | bounds de entrada, filas, concorrência e rate limits | Unit e Security Tests |
+| SEC-008 | nenhum secret value no modelo comum; referências opacas/redacted | `ConfigurationSecurityTests` |
+| ADR-004, ADR-008 | boundary vendor-neutral e aplicação somente após validação integral | `ApplicationConfigurationArchitectureTests` |
+
+Detalhamento canônico: `docs/architecture/CONFIGURATION.md`.
+
 ## Resultado
 
 - MUST RF/RNF sem cobertura: **0**

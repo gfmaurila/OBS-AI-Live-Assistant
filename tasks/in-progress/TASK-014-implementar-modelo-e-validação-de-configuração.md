@@ -1,4 +1,4 @@
-﻿# TASK-014 — Implementar modelo e validação de configuração
+# TASK-014 — Implementar modelo e validação de configuração
 
 ## Objetivo
 
@@ -70,6 +70,10 @@ UNIT; SECURITY.
 - critérios e testes refinados sem blocker;
 - branch `feature/task-TASK-014-<descricao>` determinável.
 
+Resultado local em 2026-10-09: **PASSED**. `TASK-005` e `TASK-006` estão `DONE`
+e integradas em `develop`; Requirements, ADRs, segurança, testes e branch foram
+confirmados antes da implementação.
+
 ## Definition of Done
 
 - implementação, testes e documentação concluídos;
@@ -82,6 +86,13 @@ UNIT; SECURITY.
 
 Build Gate; Unit Test Gate; Security Gate; Acceptance Gate; Code Review Gate.
 
+## Evidência local
+
+- implementação, testes e documentação: concluídos;
+- Quality Gates, Architecture Gate, Security Audit, Code Review e Secret Scan:
+  executados antes do commit local;
+- integração remota, merge e validação pós-merge: pendentes e fora da autorização.
+
 ## Status
 
-BACKLOG
+IN_PROGRESS — IMPLEMENTATION COMPLETE / PENDING INTEGRATION
