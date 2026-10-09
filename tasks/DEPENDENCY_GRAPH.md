@@ -208,4 +208,4 @@ flowchart LR
 | TASK-051 | TASK-003, TASK-044, TASK-050 | TASK-052 |
 | TASK-052 | TASK-048, TASK-050, TASK-051 | Nenhuma |
 
-Nesta baseline, `TASK-001` a `TASK-009` estão `DONE`. `TASK-013` e `TASK-014` estão `IN_PROGRESS`, com implementação local concluída, mas suas arestas permanecem administrativamente pendentes até integração remota e DoD; nenhuma dependente foi promovida. `TASK-015` e `TASK-024` permanecem candidatas nesta etapa intermediária, sem promoção automática. `TASK-011` e `TASK-019` continuam bloqueadas por dependências pendentes. Ciclos: **0**; validação topológica: **PASSED**.
+Nesta baseline, `TASK-001` a `TASK-009` estão `DONE`. `TASK-013`, `TASK-014` e `TASK-015` estão `IN_PROGRESS`, com implementações consolidadas localmente, mas suas arestas permanecem administrativamente pendentes até integração remota e cumprimento integral da DoD; nenhuma dependente foi promovida. `TASK-011`, `TASK-012` e `TASK-019` continuam em `BACKLOG` com dependências pendentes, e `TASK-024` permanece sem promoção automática. Ciclos: **0**; validação topológica: **PASSED**.

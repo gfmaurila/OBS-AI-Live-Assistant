@@ -14,4 +14,6 @@ Reports registram o estado factual do projeto e evidências de validações conc
 - [Relatório de TASK-003 — Validar a estratégia de compatibilidade](TASK-003_REPORT.md)
 - [Relatório de TASK-008 — Implementar filas bounded e backpressure](TASK-008_REPORT.md)
 - [Relatório de TASK-009 — Implementar validação e normalização de entradas](TASK-009_REPORT.md)
+- [Relatório local de TASK-013 — Implementar timeout, cancellation, retry e erros normalizados](TASK-013_REPORT.md)
 - [Relatório local de TASK-014 — Implementar modelo e validação de configuração](TASK-014_REPORT.md)
+- [Relatório de TASK-015 — Implementar autorização e políticas de segurança](TASK-015_REPORT.md)
