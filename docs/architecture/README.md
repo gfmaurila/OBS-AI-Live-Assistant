@@ -10,6 +10,7 @@ A Architecture Baseline do OBS-AI-Live-Assistant foi concluída em 2026-10-07. E
 - [Lifecycle de sessão](SESSION_LIFECYCLE.md) — estados, leases e shutdown ordenado materializados pela TASK-007
 - [Filas bounded e backpressure](QUEUES.md) — buffers limitados e políticas de saturação materializados pela TASK-008
 - [Validação e normalização de entradas](INPUT_VALIDATION.md) — fronteira fail-closed de entrada materializada pela TASK-009
+- [Modelo e validação de configuração](CONFIGURATION.md) — snapshots não secretos, limites e aplicação atômica materializados localmente pela TASK-014
 - [Compatibilidade](compatibility/README.md) — matriz de compatibilidade (ADR-010, validada na TASK-003)
 - [ADRs](decisions/README.md)
 - [Diagramas](diagrams/README.md)
