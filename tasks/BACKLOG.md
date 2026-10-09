@@ -16,7 +16,7 @@ Status: **BACKLOG QUALITY GATE PASSED**. Implementation Readiness: **READY**.
 | TASK-010 | EPIC-02 | Implementar triggers, moderação, blocklist e rate limiting | P0 | L | HIGH | TASK-008, TASK-009, TASK-014, TASK-015 | BACKLOG | 2 | SEQUENTIAL |
 | TASK-011 | EPIC-02 | Implementar Context Builder e Short-Term Memory | P0 | L | HIGH | TASK-006, TASK-009, TASK-014 | BACKLOG | 2 | PARALLEL SAFE com TASK-010 após dependências |
 | TASK-012 | EPIC-02 | Implementar validação e coordenação de respostas | P0 | L | HIGH | TASK-008, TASK-010, TASK-011, TASK-016 | BACKLOG | 2 | SEQUENTIAL |
-| TASK-013 | EPIC-02 | Implementar timeout, cancellation, retry e erros normalizados | P0 | L | HIGH | TASK-005, TASK-007, TASK-008 | BACKLOG | 2 | PARALLEL SAFE com TASK-009 |
+| TASK-013 | EPIC-02 | Implementar timeout, cancellation, retry e erros normalizados | P0 | L | HIGH | TASK-005, TASK-007, TASK-008 | IN_PROGRESS | 2 | Implementação local pronta; integração pendente |
 | TASK-014 | EPIC-04 | Implementar modelo e validação de configuração | P0 | M | MEDIUM | TASK-005, TASK-006 | BACKLOG | 2 | PARALLEL SAFE com TASK-007 |
 | TASK-015 | EPIC-03 | Implementar autorização e políticas de segurança | P0 | L | HIGH | TASK-005, TASK-009 | BACKLOG | 2 | PARALLEL SAFE com TASK-014 |
 | TASK-016 | EPIC-03 | Implementar redaction e erros seguros | P0 | M | HIGH | TASK-005, TASK-014 | BACKLOG | 2 | PARALLEL SAFE com TASK-015 |
@@ -57,4 +57,4 @@ Status: **BACKLOG QUALITY GATE PASSED**. Implementation Readiness: **READY**.
 | TASK-051 | EPIC-14 | Validar desempenho, recursos e matriz final | P1 | L | HIGH | TASK-003, TASK-044, TASK-050 | BACKLOG | 8 | SEQUENTIAL |
 | TASK-052 | EPIC-15 | Preparar a V1 para o Release Quality Gate | P0 | L | HIGH | TASK-048, TASK-050, TASK-051 | BACKLOG | 9 | SEQUENTIAL |
 
-Os arquivos individuais nas pastas de estado são a autoridade operacional. `TASK-001` a `TASK-009` estão `DONE`. Nenhuma Task está formalmente `READY`; `TASK-013`, `TASK-014` e `TASK-024` são candidatas a READY, sem execução ou promoção automática. As demais Tasks seguem em `BACKLOG` conforme o grafo; nenhuma Task dependente foi antecipada.
+Os arquivos individuais nas pastas de estado são a autoridade operacional. `TASK-001` a `TASK-009` estão `DONE`. A `TASK-013` está `IN_PROGRESS`, com implementação local pronta e integração remota pendente. Nenhuma Task está formalmente `READY`; `TASK-014` e `TASK-024` permanecem candidatas a READY, sem execução ou promoção automática. As demais Tasks seguem em `BACKLOG` conforme o grafo; nenhuma Task dependente foi antecipada.
