@@ -7,16 +7,16 @@ A fundação de testes e quality gates foi estabelecida pela `TASK-004`. A fonte
 | Categoria | Suite | Gate atual |
 |---|---|---|
 | Architecture | `tests/Architecture/ObsAi.Architecture.Tests` | EXECUTADO (testes determinísticos; inclui `TestingFoundationTests`) |
-| Unit | `tests/Unit/ObsAi.Unit.Tests` | EXECUTED — invariantes dos contracts da TASK-005, do domínio da TASK-006, do lifecycle da TASK-007 e das filas bounded da TASK-008 |
+| Unit | `tests/Unit/ObsAi.Unit.Tests` | EXECUTED — contracts, domínio, lifecycle, filas bounded, validação de entrada e autorização das TASK-005 a TASK-009 e TASK-015 |
 | Integration | `tests/Integration/ObsAi.Integration.Tests` | EXECUTED — fluxos de lifecycle de sessão da TASK-007 e fluxos de filas bounded/backpressure da TASK-008; adapters e providers TASK-015+ |
 | Contracts | `tests/Contracts/ObsAi.Contract.Tests` | EXECUTED — ports da TASK-005; IPC NOT EXECUTED até TASK-022+ |
-| Security | `tests/Security/ObsAi.Security.Tests` | EXECUTED — minimização e isolamento de dados da TASK-006, autoridade de lease da TASK-007 e saturação/isolamento das filas bounded da TASK-008; demais controles TASK-015+ |
+| Security | `tests/Security/ObsAi.Security.Tests` | EXECUTED — minimização e isolamento de dados, autoridade de lease, filas bounded, validação de entrada e políticas deny-by-default da TASK-015 |
 | FailureIsolation | `tests/FailureIsolation/ObsAi.FailureIsolation.Tests` | EXECUTED — shutdown ordenado e falhas de publicação da TASK-007 e filas bounded da TASK-008; timeout e IPC TASK-013/026+ |
 | Installer | `tests/Installer/ObsAi.Installer.Tests` (scaffold) | Âncora EXECUTED; comportamento de produto NOT EXECUTED — TASK-046+ |
 | ObsCompatibility | harness `prototypes/compat-sniff` + `CompatibilityMatrixTests` | PARTIAL — smoke (TASK-003); formal NOT CREATED (TASK-051) |
 | Regression/E2E | consolidação em TASK-049/TASK-050 | NOT CREATED |
 
-Os projetos são xunit (net10.0) e não contêm testes fictícios. A TASK-005 ativou Unit e Contracts para `ObsAi.Application`; a TASK-006 ampliou Unit para `ObsAi.Domain` e ativou Security para o domínio; a TASK-007 ampliou Unit, Security, Integration e FailureIsolation para `ObsAi.Application` e `ObsAi.Domain`; a TASK-008 ampliou Unit, Integration, Security, FailureIsolation e Architecture para as filas bounded de `ObsAi.Application.Queues`. Installer permanece como scaffold sem `ProjectReference` até sua Task autorizadora (verificado por `TestingFoundationTests`).
+Os projetos são xunit (net10.0) e não contêm testes fictícios. A TASK-005 ativou Unit e Contracts para `ObsAi.Application`; a TASK-006 ampliou Unit para `ObsAi.Domain` e ativou Security para o domínio; a TASK-007 ampliou Unit, Security, Integration e FailureIsolation para `ObsAi.Application` e `ObsAi.Domain`; a TASK-008 ampliou Unit, Integration, Security, FailureIsolation e Architecture para as filas bounded; a TASK-009 cobriu validação de entradas; a TASK-015 adicionou testes Unit, Security e Architecture para autorização fail-closed, allowlist, isolamento de sessão, falhas internas e separação entre dados e autoridade. Installer permanece como scaffold sem `ProjectReference` até sua Task autorizadora (verificado por `TestingFoundationTests`).
 
 ## Comandos canônicos
 

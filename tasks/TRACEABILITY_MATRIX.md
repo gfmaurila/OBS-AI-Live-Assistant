@@ -207,6 +207,17 @@ Detalhamento canônico: `docs/architecture/QUEUES.md`.
 
 Detalhamento canônico: `docs/architecture/INPUT_VALIDATION.md`.
 
+## Evidência implementada — TASK-015
+
+| Requirements/decisões | Implementação | Testes |
+|---|---|---|
+| RF-010, RF-020, RF-036 | `AuthorizationGate`, origem não confiável sempre negada e capability sem allowlist negada | `AuthorizationGateTests`, `AuthorizationSecurityTests` |
+| RNF-004, RNF-006, RNF-007 | contexto mínimo, menor privilégio, separação entre conteúdo e autoridade e negação por padrão | suites Unit e Security |
+| SEC-003 a SEC-007, SEC-032 | policy snapshot imutável, port de autoridade, escopo exato por sessão/capability, decisão correlacionável sem payload e falha interna fail-closed | `AuthorizationSecurityTests`, `ApplicationAuthorizationArchitectureTests` |
+| ADR-001, ADR-008, ADR-011 | policy no Core externo, contratos explícitos e dependency inversion sem adapter concreto | `ApplicationAuthorizationArchitectureTests` |
+
+Detalhamento canônico: `docs/architecture/AUTHORIZATION_POLICIES.md`.
+
 ## Resultado
 
 - MUST RF/RNF sem cobertura: **0**
