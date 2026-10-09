@@ -207,6 +207,18 @@ Detalhamento canônico: `docs/architecture/QUEUES.md`.
 
 Detalhamento canônico: `docs/architecture/INPUT_VALIDATION.md`.
 
+## Evidência implementada localmente — TASK-013
+
+| Requirements/decisões | Implementação | Testes |
+|---|---|---|
+| RF-026, RNF-010, SEC-017 | cancellation propagada, lease revogada e conclusão tardia rejeitada | `ResilienceExecutorTests`, `ResilienceSecurityTests` |
+| RF-027, RNF-009, SEC-016 | timeout por tentativa/total/deadline e resultado explícito | `ResilienceExecutorTests`, `ResilienceFailureTests` |
+| RNF-011, SEC-018 | retry limitado a falha transitória allowlisted e operação idempotente | `ResilienceExecutorTests`, `ResilienceContractTests`, `ResilienceFailureTests`, `ResilienceSecurityTests` |
+| RNF-026, SEC-021, ADR-003 | integração com lifecycle/shutdown e bounded queues sem ampliar efeitos | `ResilienceSecurityTests`, `ResilienceQueueFlowTests` |
+| ADR-002, ADR-004 | contratos vendor-neutral e erros comuns, sem adapter concreto | `ApplicationResilienceArchitectureTests`, `ResilienceContractTests` |
+
+Detalhamento canônico: `docs/architecture/RESILIENCE.md`. Estado: implementação local pronta; integração remota e transição para `DONE` pendentes.
+
 ## Resultado
 
 - MUST RF/RNF sem cobertura: **0**
