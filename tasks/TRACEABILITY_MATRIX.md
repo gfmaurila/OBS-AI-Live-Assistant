@@ -207,6 +207,42 @@ Detalhamento canônico: `docs/architecture/QUEUES.md`.
 
 Detalhamento canônico: `docs/architecture/INPUT_VALIDATION.md`.
 
+## Evidência implementada localmente — TASK-013
+
+| Requirements/decisões | Implementação | Testes |
+|---|---|---|
+| RF-026, RNF-010, SEC-017 | cancellation propagada, lease revogada e conclusão tardia rejeitada | `ResilienceExecutorTests`, `ResilienceSecurityTests` |
+| RF-027, RNF-009, SEC-016 | timeout por tentativa/total/deadline e resultado explícito | `ResilienceExecutorTests`, `ResilienceFailureTests` |
+| RNF-011, SEC-018 | retry limitado a falha transitória allowlisted e operação idempotente | `ResilienceExecutorTests`, `ResilienceContractTests`, `ResilienceFailureTests`, `ResilienceSecurityTests` |
+| RNF-026, SEC-021, ADR-003 | integração com lifecycle/shutdown e bounded queues sem ampliar efeitos | `ResilienceSecurityTests`, `ResilienceQueueFlowTests` |
+| ADR-002, ADR-004 | contratos vendor-neutral e erros comuns, sem adapter concreto | `ApplicationResilienceArchitectureTests`, `ResilienceContractTests` |
+
+Detalhamento canônico: `docs/architecture/RESILIENCE.md`. Estado: implementação local pronta; integração remota e transição para `DONE` pendentes.
+
+## Evidência implementada — TASK-014
+
+| Requirements/decisões | Implementação | Testes |
+|---|---|---|
+| RF-002, RF-003, RNF-022 | `ConfigurationValidator`, `ConfigurationState`, perfis e seleção | `ConfigurationValidatorTests`, `ConfigurationStateTests` |
+| RF-008, RF-011 | triggers e `RateLimitSettings` limitados | `ConfigurationValidatorTests` |
+| RF-017, RF-023 | AI/TTS por referências e allowlists separadas | Unit e Security Tests |
+| SEC-002, SEC-014 | bounds de entrada, filas, concorrência e rate limits | Unit e Security Tests |
+| SEC-008 | nenhum secret value no modelo comum; referências opacas/redacted | `ConfigurationSecurityTests` |
+| ADR-004, ADR-008 | boundary vendor-neutral e aplicação somente após validação integral | `ApplicationConfigurationArchitectureTests` |
+
+Detalhamento canônico: `docs/architecture/CONFIGURATION.md`.
+
+## Evidência implementada — TASK-015
+
+| Requirements/decisões | Implementação | Testes |
+|---|---|---|
+| RF-010, RF-020, RF-036 | `AuthorizationGate`, origem não confiável sempre negada e capability sem allowlist negada | `AuthorizationGateTests`, `AuthorizationSecurityTests` |
+| RNF-004, RNF-006, RNF-007 | contexto mínimo, menor privilégio, separação entre conteúdo e autoridade e negação por padrão | suites Unit e Security |
+| SEC-003 a SEC-007, SEC-032 | policy snapshot imutável, port de autoridade, escopo exato por sessão/capability, decisão correlacionável sem payload e falha interna fail-closed | `AuthorizationSecurityTests`, `ApplicationAuthorizationArchitectureTests` |
+| ADR-001, ADR-008, ADR-011 | policy no Core externo, contratos explícitos e dependency inversion sem adapter concreto | `ApplicationAuthorizationArchitectureTests` |
+
+Detalhamento canônico: `docs/architecture/AUTHORIZATION_POLICIES.md`.
+
 ## Resultado
 
 - MUST RF/RNF sem cobertura: **0**

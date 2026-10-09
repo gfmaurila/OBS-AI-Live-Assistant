@@ -16,6 +16,7 @@ Esta pasta contém a especificação canônica de segurança da V1 do OBS-AI-Liv
 - [Dependências de Research](SECURITY_RESEARCH_DEPENDENCIES.md)
 - [Rastreabilidade](SECURITY_TRACEABILITY.md)
 - [Security Quality Gate](SECURITY_QUALITY_GATE.md)
+- [Segurança da configuração — TASK-014](CONFIGURATION_SECURITY.md)
 
 ## Estado
 

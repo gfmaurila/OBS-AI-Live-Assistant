@@ -84,4 +84,13 @@ Build Gate; Unit Test Gate; Architecture Gate; Security Gate; Acceptance Gate; C
 
 ## Status
 
-BACKLOG
+IN_PROGRESS — IMPLEMENTATION COMPLETE — PENDING INTEGRATION
+
+## Evidência local
+
+- Branch: `feature/task-TASK-015-authorization-security-policies`.
+- Worktree: `temp/task015`.
+- Implementação: `src/ObsAi.Application/Authorization`.
+- Testes: Unit, Security e Architecture.
+- Documento canônico: `docs/architecture/AUTHORIZATION_POLICIES.md`.
+- Integração, validação pós-merge e cleanup: pendentes conforme a Definition of Done.
