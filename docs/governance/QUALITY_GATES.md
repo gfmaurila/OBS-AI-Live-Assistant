@@ -43,8 +43,8 @@ A `TASK-004` estabeleceu a **Arquitetura de Testes e Quality Gates** (`docs/test
 
 Categorias sem suite executável permanecem **NOT APPLICABLE UNTIL IMPLEMENTATION** e não podem ser marcadas como PASSED sem comandos e artefatos reais:
 
-- **Unit Tests** — contracts TASK-005, domínio TASK-006, lifecycle TASK-007, filas TASK-008, validação TASK-009 e resiliência TASK-013 `EXECUTED`
-- **Security Tests** — controles de TASK-006/007/008/009 e resiliência segura da TASK-013 `EXECUTED`; controles restantes aplicáveis em Tasks futuras
+- **Unit Tests** — contracts TASK-005, domínio TASK-006, lifecycle TASK-007, filas TASK-008, validação TASK-009, resiliência TASK-013, configuração TASK-014 e autorização TASK-015 `EXECUTED`
+- **Security Tests** — controles de TASK-006/007/008/009, resiliência segura da TASK-013, configuração não secreta da TASK-014 e autorização deny-by-default da TASK-015 `EXECUTED`; controles restantes aplicáveis em Tasks futuras
 - **Integration Tests** — lifecycle TASK-007, filas TASK-008 e composição queue/resilience TASK-013 `EXECUTED`; adapters/providers permanecem `NOT EXECUTED`
 - **FailureIsolation Tests** — shutdown/publicação TASK-007, filas TASK-008 e retry/falhas normalizadas TASK-013 `EXECUTED`; IPC permanece `NOT EXECUTED` (TASK-026+)
 - **Overload/anti-bússola determinístico (TASK-008)** — floods adversários de `QueueFlowTests`/`QueueSecurityTests` provam que carga excedente não expande memória nem derruba o runner, sem `Task.Delay` arbitrário (RNF-019)
@@ -52,4 +52,4 @@ Categorias sem suite executável permanecem **NOT APPLICABLE UNTIL IMPLEMENTATIO
 - **OBS Compatibility Tests** — `PARTIAL` (smoke TASK-003); formal `NOT CREATED` (TASK-051)
 - **Regression Tests** — `NOT CREATED` (TASK-049/TASK-050)
 
-Contagens exatas são registradas nos relatórios das Tasks. A TASK-007 consolidou 119 testes determinísticos; a TASK-008 elevou o total para 166; a TASK-009 para 228; e a implementação local da TASK-013 para 271, cobrindo Unit, Integration, Security, FailureIsolation, Architecture, Contracts e Installer.
+Contagens exatas são registradas nos relatórios das Tasks. A TASK-007 consolidou 119 testes determinísticos; a TASK-008 elevou o total para 166; a TASK-009 para 228; a implementação local da TASK-013 elevou para 271; e as implementações locais da TASK-014 e da TASK-015 foram consolidadas na branch `integration/task-013-014-015-local`, totalizando **372** testes determinísticos, cobrindo Unit, Integration, Security, FailureIsolation, Architecture, Contracts e Installer.

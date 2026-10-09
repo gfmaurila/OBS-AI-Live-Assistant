@@ -17,4 +17,4 @@ Uma Task somente pode mudar de `BACKLOG` para `READY` quando todos os itens abai
 
 ## Aplicação atual
 
-`TASK-001` a `TASK-009` estão `DONE`. A `TASK-013` passou pelo gate desta definição em 2026-10-08 e a `TASK-014` em 2026-10-09; ambas estão `IN_PROGRESS`, com implementação local concluída e integração remota pendente. Nenhuma Task permanece formalmente `READY`; candidatas não são promovidas automaticamente. As demais ainda dependem direta ou transitivamente de trabalho não concluído. `READY` não autoriza implementação sem aprovação do cliente.
+`TASK-001` a `TASK-009` estão `DONE`. A `TASK-013` passou pelo gate desta definição em 2026-10-08, a `TASK-014` e a `TASK-015` em 2026-10-09; as três estão `IN_PROGRESS`, com implementação local concluída e integração remota pendente. Nenhuma Task permanece formalmente `READY`; candidatas não são promovidas automaticamente. As demais ainda dependem direta ou transitivamente de trabalho não concluído. `READY` não autoriza implementação sem aprovação do cliente.

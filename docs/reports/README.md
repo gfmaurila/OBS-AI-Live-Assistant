@@ -17,3 +17,4 @@ Reports registram o estado factual do projeto e evidências de validações conc
 - [Relatório local de TASK-013 — Implementar timeout, cancellation, retry e erros normalizados](TASK-013_REPORT.md)
 - [Relatório local de TASK-014 — Implementar modelo e validação de configuração](TASK-014_REPORT.md)
 - [Relatório de TASK-015 — Implementar autorização e políticas de segurança](TASK-015_REPORT.md)
+- [Relatório de consolidação local TASK-013 + TASK-014 + TASK-015](TASK-013-014-015_LOCAL_INTEGRATION_REPORT.md)
