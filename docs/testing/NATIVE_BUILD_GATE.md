@@ -10,7 +10,8 @@ O Gate limita-se ao lifecycle e aos eventos em memória definidos na TASK-024. D
 
 - Windows x64 cuja edição, versão, build e arquitetura tenham sido registradas no início da execução.
 - OBS Studio x64 portátil para cada versão da matriz; diretório de dados/perfil isolado e sem vínculo com a instalação ou perfil principal.
-- Visual Studio 2026 com workload C++ e Windows SDK, mais CMake compatível: toolchain inicial proposta, ainda não validada.
+- Visual Studio Community 2026 com MSVC x64, Windows SDK 10.0.26100.0 e CMake 4.3.1-msvc1: toolchain exercitada experimentalmente na TASK-025B para OBS 32.2.2. Isso não aprova compatibilidade nem o Gate completo.
+- Para OBS 32.1.2, a toolchain upstream de referência permanece Visual Studio 2022 / Windows SDK 10.0.22621.0; disponibilidade e build dessa combinação ainda devem ser verificados.
 - Visual Studio 2022 poderá ser usado somente após registrar incompatibilidade concreta, reproduzível e relevante com VS 2026; registrar a mesma evidência e os motivos do fallback.
 - Git capaz de obter o repositório oficial pelo commit completo; PowerShell e utilitário SHA-256 disponíveis.
 - Espaço temporário suficiente. Definir uma raiz de execução exclusiva e registrá-la antes da aquisição.
@@ -25,7 +26,17 @@ Executar cada linha de forma independente, com fonte, build e diretório portát
 | OBS Studio | Papel proposto | Resultado atual |
 |---|---|---|
 | 32.1.2 x64 | Baseline mínima proposta | BUILD NOT VALIDATED; COMPATIBILITY NOT VERIFIED |
-| 32.2.2 x64 | Alvo adicional proposto | BUILD NOT VALIDATED; COMPATIBILITY NOT VERIFIED |
+| 32.2.2 x64 | Alvo experimental adicional | EXPERIMENTAL: configure e build x64 passaram; load/inicialização do módulo foram observados em experimento. Lifecycle completo NOT VALIDATED; callbacks frontend NOT TESTED; Native Build Gate PENDING. |
+
+### Evidências anteriores — não equivalem à aprovação do Gate
+
+- TASK-025A: arquivos oficiais, hashes e extração foram registrados para as duas versões candidatas. Essas evidências comprovam a identidade dos artefatos, não a compatibilidade do plugin.
+- TASK-025B: configure CMake e build C++ experimental passaram para OBS 32.2.2 x64 com Visual Studio Community 2026, MSVC 19.51.36260.0, CMake 4.3.1-msvc1 e Windows SDK 10.0.26100.0. O resultado é EXPERIMENTAL e não cobre os testes de lifecycle exigidos pela Task.
+- TASK-025C/025N: load e inicialização do módulo experimental foram observados/inferidos pelos registros disponíveis; unload normal e lifecycle completo não foram validados. Callbacks frontend não foram exercitados. Classificação: EXPERIMENTAL / NOT VALIDATED.
+- TASK-025W: a validação visual da instalação portátil permanente confirmou perfis/coleções e mídias com ressalvas, mas a DLL experimental não estava instalada nessa cópia. Essa evidência não valida o plugin.
+- OBS 32.1.2 x64: nenhum build nativo nem teste de compatibilidade confirmado. Classificação: NOT VALIDATED.
+
+O veredicto do Native Build Gate permanece PENDING até haver build reproduzível do módulo, testes determinísticos de lifecycle e callbacks, revisão das evidências e smoke test isolado autorizado para cada versão declarada.
 
 ## Template, revisão e dependências
 
@@ -51,18 +62,17 @@ Antes de extrair cada arquivo baixado, calcular seu SHA-256 com ferramenta do Wi
 
 ## Presets planejados
 
-Inspecionar o `CMakePresets.json` do commit fixado. O commit candidato declara `windows-x64` e `windows-ci-x64`; confirmar que estão presentes no checkout adquirido. Configurar e compilar com preset de CI quando compatível; caso contrário, registrar o preset Windows x64 usado e as opções explícitas. Não editar silenciosamente os presets durante o Gate.
+Inspecionar o `CMakePresets.json` do commit fixado. O commit candidato declara `windows-x64` e `windows-ci-x64` com gerador Visual Studio 17 2022 e SDK 10.0.22621.0. Esses presets não representam a toolchain experimental VS 2026/SDK 26100. Para 32.2.2, a TASK-025B confirmou experimentalmente o gerador `Visual Studio 18 2026`; registrar o comando e as opções explícitas em vez de reutilizar o preset incompatível. Não alterar silenciosamente os presets upstream.
 
 Comandos planejados, a ajustar somente conforme os presets e scripts reais da revisão fixada:
 
 ```powershell
-cmake --list-presets
-cmake --preset windows-ci-x64
-cmake --build --preset windows-ci-x64 --config RelWithDebInfo
-ctest --preset windows-ci-x64 --output-on-failure
+cmake -S native/ObsAi.ObsPlugin -B <BUILD_DIR> -G "Visual Studio 18 2026" -A "x64,version=10.0.26100" "-DCMAKE_PREFIX_PATH=<OBS_DEV_PREFIX>;<OBS_DEPS_PREFIX>" "-DOBS_TARGET_VERSION=32.2.2" -DOBS_AI_BUILD_PLUGIN=ON -DOBS_AI_BUILD_TESTS=ON
+cmake --build <BUILD_DIR> --config RelWithDebInfo --target ALL_BUILD
+ctest --test-dir <BUILD_DIR> -C RelWithDebInfo --output-on-failure
 ```
 
-Se a revisão não declarar preset de teste, executar apenas testes existentes e registrar `NOT APPLICABLE` para CTest. Não declarar testes inexistentes como aprovados. Repetir configure/build/test em diretórios limpos e independentes para cada versão OBS.
+Os comandos acima registram a combinação experimental já exercitada para 32.2.2; substituir os caminhos pelos prefixos locais previamente validados e manter cada diretório de build novo e exclusivo. Para 32.1.2, usar a fonte/dependências e toolchain correspondentes somente quando o pacote de desenvolvimento compatível estiver disponível; não reutilizar o prefixo 32.2.2. Se a revisão não declarar teste aplicável, registrar `NOT APPLICABLE` para CTest em vez de declarar testes inexistentes como aprovados.
 
 ## Smoke test com OBS portátil isolado
 
