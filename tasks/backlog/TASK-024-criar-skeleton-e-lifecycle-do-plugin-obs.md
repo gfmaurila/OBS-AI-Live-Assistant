@@ -42,23 +42,30 @@ HIGH
 
 ## Arquivos/áreas esperadas
 
-`ObsAi.ObsPlugin`; CMake; module lifecycle; frontend events.
+`ObsAi.ObsPlugin`; CMake; module lifecycle. Registrar apenas os eventos frontend explicitamente exigidos por esta Task e aprovados em seus requisitos; não antecipar Dock, áudio ou IPC.
 
 ## Implementação esperada
 
-Criar o plugin C++ x64 mínimo a partir do template/toolchain validados, com load/unload idempotente, health local e callbacks curtos.
+Criar plugin C++ x64 mínimo a partir do template, dependências e toolchain fixados e validados. Load/unload deve ser seguro e idempotente. Manter health somente em memória. Registrar obrigatoriamente `OBS_FRONTEND_EVENT_FINISHED_LOADING`; tratar `OBS_FRONTEND_EVENT_STREAMING_STARTED` e `OBS_FRONTEND_EVENT_STREAMING_STOPPED` apenas para atualizar estado em memória. Callbacks devem ser curtos, não bloqueantes e não fazer I/O síncrono.
 
 ## Segurança
 
-Cobrir SEC-007, SEC-020, SEC-021, SEC-027, SEC-029. Tratar todos os dados externos como não confiáveis, aplicar least privilege e nunca usar secrets reais em testes ou artefatos.
+Cobrir SEC-007, SEC-020, SEC-021, SEC-027, SEC-029. Tratar dados externos como não confiáveis, aplicar least privilege e nunca usar secrets reais em testes ou artefatos. Logs não podem incluir tokens, credenciais, conteúdo privado ou payloads desnecessários. Não adicionar dependência de IA, providers, banco de dados, rede ou secrets. Não incluir Qt, Dock, IPC ou áudio nesta Task. Falhas de inicialização e registro devem ser tratadas sem comprometer o OBS e sem callbacks pendentes após unload.
 
 ## Testes obrigatórios
 
-NATIVE BUILD; OBS COMPATIBILITY; FAILURE; SECURITY.
+Configure CMake reproduzível; build x64; testes do lifecycle; registro e remoção dos callbacks; tratamento seguro de falhas; smoke test isolado para cada versão OBS da matriz. Não declarar compatibilidade para versões não aprovadas nos testes.
 
 ## Critérios de aceite
 
-- Plugin carrega/descarrega nas versões declaradas; não contém negócio, providers, banco ou secrets; Core ausente não bloqueia OBS.
+- Configure CMake reproduzível com template, revisão, dependências, toolchain e hashes fixados e registrados.
+- Build x64 concluído; testes verificam lifecycle, idempotência, registro/remoção dos callbacks e caminhos de falha.
+- `FINISHED_LOADING` é registrado obrigatoriamente; eventos de streaming alteram somente estado em memória.
+- Callbacks são curtos, não bloqueantes e não executam I/O síncrono; logs não contêm dados sensíveis.
+- Plugin não contém lógica de negócio nem dependência de IA, providers, banco, rede ou secrets; Core ausente não bloqueia OBS.
+- Sem Qt, Dock, IPC ou áudio nesta Task.
+- Smoke test executado em OBS portátil isolado, separadamente para cada versão candidata; instalação principal e perfil real do OBS permanecem preservados.
+- Compatibilidade declarada somente para versões OBS efetivamente aprovadas e evidenciadas nos testes.
 - O escopo não introduz capability, provider ou infraestrutura fora da V1 aprovada.
 - A documentação e a matriz de rastreabilidade são atualizadas quando o contrato mudar.
 
