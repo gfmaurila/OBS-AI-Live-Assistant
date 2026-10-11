@@ -54,6 +54,8 @@ Build: dotnet build --no-restore
 Test: dotnet test --no-build
 Lint / format validation: dotnet format --verify-no-changes --no-restore
 Quality gates runner: powershell -ExecutionPolicy Bypass -File tooling\quality-gates.ps1
+GitHub Project sync dry-run: powershell -ExecutionPolicy Bypass -File tooling\github-project-sync.ps1 -Owner gfmaurila -Repository OBS-AI-Live-Assistant -ProjectNumber 22 -DryRun
+GitHub Project sync tests: powershell -ExecutionPolicy Bypass -File tooling\tests\github-project-sync.tests.ps1
 Prototype (evidência, fora da solution): dotnet run --project prototypes\compat-sniff\CompatibilityProbe.csproj
 Native build: PENDING_OBS_ARCHITECTURE_AND_TOOLCHAIN_DESIGN
 ```
@@ -92,6 +94,7 @@ Solution and build configuration files (`OBS-AI-Live-Assistant.slnx`, `global.js
 - Keep native OBS responsibilities narrow and keep business logic in the external Assistant Core.
 - Preserve process isolation so Assistant Core failures cannot crash OBS whenever technically possible.
 - Use deterministic quality gates in addition to AI review.
+- Treat `tasks/` Markdown as canonical and GitHub Issues/Project #22 as an administrative projection. On formal Task transitions, reconcile the matching Issue and Project item with `tooling/github-project-sync.ps1`; never infer `READY` from satisfied dependencies or `DONE` from a merged PR alone. A temporary Project API failure is a recoverable synchronization pending item and never bypasses code gates.
 - Never claim a command, test, integration, or deployment succeeded without evidence.
 - Do not commit, push, open a PR, modify OBS, or perform external writes unless the current approved phase authorizes it.
 

@@ -103,6 +103,21 @@ indisponibilidade remota, conflito ou outro erro técnico o impedir. Informe o
 estado do commit, o push bloqueado e o motivo exato. Nunca envie para outra
 branch para contornar a falha.
 
+## Regra de sincronização administrativa das Tasks
+
+Os arquivos em `tasks/` permanecem canônicos; GitHub Issues e o Project #22 são
+projeções administrativas. Antes de executar uma Task, confirme a Issue, o
+arquivo canônico e a aprovação formal da DoR. Atualize o Project somente quando
+a transição estiver registrada na fonte canônica, vincule o PR real e sincronize
+`Done` apenas depois da DoD e da finalização administrativa.
+
+Use `tooling/github-project-sync.ps1` em dry-run antes de `-Apply`. Nunca infira
+`Ready` porque dependências terminaram nem `Done` porque um PR foi mesclado. Uma
+falha temporária da API do Project deve ser registrada como pendência
+recuperável; ela não permite ignorar Quality Gates, Code Review, Security Review
+ou validação pós-merge. O procedimento completo está em
+[`docs/governance/GITHUB_PROJECT_SYNC.md`](../../docs/governance/GITHUB_PROJECT_SYNC.md).
+
 ## Regra de conclusão da feature
 
 Toda branch `feature/task-*` concluída com sucesso segue este fluxo:

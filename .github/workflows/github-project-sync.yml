@@ -1,0 +1,54 @@
+name: Sincronizar Tasks no GitHub Project
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - develop
+    paths:
+      - 'tasks/**'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: github-project-22-task-sync
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    name: Markdown canônico para Issues e Project
+    runs-on: windows-latest
+    steps:
+      - name: Obter o repositório
+        uses: actions/checkout@v4
+        with:
+          ref: develop
+
+      - name: Verificar credencial administrativa
+        id: credential
+        shell: powershell
+        env:
+          PROJECT_SYNC_TOKEN: ${{ secrets.PROJECT_SYNC_TOKEN }}
+        run: |
+          if ([string]::IsNullOrWhiteSpace($env:PROJECT_SYNC_TOKEN)) {
+              'configured=false' >> $env:GITHUB_OUTPUT
+              '### GitHub Project Sync: PENDING_CONFIGURATION' >> $env:GITHUB_STEP_SUMMARY
+              'Configure o secret `PROJECT_SYNC_TOKEN` com permissões mínimas para Issues e Project V2.' >> $env:GITHUB_STEP_SUMMARY
+              exit 0
+          }
+
+          'configured=true' >> $env:GITHUB_OUTPUT
+
+      - name: Sincronizar Issues e Project
+        if: steps.credential.outputs.configured == 'true'
+        shell: powershell
+        env:
+          GH_TOKEN: ${{ secrets.PROJECT_SYNC_TOKEN }}
+        run: |
+          .\tooling\github-project-sync.ps1 `
+            -Owner gfmaurila `
+            -Repository OBS-AI-Live-Assistant `
+            -ProjectNumber 22 `
+            -Apply `
+            -VerboseReport

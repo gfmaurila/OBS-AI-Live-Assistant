@@ -1,4 +1,8 @@
 <Solution>
+  <Folder Name="/prototypes/" />
+  <Folder Name="/prototypes/compat-sniff/">
+    <Project Path="prototypes/compat-sniff/CompatibilityProbe.csproj" />
+  </Folder>
   <Folder Name="/src/">
     <Project Path="src/ObsAi.Application/ObsAi.Application.csproj" />
     <Project Path="src/ObsAi.Domain/ObsAi.Domain.csproj" />

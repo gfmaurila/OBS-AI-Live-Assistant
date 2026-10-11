@@ -29,3 +29,7 @@ The two tool-native copies must remain content-identical. GitHub Copilot uses th
 The required advanced package and `2-Atualizacoes-Skills-Existentes` directory were not found in the supplied Kit repository or the searched user package locations. No substitute content was created and no files from other projects were reused.
 
 Required prerequisite: provide the absolute path or archive for the Skills Avançadas package containing the eight new Skill directories and the update directory.
+
+## Administrative Task Synchronization
+
+GitHub Issues and Project #22 are projections of the canonical Markdown under `tasks/`. Agents must use the documented dry-run/apply workflow in `docs/governance/GITHUB_PROJECT_SYNC.md` after formal state transitions. The board does not approve `READY`, prove `DONE`, or weaken implementation gates.

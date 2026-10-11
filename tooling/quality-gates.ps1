@@ -30,10 +30,25 @@ function Invoke-Gate {
     $script:results.Add([pscustomobject]@{ Gate = $Name; ExitCode = $exit; Status = $status })
 }
 
+function Invoke-PowerShellGate {
+    param(
+        [Parameter(Mandatory = $true)][string]$Name,
+        [Parameter(Mandatory = $true)][string]$ScriptPath
+    )
+
+    Write-Host "`n==> GATE: $Name" -ForegroundColor Cyan
+    & powershell -NoProfile -ExecutionPolicy Bypass -File $ScriptPath
+    $exit = $LASTEXITCODE
+    $status = if ($exit -eq 0) { 'PASSED' } else { 'FAILED' }
+    Write-Host "==> $Name : $status (exit $exit)" -ForegroundColor $(if ($exit -eq 0) { 'Green' } else { 'Red' })
+    $script:results.Add([pscustomobject]@{ Gate = $Name; ExitCode = $exit; Status = $status })
+}
+
 Invoke-Gate 'Restore' @('restore')
 Invoke-Gate 'Build (sem restore)' @('build', '--no-restore')
 Invoke-Gate 'Testes determinísticos' @('test', '--no-build')
 Invoke-Gate 'Format (verify-no-changes)' @('format', '--verify-no-changes', '--no-restore')
+Invoke-PowerShellGate 'GitHub Project Sync (administrativo)' "$root\tooling\tests\github-project-sync.tests.ps1"
 
 Write-Host "`n=== RESUMO DOS QUALITY GATES ===" -ForegroundColor Yellow
 $script:results | Format-Table -AutoSize | Out-String | Write-Host

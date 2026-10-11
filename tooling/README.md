@@ -18,7 +18,22 @@ Gates executados:
 | 2 | Build | `dotnet build --no-restore` |
 | 3 | Testes determinísticos | `dotnet test --no-build` |
 | 4 | Format (solucao) | `dotnet format --verify-no-changes --no-restore` |
+| 5 | GitHub Project Sync (administrativo) | `powershell -ExecutionPolicy Bypass -File tooling\tests\github-project-sync.tests.ps1` |
 
 O gate de Format do protótipo (`CompatibilityProbe.csproj`) e o smoke de compatibilidade são executados pelas tarefas que tocam o protótipo (ver `docs/testing/TEST_ARCHITECTURE.md`).
 
 O script usa `MSBUILDDISABLENODEREUSE=1` para evitar locks de MSBuild em pastas sincronizadas (ex.: Google Drive). Não contém secrets e nunca autentica; interaja via API/CLI pelo fluxo de cada Task.
+
+## github-project-sync.ps1
+
+Sincroniza unidirecionalmente as Tasks canônicas com GitHub Issues e o Project V2 #22. O modo padrão é dry-run, `-Apply` é obrigatório para escrita e nenhuma operação exclui dados. Consulte [GITHUB_PROJECT_SYNC.md](../docs/governance/GITHUB_PROJECT_SYNC.md) para campos, permissões, recuperação e automação.
+
+```powershell
+.\tooling\github-project-sync.ps1 -Owner gfmaurila -Repository OBS-AI-Live-Assistant -ProjectNumber 22 -DryRun
+```
+
+Os testes administrativos não acessam rede nem credenciais:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File tooling\tests\github-project-sync.tests.ps1
+```

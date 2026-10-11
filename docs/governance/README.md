@@ -6,6 +6,7 @@ Este diretório é a fonte detalhada e legível por pessoas para a governança d
 - [GitFlow](GITFLOW.md)
 - [Quality Gates](QUALITY_GATES.md)
 - [Knowledge Quality Gate](KNOWLEDGE_QUALITY_GATE.md)
+- [Sincronização das Tasks com GitHub Issues e Project #22](GITHUB_PROJECT_SYNC.md)
 
 ## Idioma oficial da documentação
 
