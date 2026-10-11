@@ -31,12 +31,12 @@ bool ModuleLifecycle::load()
 	if (!registrar_.add(&ModuleLifecycle::dispatch, this)) {
 		invalidate_current_run();
 		registrar_.remove(&ModuleLifecycle::dispatch, this);
-		registered_ = false;
+		registered_.store(false, std::memory_order_release);
 		logger_.write(LogLevel::Error, LogCode::CallbackRegistrationFailed);
 		return false;
 	}
 
-	registered_ = true;
+	registered_.store(true, std::memory_order_release);
 	logger_.write(LogLevel::Info, LogCode::ModuleLoaded);
 	return true;
 }
@@ -46,16 +46,15 @@ void ModuleLifecycle::unload()
 	std::lock_guard<std::mutex> lock(lifecycle_mutex_);
 	const auto current = state_.load(std::memory_order_acquire);
 	const bool was_loaded = (current & LoadedFlag) != 0;
-	if (!was_loaded && !registered_)
+	const bool was_registered = registered_.exchange(false, std::memory_order_acq_rel);
+	if (!was_loaded && !was_registered)
 		return;
 
 	// Invalidate the run before unregistering so an in-flight callback cannot
 	// mutate health after shutdown has started. The context remains process-lived.
 	invalidate_current_run();
-	if (registered_) {
-		registered_ = false;
+	if (was_registered)
 		registrar_.remove(&ModuleLifecycle::dispatch, this);
-	}
 	if (was_loaded)
 		logger_.write(LogLevel::Info, LogCode::ModuleUnloaded);
 }
@@ -91,6 +90,9 @@ void ModuleLifecycle::handle(FrontendEvent event) noexcept
 		mask = StreamingFlag;
 		set = false;
 		break;
+	case FrontendEvent::Exit:
+		detach_frontend_callback();
+		return;
 	case FrontendEvent::Other:
 		return;
 	}
@@ -106,6 +108,14 @@ void ModuleLifecycle::handle(FrontendEvent event) noexcept
 		if (state_.compare_exchange_weak(observed, next, std::memory_order_acq_rel, std::memory_order_acquire))
 			return;
 	}
+}
+
+void ModuleLifecycle::detach_frontend_callback() noexcept
+{
+	// OBS emits EXIT while the frontend API is still alive, then destroys that
+	// API before calling module unload. Detach here so unload stays idempotent.
+	if (registered_.exchange(false, std::memory_order_acq_rel))
+		registrar_.remove(&ModuleLifecycle::dispatch, this);
 }
 
 void ModuleLifecycle::invalidate_current_run() noexcept

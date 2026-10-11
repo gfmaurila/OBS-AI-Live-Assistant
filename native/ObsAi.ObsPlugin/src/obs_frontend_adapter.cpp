@@ -19,6 +19,8 @@ FrontendEvent from_obs_event(obs_frontend_event event) noexcept
 		return FrontendEvent::StreamingStarted;
 	case OBS_FRONTEND_EVENT_STREAMING_STOPPED:
 		return FrontendEvent::StreamingStopped;
+	case OBS_FRONTEND_EVENT_EXIT:
+		return FrontendEvent::Exit;
 	default:
 		return FrontendEvent::Other;
 	}

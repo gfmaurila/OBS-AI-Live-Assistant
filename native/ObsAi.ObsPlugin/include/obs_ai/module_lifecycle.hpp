@@ -13,6 +13,7 @@ enum class FrontendEvent : std::uint8_t {
 	FinishedLoading,
 	StreamingStarted,
 	StreamingStopped,
+	Exit,
 	Other,
 };
 
@@ -54,6 +55,7 @@ public:
 private:
 	static void dispatch(FrontendEvent event, void *context) noexcept;
 	void handle(FrontendEvent event) noexcept;
+	void detach_frontend_callback() noexcept;
 	void invalidate_current_run() noexcept;
 
 	static constexpr std::uint64_t LoadedFlag = 1ULL;
@@ -65,7 +67,7 @@ private:
 	EventLogger &logger_;
 	std::mutex lifecycle_mutex_;
 	std::atomic<std::uint64_t> state_{0};
-	bool registered_ = false;
+	std::atomic<bool> registered_{false};
 };
 
 } // namespace obs_ai

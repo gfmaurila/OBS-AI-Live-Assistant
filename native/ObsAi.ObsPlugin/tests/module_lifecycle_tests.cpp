@@ -34,22 +34,28 @@ public:
 
 	void remove(EventCallback callback, void *context) noexcept override
 	{
+		++remove_calls;
+		if (!frontend_api_available)
+			++removals_after_frontend_exit;
 		if (callback == last_callback && context == last_context) {
-			++remove_calls;
 			registered = false;
 		}
 	}
 
-	void emit(FrontendEvent event) const noexcept
+	void emit(FrontendEvent event) noexcept
 	{
 		if (registered && last_callback != nullptr)
 			last_callback(event, last_context);
+		if (event == FrontendEvent::Exit)
+			frontend_api_available = false;
 	}
 
 	bool fail_registration = false;
+	bool frontend_api_available = true;
 	bool registered = false;
 	unsigned add_calls = 0;
 	unsigned remove_calls = 0;
+	unsigned removals_after_frontend_exit = 0;
 	EventCallback last_callback = nullptr;
 	void *last_context = nullptr;
 };
@@ -138,6 +144,40 @@ void test_reload_starts_with_clean_health()
 	expect(registrar.add_calls == 2, "reload registers callback once for new lifecycle");
 }
 
+void test_frontend_exit_unregisters_before_api_shutdown()
+{
+	FakeRegistrar registrar;
+	FakeLogger logger;
+	ModuleLifecycle module(registrar, logger);
+
+	expect(module.load(), "load succeeds before frontend exit");
+	registrar.emit(FrontendEvent::Exit);
+	expect(module.health().loaded, "frontend exit does not unload the OBS module");
+	expect(registrar.remove_calls == 1 && registrar.removals_after_frontend_exit == 0 && !registrar.registered,
+	       "frontend callback is removed while the frontend API is still available");
+
+	module.unload();
+	expect(registrar.remove_calls == 1 && registrar.removals_after_frontend_exit == 0,
+	       "module unload does not call the destroyed frontend API again");
+	expect(!module.health().loaded, "module unload clears health after frontend exit");
+}
+
+void test_concurrent_unload_removes_callback_once()
+{
+	FakeRegistrar registrar;
+	FakeLogger logger;
+	ModuleLifecycle module(registrar, logger);
+	module.load();
+	std::array<std::thread, 8> callers;
+	for (auto &caller : callers)
+		caller = std::thread([&module] { module.unload(); });
+	for (auto &caller : callers)
+		caller.join();
+
+	expect(registrar.remove_calls == 1, "concurrent unload removes the callback once");
+	expect(!module.health().loaded, "concurrent unload leaves the module inactive");
+}
+
 void test_concurrent_load_is_idempotent()
 {
 	FakeRegistrar registrar;
@@ -167,9 +207,11 @@ int main()
 	test_unload_is_idempotent_and_stale_callback_is_ignored();
 	test_failed_registration_rolls_back();
 	test_reload_starts_with_clean_health();
+	test_frontend_exit_unregisters_before_api_shutdown();
+	test_concurrent_unload_removes_callback_once();
 	test_concurrent_load_is_idempotent();
 	if (failures != 0)
 		return 1;
-	std::cout << "PASS 5 lifecycle scenarios\n";
+	std::cout << "PASS 7 lifecycle scenarios\n";
 	return 0;
 }
